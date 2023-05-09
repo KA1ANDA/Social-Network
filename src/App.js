@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useGetProfileDataQuery} from './Redux/api';
 
 function App() {
+ 
+  const {data=[]} = useGetProfileDataQuery()
+
+  useEffect(() => {
+    // const postebi = data.posts
+    const poto = data.picture.data.url
+    console.log(poto);
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        {data.name}
+      </div>
+      <div>
+        {data.email}
+      </div>
+      <div>
+        <img src={data.picture.data.url} />
+      </div>
     </div>
   );
 }
