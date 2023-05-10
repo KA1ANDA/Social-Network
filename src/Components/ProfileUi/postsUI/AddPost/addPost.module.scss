@@ -1,0 +1,10 @@
+.addPost{
+  width: 500px;
+  border: 2px pink solid;
+  margin: auto;
+
+  &>input{
+    margin:auto;
+    background-color: red;
+  }
+}

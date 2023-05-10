@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const BASE_URL ="https://graph.facebook.com/v16.0/";
-const API_KEY ="EAADXZCTy6JeMBANg3d24NWK4qxWXTCoNyTprggtWvtdPvKrtXC6WQ18hd8skWp4ZA5AsZCWROpzZA3Gq48iGNMFwh7joaX24tzPzcmZBrqVHLrAE0ZBnQwocIyjbCIE6ZCNyZBzGIrcCWv5qIoiZANz0SnJZCEWCqyEQWyCOEacNjLdIn2bPvHADzvR6V3QoVVrd3glgEDZAxTYAHRPCKEIsu2qSsDbYGvDdgRKDusXjjeSjPEiz9LzWvAOtKVHiAemcDUZD";
+const API_KEY ="EAADXZCTy6JeMBAHmhZBOjY3Ih7RXLsu9F4Hlk6zuxNcisowDoQ57pYlwzPuL9elyKYnV8wosEzZByyRODgSAhLjUT4lhX3mCEBZBN4AnYKuHUuEtbppzGQFoeSVB2KSAaiMF4w39Lj7NUDsTZAyT3hNyZCqDO7GxdbIe9nkCjCcZCOT0Cie9EOmohH1ERAqOVFZAV7DdASh2rhf8NPGIU1pkIsOQvepu9urnLB3D1y1X3Mxp6wnmhxatBmAtITQtaB8ZD";
 
 export const api = createApi({
   reducerPath:"api",
-  tagTypes:"",
+  tagTypes:["posts"],
   baseQuery:fetchBaseQuery({
     baseUrl:BASE_URL,
     prepareHeaders: (headers) => {
@@ -13,14 +13,27 @@ export const api = createApi({
       return headers;
     }  
   }),
-  endpoints:(builder) => ({
+  endpoints:(build) => ({
 
-    getProfileData:builder.query({
-      query:() => 'me?fields=id,name,email,posts,picture'
+    getProfileData:build.query({
+      query:() => 'me?fields=id,name,email,posts,picture',
+      providesTags: () => [{type: "posts", id: "LIST"}],
+    }),
+
+    addPost:build.mutation({
+      query(post){
+        return{
+          url:'me?feed',
+          method:'POST',
+          body:post,
+        }
+      },
+      invalidatesTags: () => [{type: "posts", id:"LIST"}],
     })
+
 
   })
 });
 
 
-export const {useGetProfileDataQuery} = api;
+export const {useGetProfileDataQuery,useAddPostMutation} = api;
