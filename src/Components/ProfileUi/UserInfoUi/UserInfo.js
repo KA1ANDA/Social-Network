@@ -1,18 +1,27 @@
-import React from "react";
-import { useGetProfileDataQuery } from "../../../Redux/api";
+import React, { useEffect } from "react";
+import {useGetUserInfoQuery } from "../../../Redux/api";
 import styles from "./userInfo.module.scss"
+import { useDispatch } from "react-redux";
+import { setMyId } from "../../../Redux/Slices/profileSlice";
 
 const UserInfo = () => {
+  const dispatch = useDispatch()
+  const {data} = useGetUserInfoQuery()
 
-  const {data} = useGetProfileDataQuery()
+  useEffect(() => {
+    if (data) {
+      dispatch(setMyId(data.data.id));
+    }
+  }, [data, dispatch]);
+
 
   return (
     <div className={styles.userInfo}>
       {data &&  
       <div>  
-        <div>{data.name}</div>
+        <div>Email: {data.data.email}</div>
         <div>
-          <img src={data.picture.data.url} />
+          login: {data.data.login}
         </div>  
       </div>}
     </div>

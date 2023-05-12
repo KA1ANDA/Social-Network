@@ -5,16 +5,13 @@ const ProfileNav = () => {
   return (
     <div className={styles.profileNav}>
       <div>
-        Posts
+        Profile
       </div>
       <div>
-        About
+        Users
       </div>
       <div>
-        Friends
-      </div>
-      <div>
-        Photos
+        Messages
       </div>
     </div>
   );

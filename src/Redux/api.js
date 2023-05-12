@@ -1,39 +1,93 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-const BASE_URL ="https://graph.facebook.com/v16.0/";
-const API_KEY ="EAADXZCTy6JeMBAHmhZBOjY3Ih7RXLsu9F4Hlk6zuxNcisowDoQ57pYlwzPuL9elyKYnV8wosEzZByyRODgSAhLjUT4lhX3mCEBZBN4AnYKuHUuEtbppzGQFoeSVB2KSAaiMF4w39Lj7NUDsTZAyT3hNyZCqDO7GxdbIe9nkCjCcZCOT0Cie9EOmohH1ERAqOVFZAV7DdASh2rhf8NPGIU1pkIsOQvepu9urnLB3D1y1X3Mxp6wnmhxatBmAtITQtaB8ZD";
+const BASE_URL ="https://social-network.samuraijs.com/api/1.0";
+const API_KEY ="89b3049a-188b-45c7-9fa4-9282d2580d18";
 
 export const api = createApi({
   reducerPath:"api",
-  tagTypes:["posts"],
+  tagTypes:["userInfo","login","status","profileInfo"],
   baseQuery:fetchBaseQuery({
     baseUrl:BASE_URL,
-    prepareHeaders: (headers) => {
-      headers.set('Authorization', `Bearer ${API_KEY}`);
-      return headers;
-    }  
+    headers: {
+      'API-KEY': API_KEY,
+    },
+    credentials: 'include',
+
   }),
   endpoints:(build) => ({
 
-    getProfileData:build.query({
-      query:() => 'me?fields=id,name,email,posts,picture',
-      providesTags: () => [{type: "posts", id: "LIST"}],
-    }),
+    getUserInfo:build.query({
+      query:() => 'auth/me',  
+      providesTags: () => [{type: "userInfo", id: "LIST"}],
+    }), 
 
-    addPost:build.mutation({
-      query(post){
+    addProfileInfo:build.mutation({
+      query(){
         return{
-          url:'me?feed',
-          method:'POST',
-          body:post,
+          url:'profile',
+          method:'PUT',
+          body:{
+            aboutMe: "я круто чувак",
+            contacts: {
+                        skype: "skyp",
+                        vk: "vk.com",
+                        facebook: "facebook",
+                        icq: "icq",
+                        email: "email",
+                        googlePlus: "gogep",
+                        twitter: "twitter",
+                        instagram: "instagra",
+                        whatsApp:"watsap"
+                      },
+            lookingForAJob: true,
+            lookingForAJobDescription: 'Ищу работу, знаю это это и это',
+            fullName: "samurai dmitry",
+          }
         }
       },
-      invalidatesTags: () => [{type: "posts", id:"LIST"}],
-    })
+      invalidatesTags: ['profileInfo'],
+    }),
 
 
+    addStatus: build.mutation({
+      query(value) {
+        return {
+          url: `profile/status`,
+          method: 'PUT',
+          body:{
+            status:value,
+          },
+        }
+      },
+      invalidatesTags: ['status'],
+    }),
+
+    getUserStatus: build.query({
+      query: (myId) =>`profile/status/${myId}`,
+      providesTags: () => ['status'],
+
+    }),
+
+
+
+
+    // logIn: build.mutation({
+    //   query(body) {
+    //     return {
+    //       url: `auth/login`,
+    //       method: 'POST',
+    //       body:{
+    //         email:'pandai2017@gmail.com',
+    //         password:'makaka2017',
+    //       },
+    //     }
+    //   },
+    //   invalidatesTags: [{ type: 'login', id: 'LIST' }],
+    // }),
+
+    
   })
 });
 
 
-export const {useGetProfileDataQuery,useAddPostMutation} = api;
+export const {useGetProfileInfoQuery,useLogInMutation,useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery} = api;

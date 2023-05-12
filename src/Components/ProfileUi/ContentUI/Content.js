@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./content.module.scss"
-import Posts from "../postsUI/Posts";
+import StatusArea from "../postsUI/StatusArea";
 
 const Content = () => {
   return (
     <div className={styles.content}>
-      <Posts />
+      <StatusArea />
     </div>
   );
 }
