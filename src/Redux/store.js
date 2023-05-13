@@ -6,8 +6,9 @@ import profileSlice from "./Slices/profileSlice";
 
 export const store = configureStore({
   reducer:{
-    [api.reducerPath]:api.reducer,
     profileSlice,
+    [api.reducerPath]:api.reducer,
+    
   },
 
   middleware: (getDefaultMiddleware) =>

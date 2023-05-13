@@ -1,7 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+
 const BASE_URL ="https://social-network.samuraijs.com/api/1.0";
 const API_KEY ="89b3049a-188b-45c7-9fa4-9282d2580d18";
+
+
 
 export const api = createApi({
   reducerPath:"api",
@@ -21,32 +24,31 @@ export const api = createApi({
       providesTags: () => [{type: "userInfo", id: "LIST"}],
     }), 
 
+    
     addProfileInfo:build.mutation({
-      query(){
+      query(params){
+        const {aboutMe,lookingForAJob,lookingForAJobDescription,fullName} = params
         return{
           url:'profile',
           method:'PUT',
           body:{
-            aboutMe: "я круто чувак",
-            contacts: {
-                        skype: "skyp",
-                        vk: "vk.com",
-                        facebook: "facebook",
-                        icq: "icq",
-                        email: "email",
-                        googlePlus: "gogep",
-                        twitter: "twitter",
-                        instagram: "instagra",
-                        whatsApp:"watsap"
-                      },
-            lookingForAJob: true,
-            lookingForAJobDescription: 'Ищу работу, знаю это это и это',
-            fullName: "samurai dmitry",
+            aboutMe,
+            lookingForAJob,
+            lookingForAJobDescription,
+            fullName,
           }
         }
       },
       invalidatesTags: ['profileInfo'],
     }),
+
+
+
+    getProfileInfo:build.query({
+      query : (myId) => `profile/${myId}`,
+      providesTags: () => ['profileInfo'],
+    }),
+
 
 
     addStatus: build.mutation({
@@ -61,6 +63,9 @@ export const api = createApi({
       },
       invalidatesTags: ['status'],
     }),
+
+
+
 
     getUserStatus: build.query({
       query: (myId) =>`profile/status/${myId}`,
@@ -90,4 +95,4 @@ export const api = createApi({
 });
 
 
-export const {useGetProfileInfoQuery,useLogInMutation,useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery} = api;
+export const {useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery,useAddProfileInfoMutation,useGetProfileInfoQuery} = api;
