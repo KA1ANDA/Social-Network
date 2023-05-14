@@ -27,13 +27,29 @@ export const api = createApi({
     
     addProfileInfo:build.mutation({
       query(params){
-        const {aboutMe,lookingForAJob,lookingForAJobDescription,fullName} = params
+        const {aboutMe,lookingForAJob,lookingForAJobDescription,fullName,contacts: {
+          facebook,
+          twitter,
+          instagram,
+          youtube,
+          github
+        }} = params
         return{
           url:'profile',
           method:'PUT',
           body:{
             aboutMe,
             lookingForAJob,
+            contacts: {
+              facebook,
+              github,
+              instagram,
+              mainLink: null,
+              twitter,
+              vk: null,
+              website: null,
+              youtube
+            },
             lookingForAJobDescription,
             fullName,
           }
