@@ -1,0 +1,13 @@
+.user{
+  border:2px blue solid;
+  width: 500px;
+  margin:auto;
+  display: flex;
+
+  .avatarDefault{
+    width: 100px;
+    height:100px;
+    background-image: url(../../../../public/imgs/avatar.png);
+    background-size: cover;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./aboutMe.module.scss"
-import { useAddProfileInfoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
+import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
 import { useSelector } from "react-redux";
 
 
@@ -12,20 +12,17 @@ const AboutMe = () => {
 
   const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
   const [setProfileInfo] = useAddProfileInfoMutation()
+  const [setProfilePhoto] = useAddProfilePhotoMutation()
   
-
 
   const [editProfile ,setEditProfile] = useState(false)
 
-
+  const [selectedFile, setSelectedFile] = useState(null);
   const [aboutMeValue ,setAboutMeValue] = useState('')
   const [jobDscValue ,setJobDscValue] = useState('')
+  const [nameValue ,setNameValue] = useState('')
 
-  // const [facebookValue ,setFacebookValue] = useState('')
-  // const [twitterValue ,setTwitterValue] = useState('')
-  // const [instagramValue ,setInstagramValue] = useState('')
-  // const [youtubeValue ,setYoutubeValue] = useState('')
-  // const [githubValue ,setGithubValue] = useState('')
+
   const [socialMedia, setSocialMedia] = useState({
     facebook: "",
     twitter: "",
@@ -42,7 +39,14 @@ const AboutMe = () => {
       setAboutMeValue(data.aboutMe);
       setSearchForJob(data.lookingForAJob);
       setJobDscValue(data.lookingForAJobDescription);
-      setSocialMedia //უნდა გავაკეთო ისე რომ სოციალ ქსელებს რო დავამატებ მერე მაგათი ვალუე დარჩეს ინპუთში 
+      setSocialMedia({
+        facebook: data.contacts.facebook,
+        twitter: data.contacts.twitter,
+        instagram: data.contacts.instagram,
+        youtube: data.contacts.youtube,
+        github: data.contacts.github
+      }); 
+      setNameValue(data.fullName);
     }
   }, [data]);
 
@@ -51,7 +55,7 @@ const AboutMe = () => {
     aboutMe: aboutMeValue,
     lookingForAJob: searchForJob,
     lookingForAJobDescription: jobDscValue,
-    fullName: "samurai dmitry",
+    fullName: nameValue,
     contacts: {
       facebook: socialMedia.facebook,
       twitter: socialMedia.twitter,
@@ -63,9 +67,20 @@ const AboutMe = () => {
 
 
 
+  const handleNameValue = (event) =>{
+    setNameValue(event.target.value)
+  }
+
   const handleAboutMeValue = (event) =>{
     setAboutMeValue(event.target.value)
   }
+
+  const handleFileInputChange  = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+
 
   const handleSocialMediaValue = (event) => {
     const { id, value } = event.target;
@@ -87,6 +102,21 @@ const AboutMe = () => {
 
   const handleSaveChanges = () =>{
     setProfileInfo(params)
+
+    if (!selectedFile) {
+      console.log('No file selected.');
+      return;
+    }
+
+    setProfilePhoto(selectedFile)
+      .then((response) => {
+        // Handle successful response
+        console.log(response);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error(error);
+      });
   }
 
 
@@ -106,7 +136,14 @@ const AboutMe = () => {
         <div>
           <form>
             <div>
+              <label htmlFor="name">change name:</label>
+              <input id="name" onChange={handleNameValue} value={nameValue}></input>
+            </div>
+            <div>
               <textarea onChange={handleAboutMeValue} value={aboutMeValue} ></textarea>
+            </div>
+            <div>
+              <input type="file" id="photo" onChange={handleFileInputChange } />
             </div>
             <div>
               <label htmlFor="facebook">facebook:</label>
@@ -143,9 +180,20 @@ const AboutMe = () => {
       {data && 
       <div>
         <div>{data.aboutMe}</div>
+        {Object.values(socialMedia).every((value) => value === "") ? 
           <div>
             Choose where to contact 
           </div>
+          :
+          <div>
+            <ul>
+              <li>facebook : {socialMedia.facebook}</li>
+              <li>twitter : {socialMedia.twitter}</li>
+              <li>instagram : {socialMedia.instagram}</li>
+              <li>youtube : {socialMedia.youtube}</li>
+              <li>github : {socialMedia.github}</li>
+            </ul>
+          </div> }
           <div>
             <div>Looking For A Job ?</div>
             {data.lookingForAJob ? <span>✔️</span> : <span>❌</span>}

@@ -8,7 +8,7 @@ const API_KEY ="89b3049a-188b-45c7-9fa4-9282d2580d18";
 
 export const api = createApi({
   reducerPath:"api",
-  tagTypes:["userInfo","login","status","profileInfo"],
+  tagTypes:["userInfo","login","status","profileInfo","profilePhoto"],
   baseQuery:fetchBaseQuery({
     baseUrl:BASE_URL,
     headers: {
@@ -33,7 +33,8 @@ export const api = createApi({
           instagram,
           youtube,
           github
-        }} = params
+        }
+       } = params
         return{
           url:'profile',
           method:'PUT',
@@ -57,6 +58,26 @@ export const api = createApi({
       },
       invalidatesTags: ['profileInfo'],
     }),
+
+
+    addProfilePhoto: build.mutation({
+      query: (selectedFile) => {
+
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+
+        return {
+          url: 'profile/photo',
+          method: 'PUT',
+          body: formData,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        };
+      },
+      invalidatesTags: ['profilePhoto'],
+    }),
+
 
 
 
@@ -111,4 +132,4 @@ export const api = createApi({
 });
 
 
-export const {useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery,useAddProfileInfoMutation,useGetProfileInfoQuery} = api;
+export const {useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery,useAddProfileInfoMutation,useGetProfileInfoQuery,useAddProfilePhotoMutation} = api;
