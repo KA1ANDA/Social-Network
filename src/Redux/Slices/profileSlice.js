@@ -5,14 +5,47 @@ const ProfileSlice = createSlice({
   name:'ProfileSlice',
   initialState:{
     myId:'9',
+    aboutMeValue:'',
+    jobDscValue:'',
+    nameValue:'',
+    searchForJob:false,
+    socialMedia:{
+      facebook: "",
+      twitter: "",
+      instagram: "",
+      youtube: "",
+      github: "",
+    }
   },
   reducers:{
 
     setMyId(state , action){
       state.myId = action.payload
-    }
+    },
+
+    addNameValue(state , action){
+      state.nameValue = action.payload
+    },
+    addAboutMeValue(state , action){
+      state.aboutMeValue = action.payload
+    },
+
+    addJobDscValue(state , action){
+      state.jobDscValue = action.payload
+    },
+
+    toggleSearchForJobs(state , action){
+      state.searchForJob = action.payload
+    },
+    setSocialMediaValue(state, action) {
+      // const { id, value } = action.payload;
+      // state.socialMedia[id] = value;
+      state.socialMedia = { ...state.socialMedia, ...action.payload };
+    },
+
+
   }
 })
 
-export const { setMyId } = ProfileSlice.actions
+export const { setMyId , addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue} = ProfileSlice.actions
 export default ProfileSlice.reducer

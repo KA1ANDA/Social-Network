@@ -15,7 +15,7 @@ const User = () => {
     <div>
       {data &&
       <div className={styles.user} > 
-        {data.photos.large === null ? <div className={styles.avatarDefault}></div> : <h1>sxva rame</h1>}
+        {data.photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={data.photos.large}/>}
         <h2>{data.fullName}</h2>
       </div>
       }

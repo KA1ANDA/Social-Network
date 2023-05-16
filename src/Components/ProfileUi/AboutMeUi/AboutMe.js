@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "./aboutMe.module.scss"
 import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs } from "../../../Redux/Slices/profileSlice";
 
 
 
 
 const AboutMe = () => {
 
-  const {myId} = useSelector(state => state.profileSlice)
+  const {myId,aboutMeValue,jobDscValue,nameValue,searchForJob,socialMedia} = useSelector(state => state.profileSlice)
+
+  const dispatch = useDispatch()
+
+  const setAddNameValue = (event) => dispatch(addNameValue(event.target.value))
+  const setAddAboutMeValue = (event) => dispatch(addAboutMeValue(event.target.value))
+  const setAddJobDscValue = (event) => dispatch(addJobDscValue(event.target.value))
+  const setToggleSearchForJobs = () =>  dispatch(toggleSearchForJobs(!searchForJob))
+
+  
 
   const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
   const [setProfileInfo] = useAddProfileInfoMutation()
@@ -18,37 +28,40 @@ const AboutMe = () => {
   const [editProfile ,setEditProfile] = useState(false)
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [aboutMeValue ,setAboutMeValue] = useState('')
-  const [jobDscValue ,setJobDscValue] = useState('')
-  const [nameValue ,setNameValue] = useState('')
+  // const [aboutMeValue ,setAboutMeValue] = useState('')
+  // const [jobDscValue ,setJobDscValue] = useState('')
+  // const [nameValue ,setNameValue] = useState('')
+  // const [searchForJob, setSearchForJob] = useState(false)
 
 
-  const [socialMedia, setSocialMedia] = useState({
-    facebook: "",
-    twitter: "",
-    instagram: "",
-    youtube: "",
-    github: ""
-  });
+  // const [socialMedia, setSocialMedia] = useState({
+  //   facebook: "",
+  //   twitter: "",
+  //   instagram: "",
+  //   youtube: "",
+  //   github: ""
+  // });
 
-
-  const [searchForJob, setSearchForJob] = useState(false)
 
   useEffect(() => {
     if (data) {
-      setAboutMeValue(data.aboutMe);
-      setSearchForJob(data.lookingForAJob);
-      setJobDscValue(data.lookingForAJobDescription);
-      setSocialMedia({
-        facebook: data.contacts.facebook,
-        twitter: data.contacts.twitter,
-        instagram: data.contacts.instagram,
-        youtube: data.contacts.youtube,
-        github: data.contacts.github
-      }); 
-      setNameValue(data.fullName);
+      dispatch(addNameValue(data.fullName))
+      dispatch(addAboutMeValue(data.aboutMe))
+      dispatch(addJobDscValue(data.lookingForAJobDescription))
+      dispatch(toggleSearchForJobs(data.lookingForAJob))
+    
+      // setSocialMedia({
+      //   facebook: data.contacts.facebook,
+      //   twitter: data.contacts.twitter,
+      //   instagram: data.contacts.instagram,
+      //   youtube: data.contacts.youtube,
+      //   github: data.contacts.github
+      // }); 
+      
+      // dispatch(setSocialMediaValue(data.contacts));
+      dispatch(setSocialMediaValue(data.contacts));
     }
-  }, [data]);
+  }, [data , dispatch]);
 
 
   const params = {
@@ -67,13 +80,25 @@ const AboutMe = () => {
 
 
 
-  const handleNameValue = (event) =>{
-    setNameValue(event.target.value)
-  }
+  // const handleNameValue = (event) =>{
+  //   setNameValue(event.target.value)
+  // }
 
-  const handleAboutMeValue = (event) =>{
-    setAboutMeValue(event.target.value)
-  }
+  // const handleAboutMeValue = (event) =>{
+  //   setAboutMeValue(event.target.value)
+  // }
+
+
+
+  // const handleJobDscValue = (event) =>{
+  //   setJobDscValue(event.target.value)
+  // }
+
+  // const toggleCheckBox = () => {
+  //   setSearchForJob(!searchForJob)
+  // }
+
+
 
   const handleFileInputChange  = (event) => {
     const file = event.target.files[0];
@@ -81,24 +106,16 @@ const AboutMe = () => {
   };
 
 
-
-  const handleSocialMediaValue = (event) => {
-    const { id, value } = event.target;
-    setSocialMedia((prevValues) => ({ ...prevValues, [id]: value }));
-  };
-  
-
-  const handleJobDscValue = (event) =>{
-    setJobDscValue(event.target.value)
-  }
-
   const toggleEditProfile = () => {
     setEditProfile(true)
   }
-  
-  const toggleCheckBox = () => {
-    setSearchForJob(!searchForJob)
-  }
+ 
+
+  const handleSocialMediaValue = (event) => {
+    const { id, value } = event.target;
+    // setSocialMedia((prevValues) => ({ ...prevValues, [id]: value }));
+    dispatch(setSocialMediaValue({ [id]: value }));
+  };
 
   const handleSaveChanges = () =>{
     setProfileInfo(params)
@@ -110,11 +127,11 @@ const AboutMe = () => {
 
     setProfilePhoto(selectedFile)
       .then((response) => {
-        // Handle successful response
+        
         console.log(response);
       })
       .catch((error) => {
-        // Handle error
+        
         console.error(error);
       });
   }
@@ -137,13 +154,13 @@ const AboutMe = () => {
           <form>
             <div>
               <label htmlFor="name">change name:</label>
-              <input id="name" onChange={handleNameValue} value={nameValue}></input>
+              <input id="name" onChange={setAddNameValue} value={nameValue}></input>
             </div>
             <div>
-              <textarea onChange={handleAboutMeValue} value={aboutMeValue} ></textarea>
+              <textarea onChange={setAddAboutMeValue} value={aboutMeValue} ></textarea>
             </div>
             <div>
-              <input type="file" id="photo" onChange={handleFileInputChange } />
+              <input type="file" id="photo" accept="image/jpeg, image/png" onChange={handleFileInputChange } />
             </div>
             <div>
               <label htmlFor="facebook">facebook:</label>
@@ -166,11 +183,11 @@ const AboutMe = () => {
               <input id="github" onChange={handleSocialMediaValue} value={socialMedia.github}></input>
             </div>
             <div>
-              <input type="checkbox" id="lookingForAJob" onChange={toggleCheckBox} checked={searchForJob}></input>
+              <input type="checkbox" id="lookingForAJob" onChange={setToggleSearchForJobs} checked={searchForJob}></input>
               <label htmlFor="lookingForAJob">looking for a job ?</label>
             </div>
             <div>
-              <textarea onChange={handleJobDscValue} value={jobDscValue}  ></textarea>
+              <textarea onChange={setAddJobDscValue} value={jobDscValue}  ></textarea>
             </div>
 
           </form>

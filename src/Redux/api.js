@@ -70,12 +70,9 @@ export const api = createApi({
           url: 'profile/photo',
           method: 'PUT',
           body: formData,
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
         };
       },
-      invalidatesTags: ['profilePhoto'],
+      invalidatesTags: ['profileInfo'],
     }),
 
 
@@ -95,7 +92,7 @@ export const api = createApi({
           method: 'PUT',
           body:{
             status:value,
-          },
+          }
         }
       },
       invalidatesTags: ['status'],
