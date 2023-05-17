@@ -4,7 +4,7 @@ import { useAddStatusMutation } from "../../../../Redux/api";
 
 
 
-const AddPost = () => {
+const AddStatus = () => {
 
   const [postValue , setPostValue] = useState('')
   console.log(postValue)
@@ -40,4 +40,4 @@ const AddPost = () => {
   );
 }
 
-export default AddPost;
+export default AddStatus;

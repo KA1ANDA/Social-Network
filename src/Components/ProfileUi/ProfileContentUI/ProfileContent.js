@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./content.module.scss"
+import styles from "./profileContent.module.scss"
 import StatusArea from "../postsUI/StatusArea";
 import AboutMe from "../AboutMeUi/AboutMe";
 import User from "../UserUi/User";
 
-const Content = () => {
+const ProfileContent = () => {
   return (
-    <div className={styles.content}>
+    <div className={styles.profileContent}>
       <User />
       <StatusArea />
       <AboutMe />
@@ -14,4 +14,4 @@ const Content = () => {
   );
 }
 
-export default Content;
+export default ProfileContent;

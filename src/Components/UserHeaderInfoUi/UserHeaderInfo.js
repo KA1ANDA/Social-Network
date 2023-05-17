@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import {useGetUserInfoQuery } from "../../../Redux/api";
-import styles from "./userInfo.module.scss"
+import {useGetUserInfoQuery } from "../../Redux/api";
+import styles from "./userHeaderInfo.module.scss"
 import { useDispatch } from "react-redux";
-import { setMyId } from "../../../Redux/Slices/profileSlice";
+import { setMyId } from "../../Redux/Slices/profileSlice";
 
-const UserInfo = () => {
+const UserHeaderInfo = () => {
   const dispatch = useDispatch()
   const {data} = useGetUserInfoQuery()
 
@@ -16,7 +16,7 @@ const UserInfo = () => {
 
 
   return (
-    <div className={styles.userInfo}>
+    <div className={styles.userHeaderInfo}>
       {data &&  
       <div>  
         <div>Email: {data.data.email}</div>
@@ -28,4 +28,4 @@ const UserInfo = () => {
   );
 }
 
-export default UserInfo;
+export default UserHeaderInfo;

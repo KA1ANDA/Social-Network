@@ -1,12 +1,16 @@
 import React from 'react';
-import Profile from '../ProfileUi/Profile';
+import ProfileNav from '../NavUi/Nav';
+import UserInfo from '../UserHeaderInfoUi/UserHeaderInfo';
+import Main from '../MainUi/Main';
 
 
 const App = () => {
 
   return (
     <div>
-      <Profile />
+      <UserInfo />
+      <ProfileNav />
+      <Main />
     </div>
   );
 }
