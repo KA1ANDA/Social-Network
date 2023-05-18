@@ -19,10 +19,6 @@ const AboutMe = () => {
 
   useEffect(() => {
     if (data) {
-      // dispatch(addNameValue(data.fullName))
-      // dispatch(addAboutMeValue(data.aboutMe))
-      // dispatch(addJobDscValue(data.lookingForAJobDescription))
-      // dispatch(toggleSearchForJobs(data.lookingForAJob))
       dispatch(setSocialMediaValue(data.contacts));
     }
   }, [data , dispatch]);
