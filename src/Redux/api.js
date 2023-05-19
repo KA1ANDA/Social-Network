@@ -79,7 +79,7 @@ export const api = createApi({
 
 
     getProfileInfo:build.query({
-      query : (myId) => `profile/${myId}`,
+      query : (id) => `profile/${id}`,
       providesTags: () => ['profileInfo'],
     }),
 

@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ProfileSlice = createSlice({
   name:'ProfileSlice',
   initialState:{
-    myId:'9',
+    myId:null,
     aboutMeValue:'',
     jobDscValue:'',
     nameValue:'',

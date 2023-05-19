@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./aboutMe.module.scss"
-import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
+import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery, useGetUserInfoQuery } from "../../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
 import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs ,toggleEditProfile} from "../../../Redux/Slices/profileSlice";
 import AboutMeEdit from "./AboutMeEdit";

@@ -6,7 +6,7 @@ import { setMyId } from "../../Redux/Slices/profileSlice";
 
 const UserHeaderInfo = () => {
   const dispatch = useDispatch()
-  const {data} = useGetUserInfoQuery()
+  const {data,isLoading} = useGetUserInfoQuery()
 
   useEffect(() => {
     if (data) {
@@ -14,6 +14,9 @@ const UserHeaderInfo = () => {
     }
   }, [data, dispatch]);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.userHeaderInfo}>
