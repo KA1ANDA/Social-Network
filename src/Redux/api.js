@@ -110,23 +110,44 @@ export const api = createApi({
 
 
 
-    // logIn: build.mutation({
-    //   query(body) {
-    //     return {
-    //       url: `auth/login`,
-    //       method: 'POST',
-    //       body:{
-    //         email:'pandai2017@gmail.com',
-    //         password:'makaka2017',
-    //       },
-    //     }
-    //   },
-    //   invalidatesTags: [{ type: 'login', id: 'LIST' }],
-    // }),
+    logIn: build.mutation({
+      query(params) {
+        const {email,password,rememberMe} = params
+        return {
+          url: `auth/login`,
+          method: 'POST',
+          body:{
+            email,
+            password,
+            rememberMe
+          },
+        }
+      },
+      invalidatesTags: ['login'],
+    }),
+
+
+    logOut: build.mutation({
+      query() {  
+        return {
+          url: `auth/logout`,
+          method: 'POST',
+        }
+      },
+      invalidatesTags: ['login'],
+    }),
 
     
   })
 });
 
 
-export const {useAddStatusMutation,useGetUserStatusQuery,useGetUserInfoQuery,useAddProfileInfoMutation,useGetProfileInfoQuery,useAddProfilePhotoMutation} = api;
+export const {
+  useAddStatusMutation,
+  useGetUserStatusQuery,
+  useGetUserInfoQuery,
+  useAddProfileInfoMutation,
+  useGetProfileInfoQuery,
+  useAddProfilePhotoMutation,
+  useLogInMutation,
+  useLogOutMutation } = api;
