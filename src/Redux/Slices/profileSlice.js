@@ -4,7 +4,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const ProfileSlice = createSlice({
   name:'ProfileSlice',
   initialState:{
-    myId:null,
     aboutMeValue:'',
     jobDscValue:'',
     nameValue:'',
@@ -19,10 +18,6 @@ const ProfileSlice = createSlice({
     editProfile:false,
   },
   reducers:{
-
-    setMyId(state , action){
-      state.myId = action.payload
-    },
 
     addNameValue(state , action){
       state.nameValue = action.payload
@@ -51,5 +46,5 @@ const ProfileSlice = createSlice({
   }
 })
 
-export const { setMyId , addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile} = ProfileSlice.actions
+export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile} = ProfileSlice.actions
 export default ProfileSlice.reducer

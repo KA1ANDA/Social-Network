@@ -1,23 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {useGetUserInfoQuery, useLogOutMutation } from "../../Redux/api";
 import styles from "./userHeaderInfo.module.scss"
-import { useDispatch } from "react-redux";
-import { setMyId } from "../../Redux/Slices/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutSuccess, loginSuccess, setMyId } from "../../Redux/Slices/authSlice";
+import { Navigate } from "react-router-dom";
 
 const UserHeaderInfo = () => {
   const dispatch = useDispatch()
   const {data,isLoading} = useGetUserInfoQuery()
   const [logOut] = useLogOutMutation()
 
+
+  const {myId} = useSelector(state => state.authSlice)
+  const [userName,setUserName] = useState('')
+  const [email,setEmail] = useState('')
+
+
   useEffect(() => {
     if (data) {
-      dispatch(setMyId(data.data.id));
+      setUserName(data.data.login)
+      setEmail(data.data.email)
     }
   }, [data, dispatch]);
 
 
+
   const handleLogOut = () =>{
-    logOut()
+    logOut().then((response) => {
+      if (response.data && response.data.resultCode === 0) {
+        dispatch(logOutSuccess(null));
+      }
+    });
+  }
+  
+
+  if(myId===null){
+    return <Navigate to="/" />;
   }
 
 
@@ -30,13 +48,13 @@ const UserHeaderInfo = () => {
       {data &&  
         <div>  
           <div>
-            Email: {data.data.email}
+            Email: {email}
           </div>
           <div>
-            login: {data.data.login}
+            login: {userName}
           </div>
           <div>
-            <button onClick={handleLogOut}>Log Out</button>
+            <button type="button" onClick={handleLogOut} >Log Out</button>
           </div> 
         </div>
       } 

@@ -10,7 +10,9 @@ import AboutMeEdit from "./AboutMeEdit";
 
 const AboutMe = () => {
 
-  const {myId,socialMedia , editProfile} = useSelector(state => state.profileSlice)
+  const {socialMedia , editProfile} = useSelector(state => state.profileSlice)
+  const {myId} = useSelector(state => state.authSlice)
+
 
   const dispatch = useDispatch()
   const setEditProfile = () => dispatch(toggleEditProfile())

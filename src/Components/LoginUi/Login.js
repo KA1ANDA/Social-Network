@@ -1,17 +1,24 @@
-import React, { useState } from "react";
-import { useLogInMutation } from "../../Redux/api";
+import React, { useEffect, useState } from "react";
+import { useGetUserInfoQuery, useLogInMutation } from "../../Redux/api";
+import { useDispatch, useSelector } from "react-redux";
+import { loginFailure, loginSuccess } from "../../Redux/Slices/authSlice";
+import { Navigate } from "react-router-dom";
+
 
 
 
 
 const Login = () => {
 
-  const [logiInValues] = useLogInMutation()
+  const dispatch = useDispatch();
+  const [logiInValues,{error, loading }] = useLogInMutation()
+  const {data,isLoading} = useGetUserInfoQuery()
+
+  data && console.log(data)
 
   const [emailValue , setEmailValue] = useState('')
   const [passwordValue , setPasswordValue] = useState('')
   const [rememberMeValue , setRememberMeValue] = useState(false)
-
 
 
   const handleEmailValue = (event) =>{
@@ -32,12 +39,31 @@ const Login = () => {
     rememberMe:rememberMeValue
   }
 
+
+
   const handleLogIn = () => {
     logiInValues(params)
+    // data && dispatch(loginSuccess(data.data.userId));
+    // data && dispatch(loginSuccess(data.data.id));
   }
-  
 
-  return (
+
+  
+  useEffect(() => {
+    if (data) {
+      // dispatch(loginSuccess(data.data.userId));
+      dispatch(loginSuccess(data.data.id));
+    }
+    
+  }, [data, dispatch]);
+
+
+  if(data && data.data.id){
+    return <Navigate to="/profile"/>
+  }
+
+  
+  return ( 
     <div>
       <form>
         <div>

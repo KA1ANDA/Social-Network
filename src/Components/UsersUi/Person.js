@@ -3,7 +3,7 @@ import styles from "./person.module.scss";
 import { useFollowUserMutation, useGetFollowStatusQuery, useUnFollowUserMutation } from "../../Redux/ApiEndpoints/usersApi";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setMyId } from "../../Redux/Slices/profileSlice";
+import { setMyId } from "../../Redux/Slices/authSlice";
 
 
 

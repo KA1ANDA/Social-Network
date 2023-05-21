@@ -9,8 +9,8 @@ import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, tog
 
 const AboutMeEdit = () => {
 
-  const {myId,aboutMeValue,jobDscValue,nameValue,searchForJob,socialMedia , editProfile} = useSelector(state => state.profileSlice)
-
+  const {aboutMeValue,jobDscValue,nameValue,searchForJob,socialMedia , editProfile} = useSelector(state => state.profileSlice)
+  const {myId} = useSelector(state => state.authSlice)
   const dispatch = useDispatch()
 
   const setAddNameValue = (event) => dispatch(addNameValue(event.target.value))

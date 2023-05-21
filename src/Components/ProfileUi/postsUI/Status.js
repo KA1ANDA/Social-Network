@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Status = () => {
 
-  const {myId} = useSelector(state => state.profileSlice)
+  const {myId} = useSelector(state => state.authSlice)
 
   const { data, isLoading, isError, isFetching } = useGetUserStatusQuery(myId);
   

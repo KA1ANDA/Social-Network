@@ -21,7 +21,7 @@ export const api = createApi({
 
     getUserInfo:build.query({
       query:() => 'auth/me',  
-      providesTags: () => [{type: "userInfo", id: "LIST"}],
+      providesTags: () => ['login'],
     }), 
 
     
