@@ -7,45 +7,31 @@ import { Navigate } from "react-router-dom";
 
 const UserHeaderInfo = () => {
   const dispatch = useDispatch()
-  const {data,isLoading} = useGetUserInfoQuery()
   const [logOut] = useLogOutMutation()
 
 
-  const {myId} = useSelector(state => state.authSlice)
-  const [userName,setUserName] = useState('')
-  const [email,setEmail] = useState('')
+  const {myId , email , userName} = useSelector(state => state.authSlice)
 
 
-  useEffect(() => {
-    if (data) {
-      setUserName(data.data.login)
-      setEmail(data.data.email)
-    }
-  }, [data, dispatch]);
-
-
-
-  const handleLogOut = () =>{
-    logOut().then((response) => {
+  
+  const handleLogOut = async () => {
+    try {
+      const response = await logOut();
       if (response.data && response.data.resultCode === 0) {
         dispatch(logOutSuccess(null));
       }
-    });
-  }
-  
+    } catch (error) {
+      // Handle any errors that occur during the logout process
+    }
+  };
 
   if(myId===null){
     return <Navigate to="/" />;
   }
 
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className={styles.userHeaderInfo}>
-      {data &&  
         <div>  
           <div>
             Email: {email}
@@ -57,7 +43,6 @@ const UserHeaderInfo = () => {
             <button type="button" onClick={handleLogOut} >Log Out</button>
           </div> 
         </div>
-      } 
     </div>
   );
 }

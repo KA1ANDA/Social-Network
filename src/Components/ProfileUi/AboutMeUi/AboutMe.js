@@ -11,13 +11,13 @@ import AboutMeEdit from "./AboutMeEdit";
 const AboutMe = () => {
 
   const {socialMedia , editProfile} = useSelector(state => state.profileSlice)
-  const {myId} = useSelector(state => state.authSlice)
+  const {myId , userId} = useSelector(state => state.authSlice)
 
 
   const dispatch = useDispatch()
   const setEditProfile = () => dispatch(toggleEditProfile())
 
-  const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
+  const {data, isLoading, isError} = useGetProfileInfoQuery(userId)
 
   useEffect(() => {
     if (data) {

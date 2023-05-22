@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 
 const User = () => {
 
-  const {myId} = useSelector(state => state.authSlice)
+  const {myId ,userId} = useSelector(state => state.authSlice)
 
-  const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
+  const {data, isLoading, isError} = useGetProfileInfoQuery(userId)
 
   return (
     <div>

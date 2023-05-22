@@ -3,14 +3,14 @@ import styles from "./person.module.scss";
 import { useFollowUserMutation, useGetFollowStatusQuery, useUnFollowUserMutation } from "../../Redux/ApiEndpoints/usersApi";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setMyId } from "../../Redux/Slices/authSlice";
+import { setMyId, setUserId } from "../../Redux/Slices/authSlice";
 
 
 
 const Person = ({name,status,follow,photos,id,loading}) => {
 
   const dispatch = useDispatch();
-  const setId = () => dispatch(setMyId(id))
+  const setId = () => dispatch(setUserId(id))
 
   const [followState, setFollowState] = useState(follow)
 
@@ -33,15 +33,14 @@ const Person = ({name,status,follow,photos,id,loading}) => {
       < NavLink to={`/profile`}>
         <div onClick={setId}>
           {photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={photos.large}/>}
-          </div>
-          <div>{name}</div>
-          <div>{status}</div>
-          <div>
-          <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
         </div>
+        <div>{name}</div>
+        <div>{status}</div>
       </NavLink>
+      <div>
+        <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
       </div>
-    
+      </div>
   );
 }
 
