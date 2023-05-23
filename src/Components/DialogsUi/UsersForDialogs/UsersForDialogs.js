@@ -7,11 +7,12 @@ import UserDialog from "./UserDialog";
 
 const UsersForDialogs = () => {
 
-  const {data} = useGetDialogsQuery()
+  const {data:message} = useGetDialogsQuery()
+  console.log(message)
 
   return (
     <div className={styles.usersForDialogs}>
-      {data && data.map(userDialog => <UserDialog key = {userDialog.id}
+      {message && message.map(userDialog => <UserDialog key = {userDialog.id}
       userId = {userDialog.id}
       name={userDialog.userName}
       photo={userDialog.photos.small}
