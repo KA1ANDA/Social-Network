@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
 const BASE_URL ="https://social-network.samuraijs.com/api/1.0";
-const API_KEY ="89b3049a-188b-45c7-9fa4-9282d2580d18";
+const API_KEY ="12e4a4c0-c96d-415d-a450-5f77e51b0610";
 
 
 
@@ -13,6 +13,7 @@ export const api = createApi({
     baseUrl:BASE_URL,
     headers: {
       'API-KEY': API_KEY,
+      'Content-Type':'application/json',
     },
     credentials: 'include',
 
@@ -137,6 +138,9 @@ export const api = createApi({
       invalidatesTags: ['login'],
     }),
 
+
+    
+
     
   })
 });
@@ -150,4 +154,4 @@ export const {
   useGetProfileInfoQuery,
   useAddProfilePhotoMutation,
   useLogInMutation,
-  useLogOutMutation } = api;
+  useLogOutMutation} = api;

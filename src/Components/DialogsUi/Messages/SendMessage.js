@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./sendMessage.module.scss";
-import { useGetDialogsQuery, useSendMessageMutation } from "../../../Redux/ApiEndpoints/dialogsApi";
 import { useSelector } from "react-redux";
+import { useSendMessageMutation } from "../../../Redux/ApiEndpoints/dialogsApi";
+
 
 
 
@@ -9,22 +10,24 @@ import { useSelector } from "react-redux";
 
 const SendMessage = () => {
 
-  const [sendMessage] = useSendMessageMutation()
+  const [messageValue , setMessageValue] = useState('')
+  const [sendMessage, data ] = useSendMessageMutation()
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
-  const [messageValue , setMessageValue] = useState('')
 
-  const params = {
-    id:clickedUserId,
-    message:messageValue,
-  }
 
+  
 
   const handleMessageValue = (event) => {
     setMessageValue(event.target.value)
   }
 
   const handleSendMessageValue = () => {
+    const params = {
+      userId:clickedUserId,
+      message:messageValue,
+    }
+
     sendMessage(params)
   }
 

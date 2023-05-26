@@ -7,12 +7,16 @@ import styles from "./userMessage.module.scss";
 const UserMessage = ({senderName , messageBody , time , seen}) => {
 
   const [viewed ,setViewed] = useState(false)
+  
+
 
   useEffect(() => {
     if (seen){
       setViewed(true)
     }
   }, [seen]);
+
+  
 
   return (
     <div className={styles.userMessage}>

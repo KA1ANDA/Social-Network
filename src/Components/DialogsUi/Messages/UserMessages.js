@@ -12,7 +12,16 @@ const UserMessages = () => {
 
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
-  const {data} = useGetMessageQuery(clickedUserId)
+  const {data , refetch} = useGetMessageQuery(clickedUserId)
+  
+
+  useEffect(() => {
+    if (data){
+      refetch()
+      console.log(data) ///AMAN GAVLENA MOAXDINA UNDA VCADO API DONEZE DASMA AMIS !!!!!!!!!
+    }
+  }, [data]);
+
 
   return (
     <div className={styles.userMessages}>

@@ -4,6 +4,7 @@ import { useFollowUserMutation, useGetFollowStatusQuery, useUnFollowUserMutation
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setMyId, setUserId } from "../../Redux/Slices/authSlice";
+import { useStartChatMutation } from "../../Redux/ApiEndpoints/dialogsApi";
 
 
 
@@ -16,6 +17,9 @@ const Person = ({name,status,follow,photos,id,loading}) => {
 
   const [toggleFollow] = useFollowUserMutation()
   const [toggleUnFollow] = useUnFollowUserMutation()
+  const [startchat , data] = useStartChatMutation()
+
+  console.log(data)
 
 
   const handleFollow = () =>{
@@ -26,6 +30,11 @@ const Person = ({name,status,follow,photos,id,loading}) => {
       setFollowState(false)
       toggleUnFollow(id)
     }
+  }
+
+
+  const handleStartChatting = () => {
+    startchat(id)
   }
 
   return (
@@ -39,6 +48,9 @@ const Person = ({name,status,follow,photos,id,loading}) => {
       </NavLink>
       <div>
         <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
+      </div>
+      <div>
+        <button onClick={handleStartChatting} >Message</button>
       </div>
       </div>
   );

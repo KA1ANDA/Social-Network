@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./usersForDialogs.module.scss";
 import { useGetDialogsQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import UserDialog from "./UserDialog";
+import { useDispatch } from "react-redux";
+import { setHasMessage } from "../../../Redux/Slices/dialogsSlice";
 
 
 
 const UsersForDialogs = () => {
 
-  const {data:message} = useGetDialogsQuery()
-  console.log(message)
+  const {data} = useGetDialogsQuery()
+  
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      const hasNewMessages = data.some(dialog => dialog.hasNewMessages);
+      dispatch(setHasMessage(hasNewMessages));
+    } else {
+      dispatch(setHasMessage(false));
+    }
+  }, [data , dispatch]);
+
 
   return (
     <div className={styles.usersForDialogs}>
-      {message && message.map(userDialog => <UserDialog key = {userDialog.id}
+      {data && data.map(userDialog => <UserDialog key = {userDialog.id}
       userId = {userDialog.id}
       name={userDialog.userName}
       photo={userDialog.photos.small}
