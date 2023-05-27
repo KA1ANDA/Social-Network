@@ -2,25 +2,37 @@ import React, { useEffect } from "react";
 import styles from "./userMessages.module.scss";
 import { useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import UserMessage from "./UserMessage";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SendMessage from "./SendMessage";
+import { setHasMessage } from "../../../Redux/Slices/dialogsSlice";
 
 
 
 
 const UserMessages = () => {
 
+  const dispatch = useDispatch()
+
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
   const {data , refetch} = useGetMessageQuery(clickedUserId)
   
 
+  // useEffect(() => {
+  //     refetch();
+  //     console.log('gavanaxle')
+  // }, [data]);
+
   useEffect(() => {
-    if (data){
-      refetch()
-      console.log(data) ///AMAN GAVLENA MOAXDINA UNDA VCADO API DONEZE DASMA AMIS !!!!!!!!!
-    }
-  }, [data]);
+    const interval = setInterval(() => {
+      refetch();
+    }, 3000); // Polling interval: every 5 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+  
 
 
   return (
@@ -30,7 +42,8 @@ const UserMessages = () => {
        messageBody = {userMessage.body}
        time = {userMessage.addedAt}
        senderName = {userMessage.senderName}
-       seen = {userMessage.viewed}/>)}
+       seen = {userMessage.viewed}
+       />)}
       </div>
       <div>
         <SendMessage />

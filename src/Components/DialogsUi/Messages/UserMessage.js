@@ -4,7 +4,7 @@ import styles from "./userMessage.module.scss";
 
 
 
-const UserMessage = ({senderName , messageBody , time , seen}) => {
+const UserMessage = ({senderName , messageBody , time , seen  }) => {
 
   const [viewed ,setViewed] = useState(false)
   
@@ -15,6 +15,8 @@ const UserMessage = ({senderName , messageBody , time , seen}) => {
       setViewed(true)
     }
   }, [seen]);
+
+
 
   
 

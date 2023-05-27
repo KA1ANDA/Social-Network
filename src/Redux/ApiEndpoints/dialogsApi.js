@@ -14,6 +14,13 @@ const dialogsApi = api.injectEndpoints({
       providesTags: () => ['messages'],
     }),
 
+
+    getTotalNewMessages:build.query({
+      query: () => `dialogs/messages/new/count`,
+      providesTags: () => ['messages'],
+    }),
+    
+
     sendMessage:build.mutation({
       query: (params) => {
         const {userId , message} = params
@@ -51,4 +58,4 @@ const dialogsApi = api.injectEndpoints({
   
 })
 
-export const {useGetDialogsQuery ,useGetMessageQuery , useSendMessageMutation , useStartChatMutation} = dialogsApi
+export const {useGetDialogsQuery ,useGetMessageQuery , useSendMessageMutation , useStartChatMutation , useGetTotalNewMessagesQuery} = dialogsApi
