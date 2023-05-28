@@ -1,0 +1,14 @@
+.sendChatMessage{
+  height: 150px;
+  border:red solid 2px;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input{
+    height: 50px;
+    width: 300px;
+  }
+}

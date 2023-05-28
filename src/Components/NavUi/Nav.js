@@ -40,6 +40,9 @@ const Nav = () => {
         <NavLink to="/messages">Messages</NavLink>
         {data && message && <div className={styles.newMessageIndicator}>{data}</div> }
       </div>
+      <div>
+        <NavLink to="/chat">Chat</NavLink>
+      </div>
     </div>
   );
 }

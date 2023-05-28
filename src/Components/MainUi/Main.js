@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Users from "../UsersUi/Users";
 import Login from "../LoginUi/Login";
 import DialogsContent from "../DialogsUi/DialogsContent/DialogsContent";
+import ChatContent from "../ChatUi/ChatContent";
 
 
 
@@ -16,6 +17,7 @@ const Main = () => {
         <Route path="/profile" element={<ProfileContent />}></Route>
         <Route path="/users" element={<Users />}></Route>
         <Route path="/messages" element={<DialogsContent />}></Route>
+        <Route path="/chat" element={<ChatContent />}></Route>
       </Routes>
     </div>
   );
