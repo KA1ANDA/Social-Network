@@ -7,7 +7,6 @@ const ChatContent = () => {
   return (
     <div className={styles.chatContent}>
       <ChatArea />
-      <SendChatMessage />
     </div>
   );
 }
