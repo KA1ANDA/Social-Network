@@ -2,9 +2,19 @@ import React, { useEffect, useState } from "react";
 import styles from "./nav.module.scss"
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setMyId, setUserId } from "../../Redux/Slices/authSlice";
-import { useGetUserInfoQuery } from "../../Redux/api";
+import {setUserId } from "../../Redux/Slices/authSlice";
 import { useGetTotalNewMessagesQuery } from "../../Redux/ApiEndpoints/dialogsApi";
+import {LuSettings} from "react-icons/lu";
+import {BsChat} from "react-icons/bs";
+import {CgProfile} from "react-icons/cg";
+import {FiUsers} from "react-icons/fi";
+import {IoChatbubblesOutline} from "react-icons/io5";
+
+
+
+
+
+
 
 const Nav = () => {
 
@@ -30,18 +40,30 @@ const Nav = () => {
 
   return (
     <div className={styles.nav}>
-      <div>
-        <NavLink to="/profile" onClick={handleNavLinkClick}>Profile</NavLink>
+      <div className={styles.logo}> 
+        Logo
       </div>
-      <div>
-        <NavLink to="/users">Users</NavLink>
-      </div>
-      <div>
-        <NavLink to="/messages">Messages</NavLink>
-        {data && message && <div className={styles.newMessageIndicator}>{data}</div> }
-      </div>
-      <div>
-        <NavLink to="/chat">Chat</NavLink>
+      <div className={styles.navigation}>
+        <div>
+          <div className={styles.navIcon}><CgProfile /></div>
+          <NavLink to="/profile" onClick={handleNavLinkClick}  className={styles.navLink}>Profile</NavLink>
+        </div>
+        <div>
+          <div className={styles.navIcon}><FiUsers /></div>
+          <NavLink to="/users" className={styles.navLink}>Users</NavLink>
+        </div>
+        <div>
+          <div className={styles.navIcon}><BsChat /></div>
+          <NavLink to="/messages" className={styles.navLink}>Messages</NavLink>
+        </div>
+        <div>
+          <div className={styles.navIcon}><IoChatbubblesOutline /></div>
+          <NavLink to="/chat" className={styles.navLink}>Chat</NavLink>
+        </div>
+        <div>
+        <div className={styles.navIcon}><LuSettings /></div>
+        <NavLink to="/settings" className={styles.navLink}>Settings</NavLink>
+        </div>
       </div>
     </div>
   );

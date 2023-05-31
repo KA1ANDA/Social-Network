@@ -1,0 +1,31 @@
+.app{
+  border:8px solid black;
+  height: 800px;
+  height: 100vh;
+
+
+  /* BG D1E6FF */
+
+  background: #D1E6FF;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-areas:
+   'nav header header'
+   'nav main main'
+   'nav main main';
+   
+
+
+  .header{
+    grid-area: header;
+  }
+
+  .nav{
+    grid-area: nav;
+  }
+
+  .main{
+    grid-area: main;
+  }
+}

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { initWebSocket, sendMessage } from "../chatWebSocket";
 
 const chatSlice = createSlice({
   name: "chatSlice",
