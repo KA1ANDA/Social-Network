@@ -38,31 +38,45 @@ const Nav = () => {
     }
   }, [data , message]);
 
+
+
   return (
     <div className={styles.nav}>
-      <div className={styles.logo}> 
-        Logo
+      <div className={styles.logo}>
+        <div className={styles.logoImage}>
+        </div> 
+        <h3>Logo</h3>
       </div>
       <div className={styles.navigation}>
         <div>
-          <div className={styles.navIcon}><CgProfile /></div>
-          <NavLink to="/profile" onClick={handleNavLinkClick}  className={styles.navLink}>Profile</NavLink>
+          <NavLink to="/profile" onClick={handleNavLinkClick} className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
+            <div className={styles.navIcon}><CgProfile   className={styles.activeIcon}/></div>
+            <h3>Profile</h3>
+          </NavLink>
         </div>
         <div>
-          <div className={styles.navIcon}><FiUsers /></div>
-          <NavLink to="/users" className={styles.navLink}>Users</NavLink>
+          <NavLink to="/users" className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
+            <div className={styles.navIcon}><FiUsers   className={styles.activeIcon}/></div>
+            <h3>Users</h3>
+          </NavLink>
         </div>
         <div>
-          <div className={styles.navIcon}><BsChat /></div>
-          <NavLink to="/messages" className={styles.navLink}>Messages</NavLink>
+          <NavLink to="/messages" className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
+            <div className={styles.navIcon}><BsChat  className={styles.activeIcon} /></div>
+            <h3>Messages</h3>
+          </NavLink>
         </div>
         <div>
-          <div className={styles.navIcon}><IoChatbubblesOutline /></div>
-          <NavLink to="/chat" className={styles.navLink}>Chat</NavLink>
+          <NavLink to="/chat" className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
+            <div className={styles.navIcon}><IoChatbubblesOutline  className={styles.activeIcon} /></div>
+            <h3>Chat</h3>
+          </NavLink>
         </div>
         <div>
-        <div className={styles.navIcon}><LuSettings /></div>
-        <NavLink to="/settings" className={styles.navLink}>Settings</NavLink>
+        <NavLink to="/settings" className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
+          <div className={styles.navIcon}><LuSettings   className={styles.activeIcon}/></div>
+          <h3>Settings</h3>
+        </NavLink>
         </div>
       </div>
     </div>
