@@ -6,7 +6,7 @@ import { setClickedUserMessages } from "../../../Redux/Slices/dialogsSlice";
 
 
 
-const UserDialog = ({name , photo , messageIndicator , messageCount , userId}) => {
+const UserDialog = ({name , photo , messageIndicator , messageCount , userId, isClicked}) => {
 
   const dispatch = useDispatch()
 
@@ -20,15 +20,24 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId}) =
     }
   }, [messageIndicator]);
 
-
  
   return (
-    <div className={styles.userDialog} onClick={clickedUserMessages} >
-      <div>
-        <img src={photo}/>
-        <h3>{name}</h3>
-        {newMessageIndicator && <div className={styles.newMessageIndicator}>{messageCount}</div> }
-      </div> 
+    <div className={`${isClicked && styles.active} ${styles.userDialog}`} onClick={clickedUserMessages} >
+      <div className={styles.wraper}>
+        <div className={styles.userInfo}>
+          <div className={styles.userPhoto}>
+            <img src={photo}/>
+          </div>
+          <div className={styles.userName}>
+            <h3>{name}</h3>
+          </div> 
+        </div>
+
+        <div className={styles.lastMessage}>
+          <p>texti unda iyos aq</p>
+        </div>  
+      </div>
+        {/* {newMessageIndicator && <div className={styles.newMessageIndicator}>{messageCount}</div> } */}
     </div>
   );
 }

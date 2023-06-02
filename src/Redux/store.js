@@ -4,6 +4,8 @@ import profileSlice from "./Slices/profileSlice";
 import authSlice from "./Slices/authSlice";
 import dialogsSlice from "./Slices/dialogsSlice";
 import chatSlice from "./Slices/chatSlice";
+import headerSlice from "./Slices/headerSlice";
+
 
 
 
@@ -16,6 +18,7 @@ export const store = configureStore({
     authSlice,
     dialogsSlice,
     chatSlice,
+    headerSlice,
     [api.reducerPath]:api.reducer,
     
   },

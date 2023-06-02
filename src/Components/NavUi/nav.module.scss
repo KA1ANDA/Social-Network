@@ -1,6 +1,5 @@
-$font-family:'Poppins', sans-serif;
-$nav-active-color:#1D75DD;
-$nav-font-color:#555758;
+@import '../styleVariables';
+
 
 .nav{
   width: 320px;
@@ -17,13 +16,13 @@ $nav-font-color:#555758;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: $nav-font-color;
+    color: $font-color;
 
     .logoImage{  
       border-radius: 50%;
       background-position: center;
       background-size: cover;
-      background-color: $nav-active-color;
+      background-color: $active-color;
       width: 65px;
       height: 65px;
       background-image: url(../../../public/imgs/logo.png);
@@ -34,7 +33,7 @@ $nav-font-color:#555758;
       font-size: 55px;
       line-height: 10px;
       font-family: $font-family;
-      color: $nav-font-color;
+      color: $font-color;
     }
   }
 
@@ -52,7 +51,7 @@ $nav-font-color:#555758;
   .navLink{
     text-decoration: none;
     font-size: 25px;
-    color: $nav-font-color;
+    color: $font-color;
     display: flex;
     align-items: center;
     width: 100%;
@@ -66,18 +65,18 @@ $nav-font-color:#555758;
 
 
   .active{
-    border-left:10px $nav-active-color solid;
-    color:$nav-active-color;
+    border-left:10px $active-color solid;
+    color:$active-color;
 
     .activeIcon{
-      color:$nav-active-color;
+      color:$active-color;
     }
   }
 
   .navIcon{
     font-weight: 500;
     font-size: 40px;
-    color: $nav-font-color;
+    color: $font-color;
     margin-left:30px;
   }
 

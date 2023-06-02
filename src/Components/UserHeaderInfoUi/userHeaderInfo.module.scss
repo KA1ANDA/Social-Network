@@ -1,4 +1,55 @@
+@import '../styleVariables';
+
+
 .userHeaderInfo{
   border:2px solid green;
-  height: 100px;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font-family;
+  color:$font-color;
+
+  .title{
+    margin-left: 100px;
+    font-size:40px;
+    line-height: 0px;
+  }
+
+  .userInfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 450px;
+    margin-right: 20px;
+    font-size: 30px;
+
+    .bell{
+      font-size: 45px;
+    }
+
+    .profilePhoto{
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      overflow: hidden;
+      
+      &>img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .logOutButton{
+      cursor: pointer;
+    }
+  }
+
+  &>div{
+    
+  }
 }

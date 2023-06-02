@@ -1,5 +1,47 @@
 .DialogsContent{
-  border:2px solid black;
-  display: flex;
-  flex-direction: row;
+  border:8px solid black;
+  display: grid;
+  grid-template-areas:
+  'search userName userName  profileInfo'
+  'users dialog dialog profileInfo';
+  gap: 20px;
+  padding: 20px;
+
+
+
+
+
+  .search{
+    border:3px red solid;
+    grid-area: search;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .users{
+    border:3px red solid;
+    grid-area: users;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .userName{
+    border:3px red solid;
+    grid-area: userName;
+
+  }
+
+  .dialog{
+    border:3px red solid;
+    grid-area: dialog;
+
+  }
+
+  .profileInfo{
+    border:3px red solid;
+    grid-area: profileInfo;
+
+  }
 }

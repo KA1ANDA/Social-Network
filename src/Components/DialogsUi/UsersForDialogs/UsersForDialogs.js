@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./usersForDialogs.module.scss";
 import { useGetDialogsQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import UserDialog from "./UserDialog";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setHasMessage } from "../../../Redux/Slices/dialogsSlice";
 
 
@@ -12,6 +12,10 @@ const UsersForDialogs = () => {
   const {data} = useGetDialogsQuery()
   
   const dispatch = useDispatch()
+  const {clickedUserId} = useSelector(state => state.dialogsSlice)
+
+  
+
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -30,7 +34,9 @@ const UsersForDialogs = () => {
       name={userDialog.userName}
       photo={userDialog.photos.small}
       messageIndicator = {userDialog.hasNewMessages}
-      messageCount = {userDialog.newMessagesCount}/>)}
+      messageCount = {userDialog.newMessagesCount}
+      isClicked={userDialog.id===clickedUserId}/>)}
+      
     </div>
   );
 }
