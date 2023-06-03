@@ -6,7 +6,7 @@ import { setClickedUserMessages } from "../../../Redux/Slices/dialogsSlice";
 
 
 
-const UserDialog = ({name , photo , messageIndicator , messageCount , userId, isClicked}) => {
+const UserDialog = ({name , photo , messageIndicator , messageCount , userId, isClicked , lastUserActivityDate}) => {
 
   const dispatch = useDispatch()
 
@@ -20,21 +20,29 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
     }
   }, [messageIndicator]);
 
- 
+  const date = new Date(lastUserActivityDate);
+
+  const timeOptions = { hour: 'numeric', minute: 'numeric' };
+  const formattedTime = date.toLocaleTimeString('en-US', timeOptions);
+
+  const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+
+
   return (
     <div className={`${isClicked && styles.active} ${styles.userDialog}`} onClick={clickedUserMessages} >
       <div className={styles.wraper}>
         <div className={styles.userInfo}>
           <div className={styles.userPhoto}>
-            <img src={photo}/>
+            <img src={photo} className={`${!photo && styles.default}`}/>
           </div>
           <div className={styles.userName}>
             <h3>{name}</h3>
           </div> 
         </div>
 
-        <div className={styles.lastMessage}>
-          <p>texti unda iyos aq</p>
+        <div className={styles.lastActivity}>
+          <p>Active : {formattedDate} , {formattedTime}</p>
         </div>  
       </div>
         {/* {newMessageIndicator && <div className={styles.newMessageIndicator}>{messageCount}</div> } */}

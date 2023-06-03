@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import styles from "./usersForDialogs.module.scss";
-import { useGetDialogsQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
+import { useGetDialogsQuery, useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import UserDialog from "./UserDialog";
 import { useDispatch, useSelector } from "react-redux";
-import { setHasMessage } from "../../../Redux/Slices/dialogsSlice";
+import { setHasMessage, setUsers } from "../../../Redux/Slices/dialogsSlice";
 
 
 
 const UsersForDialogs = () => {
-
-  const {data} = useGetDialogsQuery()
-  
   const dispatch = useDispatch()
+  const {users , searchedUsers} = useSelector(state => state.dialogsSlice)
+  const {data} = useGetDialogsQuery()
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
   
@@ -19,6 +18,8 @@ const UsersForDialogs = () => {
 
   useEffect(() => {
     if (data && data.length > 0) {
+      dispatch(setUsers(data))
+
       const hasNewMessages = data.some(dialog => dialog.hasNewMessages);
       dispatch(setHasMessage(hasNewMessages));
     } else {
@@ -29,14 +30,16 @@ const UsersForDialogs = () => {
 
   return (
     <div className={styles.usersForDialogs}>
-      {data && data.map(userDialog => <UserDialog key = {userDialog.id}
-      userId = {userDialog.id}
-      name={userDialog.userName}
-      photo={userDialog.photos.small}
-      messageIndicator = {userDialog.hasNewMessages}
-      messageCount = {userDialog.newMessagesCount}
-      isClicked={userDialog.id===clickedUserId}/>)}
-      
+      <div className={styles.wraper}>
+        {searchedUsers.map(userDialog => <UserDialog key = {userDialog.id}
+        userId = {userDialog.id}
+        name={userDialog.userName}
+        photo={userDialog.photos.small}
+        messageIndicator = {userDialog.hasNewMessages}
+        messageCount = {userDialog.newMessagesCount}
+        isClicked={userDialog.id===clickedUserId}
+        lastUserActivityDate={userDialog.lastUserActivityDate}/>)}
+      </div>  
     </div>
   );
 }

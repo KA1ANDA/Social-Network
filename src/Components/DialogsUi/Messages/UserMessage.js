@@ -17,7 +17,6 @@ const UserMessage = ({senderName , messageBody , time , seen  }) => {
   }, [seen]);
 
 
-
   
 
   return (
