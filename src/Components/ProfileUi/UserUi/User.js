@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./user.module.scss"
 import { useGetProfileInfoQuery } from "../../../Redux/api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addProfilePhoto } from "../../../Redux/Slices/profileSlice";
 
 
 
 const User = () => {
+  const dispatch = useDispatch()
 
   const {myId ,userId} = useSelector(state => state.authSlice)
 
   const {data, isLoading, isError} = useGetProfileInfoQuery(userId)
+  
+  useEffect(() => {
+    if (data) {
+      dispatch(addProfilePhoto(data.photos.small));
+    }
+  }, [data]);
 
   return (
     <div>

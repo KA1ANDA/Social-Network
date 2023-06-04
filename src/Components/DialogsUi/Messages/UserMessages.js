@@ -37,15 +37,17 @@ const UserMessages = () => {
 
   return (
     <div className={styles.userMessages}>
-      <div>
+      <div  className={styles.message}>
       {data && data.items.map(userMessage => <UserMessage key={userMessage.id}
        messageBody = {userMessage.body}
        time = {userMessage.addedAt}
        senderName = {userMessage.senderName}
        seen = {userMessage.viewed}
+       recipientId = {userMessage.recipientId}
+       senderId = {userMessage.senderId}
        />)}
       </div>
-      <div>
+      <div  className={styles.messageInput}>
         <SendMessage />
       </div>
     </div>

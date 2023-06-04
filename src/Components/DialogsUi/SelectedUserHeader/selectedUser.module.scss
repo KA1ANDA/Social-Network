@@ -1,0 +1,35 @@
+@import '../../styleVariables.scss';
+.selectedUser{
+  display: flex;
+  padding-left: 40px;
+  font-family: $font-family;
+  color:$font-color;
+  width: 100%;
+  align-items: center;
+
+  .userPhoto{
+  border-radius: 50%;
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+  }
+
+  .userName{
+    margin: auto;
+    margin-left: 30px;
+  }
+
+  .settings{
+    font-size: 45px;
+    cursor: pointer;
+  }
+
+  .default{
+    background-image:url($default-avatar);
+    background-size: cover;
+    background-position:center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}

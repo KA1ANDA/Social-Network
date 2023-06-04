@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./sendMessage.module.scss";
 import { useSelector } from "react-redux";
 import { useSendMessageMutation } from "../../../Redux/ApiEndpoints/dialogsApi";
+import {LuSend} from "react-icons/lu"
 
 
 
@@ -34,8 +35,8 @@ const SendMessage = () => {
 
   return (
     <div className={styles.sendMessage}>
-      <input onChange = {handleMessageValue} value = {messageValue}></input>
-      <button onClick={handleSendMessageValue}>Send</button>
+      <input placeholder="Write a message..." onChange = {handleMessageValue} value = {messageValue}></input>
+      <button onClick={handleSendMessageValue}><LuSend/></button>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+@import '../../styleVariables.scss';
+
 .DialogsContent{
   border:8px solid black;
   display: grid;
@@ -6,7 +8,7 @@
   'users dialog dialog profileInfo';
   gap: 20px;
   padding: 20px;
-
+  grid-template-columns: 3fr 2fr 3fr 3fr;
 
 
 
@@ -30,12 +32,21 @@
   .userName{
     border:3px red solid;
     grid-area: userName;
+    display: flex;
+    align-items: center;
+    background-color: $component-bg-color;
+    border-radius: $border-radius;
 
   }
 
   .dialog{
     border:3px red solid;
     grid-area: dialog;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $component-bg-color;
+
 
   }
 

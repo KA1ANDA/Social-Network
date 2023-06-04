@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ProfileSlice = createSlice({
   name:'ProfileSlice',
   initialState:{
+    profilePhoto:'',
     aboutMeValue:'',
     jobDscValue:'',
     nameValue:'',
@@ -19,6 +20,9 @@ const ProfileSlice = createSlice({
   },
   reducers:{
 
+    addProfilePhoto(state , action){
+      state.profilePhoto = action.payload
+    },
     addNameValue(state , action){
       state.nameValue = action.payload
     },
@@ -46,5 +50,5 @@ const ProfileSlice = createSlice({
   }
 })
 
-export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile} = ProfileSlice.actions
+export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile , addProfilePhoto} = ProfileSlice.actions
 export default ProfileSlice.reducer

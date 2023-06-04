@@ -1,3 +1,68 @@
-.userMessage {
-  border:2px orange solid;
+@import "../../styleVariables.scss";
+
+.wrapper{
+  // border: 4px black solid;
+  display: flex;
+  justify-content: center;
+
+  .messageBody{
+    // border: 2px red solid;
+    word-wrap:break-word;
+    width: 100%px;
+  }
+
+  .messageInfo{
+    display: flex;
+    justify-content: end;
+    // height: fit-content;
+    // border: 2px green solid;
+
+  }
+
+
+  .myMessage {
+    border: 2px solid #1D75DD;
+    border-radius: 5px;
+    background-color: transparent;
+    margin: 40px 15px;
+    width: 70%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: end;
+  }
+  
+  
+  .userMessage {
+    // border:5px red solid;
+    border-radius: 5px;
+    background-color: $my-message-color;
+    margin: 40px 15px;
+    width: 70%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: end;
+    
+
+
+  }
+  
+  .avatar{
+    // border:5px orange solid;
+    height: fit-content;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin:10px 0px;
+
+
+    &>img{
+      width: 75px;
+      height: 75px;
+    }
+  }
 }

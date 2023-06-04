@@ -1,7 +1,28 @@
+@import "../../styleVariables.scss";
+
 .userMessages{
-  border:2px solid red;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border:5px solid green;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  display: grid;
+  grid-template-rows: 610px 1fr;
+  height: 100%;
+  border-radius: $border-radius;
+  font-family: $font-family;
+  color: $font-color;
+
+
+  .message{
+    border:9px solid darkblue;
+    overflow-y:scroll;
+    padding: 25px;
+  }
+
+
+  .messageInput{
+    border:9px solid springgreen;
+    display:flex;
+    align-items: center;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./userDialog.module.scss";
 import { useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import { useDispatch } from "react-redux";
-import { setClickedUserMessages } from "../../../Redux/Slices/dialogsSlice";
+import { setClickedUserMessages, setClickedUserPhoto, setClickedUserUserName } from "../../../Redux/Slices/dialogsSlice";
 
 
 
@@ -10,7 +10,12 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
 
   const dispatch = useDispatch()
 
-  const clickedUserMessages = () => dispatch(setClickedUserMessages(userId))
+  const clickedUserMessages = () => {
+    dispatch(setClickedUserMessages(userId));
+    dispatch(setClickedUserPhoto(photo));
+    dispatch(setClickedUserUserName(name));
+
+    };
 
   const [newMessageIndicator , setNewMessageIndicator] = useState(false)
 
@@ -23,9 +28,9 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
   const date = new Date(lastUserActivityDate);
 
   const timeOptions = { hour: 'numeric', minute: 'numeric' };
-  const formattedTime = date.toLocaleTimeString('en-US', timeOptions);
+  const formattedTime = date.toLocaleTimeString('ge-GE', timeOptions);
 
-  const formattedDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const formattedDate = date.toLocaleDateString('ge-GE', { month: 'short', day: 'numeric' });
 
 
 

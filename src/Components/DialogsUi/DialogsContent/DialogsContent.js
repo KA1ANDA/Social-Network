@@ -3,6 +3,7 @@ import styles from "./DialogsContent.module.scss"
 import UsersForDialogs from "../UsersForDialogs/UsersForDialogs";
 import UserMessages from "../Messages/UserMessages";
 import SearchDialogs from "../DialogSearch/SearchDialog";
+import SelectedUser from "../SelectedUserHeader/SelectedUser";
 
 
 const DialogsContent = () => {
@@ -15,8 +16,7 @@ const DialogsContent = () => {
       <UsersForDialogs />
       </div>
       <div className={styles.userName}>
-        <h2>user photo</h2>
-        <h2>user name</h2>
+        <SelectedUser />
       </div>
       <div className={styles.dialog}>
         <UserMessages />
