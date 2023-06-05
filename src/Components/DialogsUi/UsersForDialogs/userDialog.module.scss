@@ -51,11 +51,5 @@
 }
 
 .default{
-  background-image:url($default-avatar);
-  background-size: cover;
-  background-position:center;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  
+  @include default-avatar();
 }

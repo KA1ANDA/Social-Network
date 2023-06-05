@@ -4,6 +4,7 @@ import UsersForDialogs from "../UsersForDialogs/UsersForDialogs";
 import UserMessages from "../Messages/UserMessages";
 import SearchDialogs from "../DialogSearch/SearchDialog";
 import SelectedUser from "../SelectedUserHeader/SelectedUser";
+import SelectedUserProfileInfo from "../SelectedUserProfileInfo/SelectedUserProfileInfo";
 
 
 const DialogsContent = () => {
@@ -22,7 +23,7 @@ const DialogsContent = () => {
         <UserMessages />
       </div>
       <div className={styles.profileInfo}>
-        <h2>PROFILE INFO</h2>
+        <SelectedUserProfileInfo />
       </div>
     </div>
   );

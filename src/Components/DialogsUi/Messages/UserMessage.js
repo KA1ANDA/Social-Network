@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./userMessage.module.scss";
 import { useSelector } from "react-redux";
 import {BsCheckAll} from "react-icons/bs"
+import { useGetProfileInfoQuery } from "../../../Redux/api";
 
 
 
@@ -13,6 +14,7 @@ const UserMessage = ({senderName , messageBody , time , seen , recipientId ,send
   const {myId} = useSelector(state => state.authSlice)
   const {clickedUserPhoto} = useSelector(state => state.dialogsSlice)
   const {profilePhoto} = useSelector(state => state.profileSlice)
+  const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
 
   
 
@@ -25,13 +27,16 @@ const UserMessage = ({senderName , messageBody , time , seen , recipientId ,send
 
   const messageStyle =
   recipientId === myId ? styles.myMessage : styles.userMessage;
+
+  const defaultAvatar = 
+  clickedUserPhoto || data.photos.small ?  styles.default : '';
   
 
   const date = new Date(time);
   const timeOptions = { hour: 'numeric', minute: 'numeric' };
-  const formattedTime = date.toLocaleTimeString('ge-GE', timeOptions);
+  const formattedTime = date.toLocaleTimeString('us-US', timeOptions);
 
-  const formattedDate = date.toLocaleDateString('ge-GE', { month: 'short', day: 'numeric' });
+  const formattedDate = date.toLocaleDateString('us-US', { month: 'short', day: 'numeric' });
   
   
   return (
@@ -40,7 +45,7 @@ const UserMessage = ({senderName , messageBody , time , seen , recipientId ,send
       {recipientId === myId ? 
       <div className={styles.wrapper}>
         <div className={styles.avatar}>
-          <img src={clickedUserPhoto}/>
+          <img src={clickedUserPhoto} className={defaultAvatar} />
         </div>
         <div className={messageStyle}>
           <div className={styles.messageBody}>{messageBody}</div>
@@ -58,7 +63,7 @@ const UserMessage = ({senderName , messageBody , time , seen , recipientId ,send
           </div>
         </div>
         <div className={styles.avatar}>
-          <img src={profilePhoto}/>
+          <img src={data && data.photos.small != null && data.photos.small} className={defaultAvatar}/>
         </div>
       </div>}
     </div>

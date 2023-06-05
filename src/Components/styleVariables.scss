@@ -5,3 +5,16 @@ $border-radius:10px;
 $default-avatar:'../../../../public/imgs/avatar.png';
 $component-bg-color:white;
 $my-message-color:#D1E6FF;
+
+
+
+
+
+@mixin default-avatar() {
+  background-image:url($default-avatar);
+  background-size: cover;
+  background-position:center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}

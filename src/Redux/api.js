@@ -13,7 +13,7 @@ export const api = createApi({
     baseUrl:BASE_URL,
     headers: {
       'API-KEY': API_KEY,
-      'Content-Type':'application/json',
+      // 'Content-Type':'application/json',
     },
     credentials: 'include',
 
@@ -81,7 +81,7 @@ export const api = createApi({
 
     getProfileInfo:build.query({
       query : (id) => `profile/${id}`,
-      providesTags: () => ['profileInfo'],
+      providesTags: () => ['profileInfo'], //sheidzleba aq damjirdes tegis damateba
     }),
 
 

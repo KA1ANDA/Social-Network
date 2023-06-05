@@ -1,0 +1,59 @@
+.selectedUser{
+  border:9px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    // align-items: center;
+    border:9px red solid;
+    height: 100%;
+
+
+    
+
+    .photo{
+      border:10px #A5CEFF solid;
+      border-radius: 50%;
+      background-color: blue;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &>img{
+        width: 200px;
+        height: 200px;
+      }
+    }
+  
+    .name{
+      border:3px pink solid;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .aboutMe{
+      border:3px orange solid;
+      text-align: justify;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .jobDescription{
+      border:3px blue solid;
+    }
+  
+    .socialNetworks{
+      border:3px green solid;
+    }
+  }
+
+}

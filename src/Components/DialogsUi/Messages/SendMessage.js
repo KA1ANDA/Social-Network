@@ -30,6 +30,7 @@ const SendMessage = () => {
     }
 
     sendMessage(params)
+    setMessageValue('')
   }
 
 

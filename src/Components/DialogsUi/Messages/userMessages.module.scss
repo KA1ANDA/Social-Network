@@ -1,7 +1,6 @@
 @import "../../styleVariables.scss";
 
 .userMessages{
-  border:5px solid green;
   // display: flex;
   // flex-direction: column;
   // justify-content: space-between;
@@ -11,18 +10,19 @@
   border-radius: $border-radius;
   font-family: $font-family;
   color: $font-color;
+  padding: 0px;
 
 
   .message{
-    border:9px solid darkblue;
-    overflow-y:scroll;
+    overflow-y:auto;
     padding: 25px;
+    padding: 0px;
   }
 
 
   .messageInput{
-    border:9px solid springgreen;
     display:flex;
     align-items: center;
+    justify-content: center;
   }
 }

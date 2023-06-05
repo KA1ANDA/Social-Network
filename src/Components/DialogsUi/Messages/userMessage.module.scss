@@ -4,11 +4,15 @@
   // border: 4px black solid;
   display: flex;
   justify-content: center;
+  
+  .default{
+    @include default-avatar();
+  }
 
   .messageBody{
     // border: 2px red solid;
     word-wrap:break-word;
-    width: 100%px;
+    width: 100%;
   }
 
   .messageInfo{
