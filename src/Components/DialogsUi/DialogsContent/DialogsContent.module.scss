@@ -1,7 +1,7 @@
 @import '../../styleVariables.scss';
 
 .DialogsContent{
-  border:8px solid black;
+  // border:8px solid black;
   display: grid;
   grid-template-areas:
   'search userName userName  profileInfo'
@@ -14,7 +14,6 @@
 
 
   .search{
-    border:3px red solid;
     grid-area: search;
     display: flex;
     align-items: center;
@@ -22,7 +21,6 @@
   }
 
   .users{
-    border:3px red solid;
     grid-area: users;
     display: flex;
     justify-content: center;
@@ -30,7 +28,6 @@
   }
 
   .userName{
-    border:3px red solid;
     grid-area: userName;
     display: flex;
     align-items: center;
@@ -40,7 +37,6 @@
   }
 
   .dialog{
-    border:3px red solid;
     grid-area: dialog;
     display: flex;
     flex-direction: column;
@@ -53,10 +49,12 @@
   }
 
   .profileInfo{
-    border:3px red solid;
     grid-area: profileInfo;
     border-radius: $border-radius;
-    background-color: $component-bg-color;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    // background-color: $component-bg-color;
 
   }
 }

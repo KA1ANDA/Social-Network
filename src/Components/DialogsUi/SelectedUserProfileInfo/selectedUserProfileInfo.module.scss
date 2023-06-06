@@ -1,17 +1,22 @@
+@import "../../styleVariables.scss";
+
 .selectedUser{
-  border:9px black solid;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
   height: 100%;
+  background-color: $component-bg-color;
+  color: $font-color;
+  font-family: $font-family;
+  border-radius: $border-radius;
+  width: 85%;
+
 
   .wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    // align-items: center;
-    border:9px red solid;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 
 
@@ -20,7 +25,6 @@
     .photo{
       border:10px #A5CEFF solid;
       border-radius: 50%;
-      background-color: blue;
       width: 200px;
       height: 200px;
       overflow: hidden;
@@ -35,24 +39,93 @@
     }
   
     .name{
-      border:3px pink solid;
       display: flex;
       justify-content: center;
+      margin-top: 20px;
+
+      &>*{
+        margin: 0px;
+      }
     }
   
     .aboutMe{
-      border:3px orange solid;
+      margin-top: 20px;
       text-align: justify;
       display: flex;
       justify-content: center;
+      color:#989BA1;
+      border-bottom: 2px silver solid ;
+      border-top: 2px silver solid;
     }
   
     .jobDescription{
-      border:3px blue solid;
+      border:3px $active-color solid;
+      width: 300px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-wrap: break-word;
+      margin-top: 50px;
+      border-radius: $border-radius;
+      
     }
   
     .socialNetworks{
-      border:3px green solid;
+      margin-top: 50px;
+      display: flex;
+      align-items: center;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul{
+        padding: 0px;
+        display: flex;
+      }
+
+
+      li{
+        // border:2px $active-color solid;
+        list-style: none;
+        font-size: 75px;
+        border-radius: 50%;
+        margin: 0px 5px ;
+      }
+
+      .fa{
+        color:$facebook;
+        
+      }
+
+      .tw{
+        color:$twitter;
+              
+      }
+
+      .ins{
+        background: $instagram; /* Replace with your desired gradient colors */
+        color: white;      
+      }
+
+      .yo{
+        color:$youtube;
+      }
+
+      .git{
+        // background-color: $github;
+        // color: white;
+      }
+      
+    }
+
+    .default{
+      @include default-avatar();
     }
   }
 

@@ -10,7 +10,7 @@ import { setHasMessage, setUsers } from "../../../Redux/Slices/dialogsSlice";
 const UsersForDialogs = () => {
   const dispatch = useDispatch()
   const {users , searchedUsers} = useSelector(state => state.dialogsSlice)
-  const {data} = useGetDialogsQuery()
+  const {data , refetch} = useGetDialogsQuery()
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
   
@@ -26,6 +26,18 @@ const UsersForDialogs = () => {
       dispatch(setHasMessage(false));
     }
   }, [data , dispatch]);
+
+
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     refetch();
+  //   }, 3000); // Polling interval: every 5 seconds
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
 
   return (

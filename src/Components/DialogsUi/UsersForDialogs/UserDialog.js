@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./userDialog.module.scss";
-import { useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
-import { useDispatch } from "react-redux";
+import { useGetDialogsQuery, useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
+import { useDispatch, useSelector } from "react-redux";
 import { setClickedUserMessages, setClickedUserPhoto, setClickedUserUserName } from "../../../Redux/Slices/dialogsSlice";
 
 
@@ -10,6 +10,8 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
 
   const dispatch = useDispatch()
 
+  const {users} = useSelector(state => state.dialogsSlice)
+
   const clickedUserMessages = () => {
     dispatch(setClickedUserMessages(userId));
     dispatch(setClickedUserPhoto(photo));
@@ -17,13 +19,14 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
 
     };
 
-  const [newMessageIndicator , setNewMessageIndicator] = useState(false)
+    
 
   useEffect(() => {
-    if (messageIndicator){
-      setNewMessageIndicator(true)
-    }
-  }, [messageIndicator]);
+    dispatch(setClickedUserMessages(users[0].id));
+    dispatch(setClickedUserPhoto(users[0].photos.small));
+    dispatch(setClickedUserUserName(users[0].userName));
+  }, [users , dispatch]);
+
 
   const date = new Date(lastUserActivityDate);
 
@@ -50,7 +53,7 @@ const UserDialog = ({name , photo , messageIndicator , messageCount , userId, is
           <p>Active : {formattedDate} , {formattedTime}</p>
         </div>  
       </div>
-        {/* {newMessageIndicator && <div className={styles.newMessageIndicator}>{messageCount}</div> } */}
+        {/* {messageIndicator && <div className={styles.newMessageIndicator}>kuku</div> } */}
     </div>
   );
 }

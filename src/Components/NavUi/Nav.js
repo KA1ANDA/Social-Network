@@ -23,9 +23,8 @@ const Nav = () => {
   
   const {myId} = useSelector(state => state.authSlice)
 
-  const {data} = useGetTotalNewMessagesQuery()
+  const {data , refetch} = useGetTotalNewMessagesQuery()
   
-  const [message , setMessage] = useState(false)
 
   const handleNavLinkClick = () => {
     if (myId) {
@@ -35,13 +34,18 @@ const Nav = () => {
 
   const handleTitleChange = (title) =>{
     dispatch(setTitle(title))
+
   }
 
-  useEffect(() => {
-    if (data){
-      setMessage(true)
-    }
-  }, [data , message]);
+ useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 3000); // Polling interval: every 3 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
 
 
@@ -72,6 +76,7 @@ const Nav = () => {
           <NavLink to="/messages" className={({isActive}) => `${isActive && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><BsChat  className={styles.activeIcon} /></div>
             <h3>Messages</h3>
+            {data && data!==0 ? <div className={styles.messageNotification}>{data}</div> : null}
           </NavLink>
         </div>
         <div onClick={() => handleTitleChange('Chat')}>
