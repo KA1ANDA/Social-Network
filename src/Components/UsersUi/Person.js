@@ -39,18 +39,22 @@ const Person = ({name,status,follow,photos,id,loading}) => {
 
   return (
       <div className={styles.person}>
-      < NavLink to={`/profile`}>
-        <div onClick={setId}>
+      < NavLink to={`/profile`}  className={styles.profileInfo}>
+        <div onClick={setId} className={styles.photo}>
           {photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={photos.large}/>}
         </div>
-        <div>{name}</div>
-        <div>{status}</div>
+        <div>
+          <h1 className={styles.name}>{name}</h1>
+        </div>
+        <div className={styles.status}>{status}</div>
       </NavLink>
-      <div>
-        <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
-      </div>
-      <div>
-        <button onClick={handleStartChatting} >Message</button>
+      <div className={styles.buttonWrapper}>
+        <div className={styles.follow}>
+          <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
+        </div>
+        <div className={styles.message}>
+          <button onClick={handleStartChatting} >Message</button>
+        </div>
       </div>
       </div>
   );

@@ -1,5 +1,18 @@
 .users{
-  border:2px black solid;
+  border:5px black solid;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .usersWrapper{
+    border:9px orange solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    // height: 100%;
+    gap:50px;
+    margin: 0 100px;
+  }
 
   .searchUser{
     border:2px pink solid;

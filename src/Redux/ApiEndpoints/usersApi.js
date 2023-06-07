@@ -8,7 +8,7 @@ const usersApi = api.injectEndpoints({
       query:(params) =>{
         const {webPage,userNameValue} = params
         return{
-          url:`/users?page=${webPage}&term=${userNameValue}`, 
+          url:`/users?page=${webPage}&term=${userNameValue}&count=8`, 
         }
       },
       providesTags: () => [{type: "users", id: "LIST"}],

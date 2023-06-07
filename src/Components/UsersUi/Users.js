@@ -40,7 +40,7 @@ const Users = () => {
         <button>search</button>
       </div>
 
-      <div>
+      <div className={styles.usersWrapper}>
       {data && 
         data.items.map(user => 
         <Person key = {user.id}
@@ -57,7 +57,7 @@ const Users = () => {
         <div className={styles.pages}>
           <button  onClick={() => setPage(page - 1)}  disabled={page===1}>left</button>
           <div>{page}</div>
-          <button  onClick={() => setPage(page + 1)}   disabled={!data || data.items.length < 10}>right</button>
+          <button  onClick={() => setPage(page + 1)}   disabled={!data || data.items.length < 8}>right</button>
         </div>
       </div>
     </div>
