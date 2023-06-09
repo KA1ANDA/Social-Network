@@ -46,11 +46,11 @@ const Person = ({name,status,follow,photos,id,loading}) => {
         <div>
           <h1 className={styles.name}>{name}</h1>
         </div>
-        <div className={styles.status}>{status}</div>
+        <div className={styles.status}>{status ? status : 'No status'}</div>
       </NavLink>
       <div className={styles.buttonWrapper}>
-        <div className={styles.follow}>
-          <button onClick={handleFollow} disabled={loading}>{followState ? 'UnFollow' : 'Follow'}</button>
+        <div >
+          <button onClick={handleFollow} disabled={loading} className={followState && styles.followed}>{followState ? 'UnFollow' : 'Follow'}</button>
         </div>
         <div className={styles.message}>
           <button onClick={handleStartChatting} >Message</button>

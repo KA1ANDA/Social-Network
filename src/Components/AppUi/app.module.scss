@@ -19,11 +19,13 @@
   border: 3px none #ffffff;
 }
 
+body{
+  margin:0;
+}
 
 .app{
   // border:8px solid black;
-  width: 2400px;
-  height: 1200px;
+  height: 100vh;
   grid-template-columns:1fr 9fr;
 
 

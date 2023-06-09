@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./users.module.scss";
 import { useGetUsersQuery } from "../../Redux/ApiEndpoints/usersApi";
 import Person from "./Person";
+import {CiSearch} from "react-icons/ci";
 
 
 
@@ -34,10 +35,12 @@ const Users = () => {
 
   return (
     <div className={styles.users}>
-
-      <div className={styles.searchUser}>
-        <input onChange={handleInputChange} value={searchValue}></input>
-        <button>search</button>
+      
+      <div className={styles.inputWrapper}>
+        <div className={styles.searchInput}>
+          <div className={styles.searchIcon}><CiSearch/></div>
+          <input placeholder='Search...' onChange={handleInputChange} value={searchValue}></input>
+        </div>
       </div>
 
       <div className={styles.usersWrapper}>
