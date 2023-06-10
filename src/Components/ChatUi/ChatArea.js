@@ -89,14 +89,14 @@ const ChatArea = () => {
   
   return (
     <div className={styles.chatArea}>
-      <div>
+      <div className={styles.chatMessages}>
       {messages.map((chatMessage , index) => <ChatMessage key={index}
       message = {chatMessage.message}
       photo = {chatMessage.photo}
       userName = {chatMessage.userName} />)}
       </div>
 
-      <div>
+      <div className={styles.sendMessage}>
         <SendChatMessage wsChannel={wsChannel} />
       </div>
     </div>

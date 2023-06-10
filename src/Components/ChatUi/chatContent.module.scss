@@ -1,3 +1,31 @@
 .chatContent{
-  border:2px solid yellow;
+  border:5px solid yellow;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .chatWrapper{
+    border:5px solid black;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+
+    .chatArea{
+      border:5px solid black;
+      height: 100%;
+    }
+  
+  
+    .chatUsers{
+      
+      // justify-self: end;
+      align-self: flex-start;
+    }
+
+  }
+
+ 
 }

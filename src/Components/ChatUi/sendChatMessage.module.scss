@@ -1,14 +1,32 @@
+@import "../styleVariables.scss";
 .sendChatMessage{
-  height: 150px;
-  border:red solid 2px;
-  width: 500px;
-  margin: auto;
+  border:2px black solid;
+  padding: 5px;
   display: flex;
-  justify-content: center;
+  width: 90%;
+  border-radius: 3px;
+  background-color: $component-bg-color ;
   align-items: center;
+  justify-content: space-between;
+
+  button{
+    background-color: $active-color;
+    width: 50px;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+  }
 
   input{
+    width: 80%;
     height: 50px;
-    width: 300px;
+    border: none;
+    
+    &:focus{
+      outline: none;
+    }
   }
 }

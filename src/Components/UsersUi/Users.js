@@ -3,6 +3,12 @@ import styles from "./users.module.scss";
 import { useGetUsersQuery } from "../../Redux/ApiEndpoints/usersApi";
 import Person from "./Person";
 import {CiSearch} from "react-icons/ci";
+import {AiOutlineArrowLeft} from "react-icons/ai";
+import {AiOutlineArrowRight} from "react-icons/ai";
+
+
+
+
 
 
 
@@ -58,9 +64,9 @@ const Users = () => {
       </div>
       <div className={styles.pagination}>
         <div className={styles.pages}>
-          <button  onClick={() => setPage(page - 1)}  disabled={page===1}>left</button>
+          <button  onClick={() => setPage(page - 1)} className={page===1 && styles.disabled} disabled={page===1}><AiOutlineArrowLeft/></button>
           <div>{page}</div>
-          <button  onClick={() => setPage(page + 1)}   disabled={!data || data.items.length < 8}>right</button>
+          <button  onClick={() => setPage(page + 1)}  className={!data || data.items.length < 8 && styles.disabled}><AiOutlineArrowRight/></button>
         </div>
       </div>
     </div>

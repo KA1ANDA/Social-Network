@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./sendChatMessage.module.scss";
+import {LuSend} from "react-icons/lu"
 
 
 
@@ -43,8 +44,8 @@ const SendChatMessage = ({wsChannel}) => {
 
   return (
     <div className={styles.sendChatMessage}>
-      <input onChange = {handleMessageValue} value = {messageValue}></input>
-      <button onClick={sendMessage}>Send</button>
+      <input placeholder="Write a message..." onChange = {handleMessageValue} value = {messageValue}></input>
+      <button onClick={sendMessage}><LuSend/></button>
     </div>
   );
 }

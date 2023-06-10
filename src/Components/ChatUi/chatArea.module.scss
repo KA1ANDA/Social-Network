@@ -1,6 +1,23 @@
+@import "../styleVariables.scss";
 .chatArea{
-  border:3px solid green;
-  width: 800px;
-  margin:auto;
-  height: fit-content;
+  border:8px solid green;
+  height: 100%;
+  // width: 800px;
+  // margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  .chatMessages{
+    border:8px solid blue;
+    height: 700px;
+    overflow-y: scroll;
+  }
+
+  .sendMessage{
+    border:8px solid blue;
+    display: flex;
+    justify-content: center;
+  }
 }
