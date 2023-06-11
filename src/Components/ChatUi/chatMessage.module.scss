@@ -1,3 +1,59 @@
+@import "../styleVariables.scss";
+
 .chatMessage{
-  border:2px blue solid;
+  // border:8px blue solid;
+  margin:30px 0;
+  border-radius: $border-radius;
+  background-color: $component-bg-color;
+
+  .photoNameWrapper{
+    // border:8px black solid;
+    display: flex;
+
+    .photo{
+      border:5px blue solid;
+      border-radius: 50%;
+      margin: 0 30px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .name{
+      // border:4px green solid;
+      display: flex;
+      align-items: center;
+    }
+  
+  }
+
+  // .message{
+  //   border:4px orange solid;
+  // }
+
+  .message {
+    position: relative;
+    background: $active-color;
+    color: white;
+    font-size: 20px;
+    line-height: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 0px;
+    box-shadow: 5px 3px 6px 2px #A3A3A3;
+}
+.message:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 19px 0 0 20px;
+    border-color: transparent transparent transparent $active-color;
+    top: -19px;
+    left: 12%;
+    margin-left: -10px;
+}
 }

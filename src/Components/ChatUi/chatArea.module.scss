@@ -2,21 +2,23 @@
 .chatArea{
   border:8px solid green;
   height: 100%;
-  // width: 800px;
+  width: 1000px;
   // margin:auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
 
+
   .chatMessages{
     border:8px solid blue;
-    height: 700px;
+    border-radius: $border-radius;
+    height: 800px;
     overflow-y: scroll;
   }
 
   .sendMessage{
-    border:8px solid blue;
+    // border:8px solid blue;
     display: flex;
     justify-content: center;
   }
