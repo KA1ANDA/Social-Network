@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./chatUsers.module.scss"
-
+import {IoIosArrowDropdown} from "react-icons/io"
+import OnlineUser from "./OnlineUser.js";
+import { useSelector } from "react-redux";
 
 const ChatUsers = () => {
+
+
+  const {activeUsersInChat} = useSelector(state => state.chatSlice)
+  const [activeUsers,setActiveUsers] = useState(false);
+
   return (
-    <div className={styles.chatUsers}>
-     USEREBI
+    <div className={`${activeUsers && styles.activeChatUsers} ${styles.chatUsers}`}  onClick={() => setActiveUsers(!activeUsers)}>
+     <div className={styles.title}>
+        <div className={styles.titleWrapper}>
+          <h2>Active Users</h2>
+          <div>COUNT</div>
+        </div>
+        <div className={`${activeUsers && styles.activeIcon} ${styles.icon}`}>
+          <IoIosArrowDropdown/>
+        </div>
+     </div>
+
+     
+      <div className={styles.activeUsers}>
+        {activeUsersInChat ?
+         activeUsersInChat.map(user => <OnlineUser 
+          key = {user.userId}
+          name = {user.userName}
+          photo = {user.photo} />):
+          <div> no users </div>}
+      </div>    
+       
     </div>
   );
 }

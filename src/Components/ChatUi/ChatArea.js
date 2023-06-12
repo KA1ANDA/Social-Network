@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./chatArea.module.scss";
 import ChatMessage from "./ChatMessage";
 import { useDispatch, useSelector } from "react-redux";
-import { addChatMessages } from "../../Redux/Slices/chatSlice";
+import { addChatMessages, setActiveUsers, setWsChannel } from "../../Redux/Slices/chatSlice";
 import SendChatMessage from "./SendChatMessage";
 
 
@@ -17,7 +17,8 @@ const ChatArea = () => {
 
 
   const dispatch = useDispatch()
-  // const {chatMessages } = useSelector(state => state.chatSlice)
+
+  // const {wsChannel} = useSelector(state => state.chatSlice)
   
   const [messages , setMessages] = useState([])
   
@@ -69,6 +70,33 @@ const ChatArea = () => {
     })}
 
   }, [wsChannel]); 
+
+
+
+
+  
+  
+  useEffect(() => {
+    if(wsChannel){
+
+      const uniqueIds = new Set();
+
+      const uniqueMessages = messages.filter(message => {
+        if (!uniqueIds.has(message.userId)) {
+          uniqueIds.add(message.userId);
+          return true;
+        }
+        return false;
+      });
+
+      console.log(uniqueMessages)
+
+      if(uniqueMessages){
+        dispatch(setActiveUsers(uniqueMessages))
+      }
+      
+    }
+  }, [wsChannel , dispatch , messages ]); 
 
 
 

@@ -1,5 +1,75 @@
+@import "../../styleVariables.scss";
+
 .chatUsers{
   border:5px solid orange;
-  height: 100%;
-  width: 400px;
+  width: 500px;
+  border-radius:$border-radius;
+  font-family: $font-family;
+  color: $font-color;
+  background-color: $component-bg-color;
+  height: 75px; 
+  transition: 0.5s ease-in-out;
+  overflow-y: hidden;
+
+  
+
+  .title{
+    border:3px solid green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // font-size: 30px;
+    cursor: pointer;
+
+    .titleWrapper{
+      display: flex;
+      align-items: center;
+      border:3px solid green;
+
+    }
+
+    &>h2{
+      margin-left: 10px;
+    }
+
+
+    .icon{
+      border:3px solid green;
+      margin-right: 20px;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.8s ease;
+    }
+  }
 }
+
+.users{
+  // display: none;
+  height: 50px;
+}
+
+
+.activeIcon{
+  transform: rotate(180deg);
+  transition: 0.8s ease;
+}
+
+
+.activeChatUsers{
+  transition: 0.5s ease-in-out;
+  height: 930px;
+}
+
+
+.activeUsers{
+  border:9px solid red;
+  overflow-y: auto;
+
+}
+
+
+
+
+
