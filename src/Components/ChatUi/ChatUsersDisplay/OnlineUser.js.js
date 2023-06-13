@@ -1,21 +1,30 @@
 import React from "react";
 import styles from "./onlineUser.module.scss"
+import { useDispatch } from "react-redux";
+import { setUserId } from "../../../Redux/Slices/authSlice";
+import { NavLink } from "react-router-dom";
 
 
-const OnlineUser = ({name , photo}) => {
+const OnlineUser = ({personId , name , photo}) => {
+
+  const dispatch = useDispatch()
+  const setId = () => dispatch(setUserId(personId))
 
 
 
   return (
-    <div className={styles.onlineUser}>
-      <div>
-        <img src={photo} />
+    < NavLink to={`/profile`}  >
+      <div className={styles.onlineUser} onClick={setId}>
+          <div className={styles.photo}>
+            <img src={photo} />
+          </div>
+        
+          <div className={styles.name}>
+            {name}
+          </div>
       </div>
-     
-      <div>
-        {name}
-      </div>
-    </div>
+    </NavLink>
+    
   );
 }
 

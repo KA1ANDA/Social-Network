@@ -10,12 +10,15 @@ const ChatUsers = () => {
   const {activeUsersInChat} = useSelector(state => state.chatSlice)
   const [activeUsers,setActiveUsers] = useState(false);
 
+
   return (
     <div className={`${activeUsers && styles.activeChatUsers} ${styles.chatUsers}`}  onClick={() => setActiveUsers(!activeUsers)}>
      <div className={styles.title}>
         <div className={styles.titleWrapper}>
           <h2>Active Users</h2>
-          <div>COUNT</div>
+          <div className={styles.count}>
+            {activeUsersInChat.length} online
+          </div>
         </div>
         <div className={`${activeUsers && styles.activeIcon} ${styles.icon}`}>
           <IoIosArrowDropdown/>
@@ -27,6 +30,7 @@ const ChatUsers = () => {
         {activeUsersInChat ?
          activeUsersInChat.map(user => <OnlineUser 
           key = {user.userId}
+          personId = {user.userId}
           name = {user.userName}
           photo = {user.photo} />):
           <div> no users </div>}
