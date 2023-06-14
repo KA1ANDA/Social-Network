@@ -1,4 +1,63 @@
+@import "../../styleVariables.scss";
+
 .profileContent{
-  border:2px solid orange;
-  height: fit-content;
+  border:5px solid orange;
+  height: 100%;
+  display: grid;
+  grid-template-areas: 
+  'mainInfo info info'
+  'mainInfo followedUsers followedUsers'
+  'mainInfo followedUsers followedUsers';
+  ;
+  gap: 100px;
+  margin: 0px 100px;
+  padding: 0px 100px;
+  grid-template-columns: 1fr 2fr;
+  font-family: $font-family;
+  color: $font-color;
+
+  
+
+  .mainInfo{
+    position: relative;
+    grid-area: mainInfo;
+    border:5px solid rgb(58, 108, 216);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $component-bg-color;
+    border-radius: 10px;
+
+
+    .statusArea{
+      margin-top:100px;
+      
+      .statusTitle{
+      border:5px solid blue;
+      font-size: 25px;
+      font-weight: bold;
+
+      }
+    }
+  }
+  
+
+  .info{
+    grid-area: info;
+    border:5px solid blue;
+  }
+  
+
+  .followedUsers{
+    grid-area: followedUsers;
+    border:5px solid blue;
+
+  }
+}
+
+
+.mainInfo::before{
+  height: 300px;
+  @include before-design();
+
 }

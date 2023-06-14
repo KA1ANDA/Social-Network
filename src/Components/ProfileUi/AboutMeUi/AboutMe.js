@@ -43,20 +43,6 @@ const AboutMe = () => {
       {data && 
       <div>
         <div>{data.aboutMe}</div>
-        {Object.values(socialMedia).every((value) => value === "") ? 
-          <div>
-            Choose where to contact 
-          </div>
-          :
-          <div>
-            <ul>
-              <li>facebook : {socialMedia.facebook}</li>
-              <li>twitter : {socialMedia.twitter}</li>
-              <li>instagram : {socialMedia.instagram}</li>
-              <li>youtube : {socialMedia.youtube}</li>
-              <li>github : {socialMedia.github}</li>
-            </ul>
-          </div> }
           <div>
             <div>Looking For A Job ?</div>
             {data.lookingForAJob ? <span>✔️</span> : <span>❌</span>}

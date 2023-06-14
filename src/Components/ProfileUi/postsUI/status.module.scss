@@ -1,5 +1,8 @@
 .status{
-  border:2px red solid;
-  width: 500px;
-  margin:auto;
+  border:5px red solid;
+  text-align: center;
+  width: 100%;
+  font-size: 35px;
+  overflow-y: auto;
+  max-height: 100px;
 }

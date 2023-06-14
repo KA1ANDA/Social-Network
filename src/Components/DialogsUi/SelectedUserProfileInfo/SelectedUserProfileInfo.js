@@ -8,6 +8,7 @@ import {AiFillTwitterCircle} from "react-icons/ai";
 import {AiOutlineInstagram} from "react-icons/ai";
 import {AiFillPlayCircle} from "react-icons/ai";
 import {AiFillGithub} from "react-icons/ai";
+import SocialMediaLinks from "../../CommonComponents/SocialMediaLinks";
 
 
 
@@ -42,19 +43,7 @@ const {data} = useGetProfileInfoQuery(clickedUserId)
           {data.lookingForAJobDescription ? <h4>{data.lookingForAJobDescription}</h4> : <h4>Description is Empty</h4>}
         </div>
         <div className={styles.socialNetworks}>
-          {Object.values(data.contacts).every((value) => value === "" || value === null) ?
-              <div>
-              No Social Media Linked
-              </div>
-              :
-            <ul>
-              {data.contacts.facebook &&  <li className={styles.fa}><a href={data.contacts.facebook} target="_blank"><FaFacebook/></a></li> }
-              {data.contacts.twitter &&  <li className={styles.tw}><a href={data.contacts.twitter} target="_blank"><AiFillTwitterCircle/></a></li> }
-              {data.contacts.instagram &&  <li className={styles.ins}><a href={data.contacts.instagram} target="_blank"><AiOutlineInstagram/></a></li>}
-              {data.contacts.youtube &&  <li className={styles.yo}><a href={data.contacts.youtube} target="_blank"><AiFillPlayCircle/></a></li> }
-              {data.contacts.github &&   <li className={styles.git}><a href={data.contacts.github} target="_blank"><AiFillGithub/></a></li> }
-            </ul>
-          }
+          <SocialMediaLinks contacts={data.contacts}/>
         </div>
        </div> 
       }   

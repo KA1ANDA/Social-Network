@@ -72,7 +72,7 @@
 
 .activeChatUsers{
   transition: 0.5s ease-in-out;
-  height: 930px;
+  height: 945px;
   
 }
 
@@ -81,6 +81,17 @@
   // border:9px solid red;
   background-color: transparent;
   overflow-y: auto;
+  height: 850px;
+  margin-top: 10px;
+
+  .empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border:9px solid red;
+    font-size: 30px;
+    
+  }
 
 }
 

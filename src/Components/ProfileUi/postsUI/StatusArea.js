@@ -7,11 +7,8 @@ import Status from "./Status"
 const StatusArea = () => {
 
   return (
-    <div>
-      <AddPost/>   
-      <div className={styles.statusArea}>
-        <Status />
-      </div>
+    <div className={styles.statusArea}>
+      <Status />
     </div>
   );
 }

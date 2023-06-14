@@ -11,7 +11,7 @@ const ChatMessage = ({photo , userName ,message}) => {
     <div className={styles.chatMessage}>
       <div className={styles.photoNameWrapper}>
         <div className={styles.photo}>
-          <img src={photo} />
+        <img src={photo} className={`${!photo && styles.default}`}/>
         </div>
         <div className={styles.name}>
           <h2>{userName}</h2>

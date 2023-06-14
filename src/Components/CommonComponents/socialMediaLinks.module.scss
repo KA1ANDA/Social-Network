@@ -1,0 +1,54 @@
+@import "../styleVariables.scss";
+
+.socialMediaLinks{
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul{
+    padding: 0px;
+    display: flex;
+  }
+
+
+  li{
+    // border:2px $active-color solid;
+    list-style: none;
+    font-size: 75px;
+    border-radius: 50%;
+    margin: 0px 5px ;
+  }
+
+  .fa{
+    color:$facebook;
+    
+  }
+
+  .tw{
+    color:$twitter;
+          
+  }
+
+  .ins{
+    background: $instagram; /* Replace with your desired gradient colors */
+    color: white;      
+  }
+
+  .yo{
+    color:$youtube;
+  }
+
+  .git{
+    // background-color: $github;
+    // color: white;
+  }
+  
+}

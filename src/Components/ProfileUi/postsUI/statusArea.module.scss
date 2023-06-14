@@ -1,3 +1,11 @@
+@import "../../styleVariables.scss";
 .statusArea{
-  border:2px yellow solid;
+  border:5px rgb(54, 106, 188) solid;
+  height: 100px;
+  background-color: lightblue ;
+  border-radius: $border-radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
 }

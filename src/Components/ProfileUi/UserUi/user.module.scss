@@ -1,13 +1,41 @@
+@import "../../styleVariables.scss";
+
 .user{
-  border:2px blue solid;
-  width: 500px;
-  margin:auto;
+  border:5px blue solid;
   display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+
+  .photo{
+    @include userPhoto();
+    border:1px blue solid;
+    z-index: 2;
+    box-shadow: inset 0px 0px 0px 20px #1960b7;
+    background-color: white;
+
+    &>img{
+      transform: scale(0.8);
+      border-radius: 50%; 
+
+    }
+  }
+
+  .name{
+    border:5px blue solid;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
 
   .avatarDefault{
-    width: 100px;
-    height:100px;
-    background-image: url(../../../../public/imgs/avatar.png);
-    background-size: cover;
+    // background-image: url(../../../../public/imgs/avatar.png);
+    // background-size: cover;
+    @include default-avatar();
+    width: 300px;
+    height:300px;
+    background-color: white;
+    transform: scale(0.8);
+    border-radius: 50%; 
+
   }
 }

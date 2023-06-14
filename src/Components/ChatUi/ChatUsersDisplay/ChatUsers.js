@@ -32,8 +32,9 @@ const ChatUsers = () => {
           key = {user.userId}
           personId = {user.userId}
           name = {user.userName}
-          photo = {user.photo} />):
-          <div> no users </div>}
+          photo = {user.photo} />)
+          :
+          <div className={styles.empty}> Empty... </div>}
       </div>    
        
     </div>
