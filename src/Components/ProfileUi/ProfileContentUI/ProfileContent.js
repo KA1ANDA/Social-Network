@@ -5,6 +5,7 @@ import AboutMe from "../AboutMeUi/AboutMe";
 import User from "../UserUi/User";
 import SocialMediaLinks from "../../CommonComponents/SocialMediaLinks";
 import { useSelector } from "react-redux";
+import MainInfo from "./MainInfo/MainInfo";
 
 const ProfileContent = () => {
 
@@ -12,18 +13,7 @@ const ProfileContent = () => {
 
   return (
     <div className={styles.profileContent}>
-      <div className={styles.mainInfo}>
-        <div>
-          <User />
-        </div>
-        <div className={styles.statusArea}>
-          <div className={styles.statusTitle}>My status :</div>
-          <StatusArea />
-        </div>
-        <div>
-          <SocialMediaLinks contacts={socialMedia}/>
-        </div>
-      </div>
+      <MainInfo />
 
       <div className={styles.info}>
         <AboutMe />

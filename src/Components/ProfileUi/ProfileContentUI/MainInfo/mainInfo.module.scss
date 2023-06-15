@@ -1,0 +1,48 @@
+@import "../../../styleVariables.scss";
+
+.mainInfo{
+  position: relative;
+  grid-area: mainInfo;
+  border:5px solid rgb(58, 108, 216);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $component-bg-color;
+  border-radius: 10px;
+  justify-content: space-between;
+
+
+  .statusArea{
+    // margin-top:100px;
+    
+    .statusTitle{
+    // border:5px solid blue;
+    font-size: 25px;
+    font-weight: bold;
+
+    }
+  }
+
+  .socialMediaWrapper{
+    background-color: $active-color;
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin: auto;
+    height: 150px;
+
+    .socialMediaLinks{
+      background-color: white;
+      border-radius: 50px;
+      padding: 0 40px;
+    }
+  }
+}
+
+
+.mainInfo::before{
+  height: 300px;
+  @include before-design();
+}

@@ -1,7 +1,6 @@
 @import "../../styleVariables.scss";
 
 .user{
-  border:5px blue solid;
   display: flex;
   flex-direction: column;
   margin-top: 100px;
@@ -21,10 +20,10 @@
   }
 
   .name{
-    border:5px blue solid;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-weight: bold;
+    margin-top: 20px;
   }
 
   .avatarDefault{
