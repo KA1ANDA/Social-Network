@@ -1,9 +1,13 @@
+@import "../styleVariables.scss";
+
 .chatContent{
   // border:5px solid yellow;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+    box-shadow: $box-shadow;
+
 
 
   .chatWrapper{
@@ -11,11 +15,15 @@
     display: flex;
     align-items: center;
     height: 100%;
+    
+    
 
 
     .chatArea{
       // border:5px solid black;
       height: 100%;
+      box-shadow: $box-shadow;
+
     }
   
   
@@ -23,6 +31,8 @@
       margin-left: 40px;
       // justify-self: end;
       align-self: flex-start;
+      box-shadow: $box-shadow;
+
     }
 
   }

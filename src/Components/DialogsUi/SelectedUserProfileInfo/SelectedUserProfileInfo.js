@@ -40,6 +40,9 @@ const {data} = useGetProfileInfoQuery(clickedUserId)
           </div>
         </div>   
         <div className={styles.jobDescription}>
+          <div className={styles.jobDescTitle}>
+            Skills :
+          </div>
           {data.lookingForAJobDescription ? <h4>{data.lookingForAJobDescription}</h4> : <h4>Description is Empty</h4>}
         </div>
         <div className={styles.socialNetworks}>

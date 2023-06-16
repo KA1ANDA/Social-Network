@@ -60,3 +60,13 @@ $github:#161b22;
   font-size: 20px;
 }
 
+
+@mixin searchingForJob ($color) {
+  border: 5px solid $color;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 40px;
+  color: white;
+  font-weight: bold;
+  background-color: $color;
+}

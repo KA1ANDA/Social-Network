@@ -10,14 +10,18 @@
   font-family: $font-family;
   border-radius: $border-radius;
   width: 85%;
+  box-shadow: $box-shadow;
+
 
 
   .wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
+    // border:10px #A5CEFF solid;
+    
 
 
     
@@ -25,17 +29,25 @@
     .photo{
       border:10px #A5CEFF solid;
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: white;
 
-      &>img{
-        width: 200px;
-        height: 200px;
-      }
+
+      border:1px blue solid;
+      z-index: 2;
+      box-shadow: inset 0px 0px 0px 20px #1960b7;
+      background-color: white;
+
+    &>img{
+      transform: scale(0.8);
+      border-radius: 50%; 
+
+    }
     }
   
     .name{
@@ -59,20 +71,46 @@
     }
   
     .jobDescription{
-      border:3px $active-color solid;
-      width: 300px;
-      height: 100px;
+      // border:3px $active-color solid;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      word-wrap: break-word;
-      margin-top: 50px;
-      border-radius: $border-radius;
+      flex-direction: column;
+      // margin-top: 50px;
+
+  
+
+      &>h4{
+        border:3px $active-color solid;
+        word-wrap: break-word;
+        width: 300px;
+        height: 100px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        border-radius: $border-radius;
+        overflow: auto;
+
+
+      }
+
+      .jobDescTitle{
+      // border:3px red solid;
+      font-size: 25px;
+      font-weight: bold;
+      }
       
     }
   
     .default{
       @include default-avatar();
+      width: 300px;
+      height: 300px;
+    }
+
+    .socialNetworks{
+      // border:10px blue solid;
+
     }
   }
 

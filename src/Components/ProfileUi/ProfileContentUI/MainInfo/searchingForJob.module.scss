@@ -1,0 +1,12 @@
+@import "../../../styleVariables.scss";
+
+  .employed{
+    @include searchingForJob(green);
+  }
+
+
+  .unemployed{
+    @include searchingForJob(rgb(175, 27, 27));
+
+  }
+

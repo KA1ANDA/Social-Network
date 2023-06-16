@@ -17,9 +17,14 @@ const ProfileSlice = createSlice({
       github: "",
     },
     editProfile:false,
+    editStatus:false,
   },
   reducers:{
 
+    setEditStatus(state , action){
+      state.editStatus = action.payload
+    },
+  
     addProfilePhoto(state , action){
       state.profilePhoto = action.payload
     },
@@ -50,5 +55,5 @@ const ProfileSlice = createSlice({
   }
 })
 
-export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile , addProfilePhoto} = ProfileSlice.actions
+export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditProfile , addProfilePhoto ,setEditStatus} = ProfileSlice.actions
 export default ProfileSlice.reducer

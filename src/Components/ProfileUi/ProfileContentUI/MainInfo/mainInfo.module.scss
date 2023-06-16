@@ -19,6 +19,13 @@
     // border:5px solid blue;
     font-size: 25px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+      .edit{
+        cursor: pointer;
+        font-size: 30px;
+      }
 
     }
   }

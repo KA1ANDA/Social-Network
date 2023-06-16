@@ -14,6 +14,8 @@ const AboutMe = () => {
   const {myId , userId} = useSelector(state => state.authSlice)
 
 
+
+
   const dispatch = useDispatch()
   const setEditProfile = () => dispatch(toggleEditProfile())
 
@@ -43,10 +45,6 @@ const AboutMe = () => {
       {data && 
       <div>
         <div>{data.aboutMe}</div>
-          <div>
-            <div>Looking For A Job ?</div>
-            {data.lookingForAJob ? <span>✔️</span> : <span>❌</span>}
-          </div>
         <div>{data.lookingForAJobDescription}</div>
       </div>
       }
