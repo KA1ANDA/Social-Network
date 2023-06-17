@@ -16,7 +16,7 @@ const MainInfo = () => {
 
   const {socialMedia , editStatus} = useSelector(state => state.profileSlice)
 
-  const changeStatus = () => dispatch(setEditStatus(true))
+  const changeStatus = () => dispatch(setEditStatus(!editStatus))
 
   return (
     <div className={styles.mainInfo}>
@@ -35,8 +35,14 @@ const MainInfo = () => {
               <TiEdit />
             </div>
           </div>
-            <div>
-              <StatusArea />
+            <div className={styles.statusWrapper}>
+              <div>
+                <StatusArea />
+              </div>
+              <div>
+                <AddStatus />
+              </div>
+             
             </div>
         </div>
         <div className={styles.socialMediaWrapper}> 

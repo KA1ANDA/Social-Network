@@ -1,8 +1,35 @@
 .addStatus{
-  border: 4px red solid;
+  // border: 6px green solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  bottom:60px;
+  z-index: -2;
+  transition: 0.5s ease;
+  margin-top: 15px;
+  opacity: 0%;
 
-  &>input{
-    margin:auto;
-    background-color: red;
+
+
+  .changeStatus{
+    // border: 6px orange solid;
+    width: 80%;
+    
+    input{
+      width: 100%;
+      height: 40px;
+      border-radius: 20px;
+      border:3px rgb(54, 106, 188) solid;
+
+    }
   }
+}
+
+.editMode{
+  transition: 0.5s ease-in-out;
+  bottom: 0;
+  z-index: 1;
+  opacity: 100%;
+
 }
