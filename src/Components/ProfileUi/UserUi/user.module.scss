@@ -4,8 +4,43 @@
   display: flex;
   flex-direction: column;
   margin-top: 100px;
+  // border:1px blue solid;
+  position: relative;
 
 
+  .editPhoto{
+    font-size: 25px;
+    align-self: end;
+    border:2px blue solid;
+    border-radius: 50%;
+    background-color: #1960b7;
+    position: absolute;
+    top:255px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.4s ease;
+
+    &:hover{
+    background-color: white;
+    color:#1960b7;
+
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom{
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+
+  }
   
 
   .photo{
@@ -26,7 +61,7 @@
     font-size: 40px;
     text-align: center;
     font-weight: bold;
-    margin-top: 20px;
+    // margin-top: 20px;
     width: 300px;
     word-wrap: break-word;
   }
@@ -43,3 +78,6 @@
 
   }
 }
+
+
+

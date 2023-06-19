@@ -4,6 +4,8 @@ import { useAddStatusMutation } from "../../../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setEditStatus } from "../../../../Redux/Slices/profileSlice";
 
+import {AiOutlineArrowUp} from "react-icons/ai"
+
 
 
 const AddStatus = () => {
@@ -40,7 +42,7 @@ const AddStatus = () => {
         <input placeholder="What's on your mind?" onChange={changeValue} value={postValue}></input>
       </div>
       <div>
-        <button onClick={handleAddStatus}>add post</button>
+        <button onClick={handleAddStatus}><AiOutlineArrowUp /></button>
       </div>
     </div>
   );

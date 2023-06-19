@@ -70,3 +70,42 @@ $github:#161b22;
   font-weight: bold;
   background-color: $color;
 }
+
+
+@mixin aboutMeInfoCards(){
+  // border:5px solid orange;
+  width: 47%;
+  border-radius: 20px;
+  background-color: $active-color;
+  color: white;
+  display: grid;
+  grid-template-rows: 0fr 1fr;
+
+  &>h1{
+    // border:5px solid orange;
+    padding: 0 30px;
+    border-bottom: 2px solid lightblue;
+    // border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+
+    &>span{
+      cursor: pointer;
+    }
+
+  }
+
+  &>div{
+    // border:5px solid orange;
+    font-size: 40px;
+    overflow: auto;
+    background-color: $component-bg-color;
+    color: $font-color;
+    transform: scale(0.95);
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
+  
+
+  }
+}

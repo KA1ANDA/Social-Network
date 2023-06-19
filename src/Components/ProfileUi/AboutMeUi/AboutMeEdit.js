@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import styles from "./aboutMe.module.scss"
 import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
-import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs ,toggleEditProfile} from "../../../Redux/Slices/profileSlice";
+import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs } from "../../../Redux/Slices/profileSlice";
 
 
 
 
 const AboutMeEdit = () => {
 
-  const {aboutMeValue,jobDscValue,nameValue,searchForJob,socialMedia , editProfile} = useSelector(state => state.profileSlice)
+  const {aboutMeValue,jobDscValue,nameValue,searchForJob,socialMedia } = useSelector(state => state.profileSlice)
   const {myId} = useSelector(state => state.authSlice)
   const dispatch = useDispatch()
 
@@ -17,17 +17,14 @@ const AboutMeEdit = () => {
   const setAddAboutMeValue = (event) => dispatch(addAboutMeValue(event.target.value))
   const setAddJobDscValue = (event) => dispatch(addJobDscValue(event.target.value))
   const setToggleSearchForJobs = () =>  dispatch(toggleSearchForJobs(!searchForJob))
-  const setEditProfile = () => dispatch(toggleEditProfile())
+  // const setEditProfile = () => dispatch(toggleEditProfile())
 
   
 
   const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
   const [setProfileInfo] = useAddProfileInfoMutation()
-  const [setProfilePhoto] = useAddProfilePhotoMutation()
   
 
-
-  const [selectedFile, setSelectedFile] = useState(null);
 
 
 
@@ -59,10 +56,7 @@ const AboutMeEdit = () => {
 
 
 
-  const handleFileInputChange  = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file);
-  };
+
 
  
 
@@ -73,22 +67,7 @@ const AboutMeEdit = () => {
 
   const handleSaveChanges = () =>{
     setProfileInfo(params)
-    setEditProfile()
-
-    if (!selectedFile) {
-      console.log('No file selected.');
-      return;
-    }
-
-    setProfilePhoto(selectedFile)
-      .then((response) => {
-        
-        console.log(response);
-      })
-      .catch((error) => {
-        
-        console.error(error);
-      });
+    // setEditProfile()
   }
 
 
@@ -104,7 +83,7 @@ const AboutMeEdit = () => {
   return (
     <div className={styles.aboutMe}>
 
-      {editProfile && 
+      
         <div>
           <form>
             <div>
@@ -113,9 +92,6 @@ const AboutMeEdit = () => {
             </div>
             <div>
               <textarea onChange={setAddAboutMeValue} value={aboutMeValue} ></textarea>
-            </div>
-            <div>
-              <input type="file" id="photo" accept="image/jpeg, image/png" onChange={handleFileInputChange } />
             </div>
             <div>
               <label htmlFor="facebook">facebook:</label>
@@ -150,7 +126,7 @@ const AboutMeEdit = () => {
             <button onClick={handleSaveChanges}>SAVE</button>
           </div>
         </div>
-      }      
+           
     </div>
   );
 }
