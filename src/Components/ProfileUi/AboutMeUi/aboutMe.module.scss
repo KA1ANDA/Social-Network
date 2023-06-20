@@ -8,17 +8,10 @@
 
   .bio{
     @include aboutMeInfoCards();
-
+ 
   }
-
   
-  .editModeBio{
-    
-    &>div{
-      opacity: 0%;
-      transition: 2s ease;
-    }
-  }
+  
 
 
   .skills{

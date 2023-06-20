@@ -46,15 +46,15 @@ const AboutMe = () => {
     <div className={styles.aboutMe}>
       {data && 
       <>
-        <div className={`${styles.bio}  ${editBio && styles.editModeBio}`}>
-          <h1>{editBio ? 'Write about your self' : 'About Me'} <span onClick={setEditBio}> <AiFillEdit /> </span> </h1>
-          {editBio ? <BioEdit /> : <div>{data.aboutMe}</div>} 
+        <div className={` ${styles.bio} ${editBio && styles.editModeBio}`}>
+          <h1 className={styles.title}>{editBio ? 'Write about your self' : 'About Me'} <span onClick={setEditBio}> <AiFillEdit /> </span> </h1>
+          {editBio ?  <BioEdit />  : <div  className={styles.textWrapper} >{data.aboutMe}</div>} 
         </div>
 
 
         <div className={styles.skills}>
           <h1>Skills<span> <AiFillEdit /> </span> </h1> 
-          <div>{data.lookingForAJobDescription}</div>
+          <div  className={styles.textWrapper} >{data.lookingForAJobDescription}</div>
         </div>
 
       </>

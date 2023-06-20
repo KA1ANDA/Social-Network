@@ -22,11 +22,12 @@ const BioEdit = () => {
 
   return (
     <div className={styles.bioEdit}>
-      {editBio &&
-        <div>
-          <input onChange={setAddAboutMeValue} value={aboutMeValue} ></input>
-        </div>  
-      }
+      <textarea onChange={setAddAboutMeValue} value={aboutMeValue} ></textarea>
+      <div className={styles.buttonEdit}>
+        <div className={styles.edit}>
+          Edit
+        </div>
+      </div>
     </div>
   );
 }

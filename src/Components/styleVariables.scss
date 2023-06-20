@@ -81,7 +81,9 @@ $github:#161b22;
   display: grid;
   grid-template-rows: 0fr 1fr;
 
+
   &>h1{
+  
     // border:5px solid orange;
     padding: 0 30px;
     border-bottom: 2px solid lightblue;
@@ -95,7 +97,7 @@ $github:#161b22;
 
   }
 
-  &>div{
+  .textWrapper{
     // border:5px solid orange;
     font-size: 40px;
     overflow: auto;

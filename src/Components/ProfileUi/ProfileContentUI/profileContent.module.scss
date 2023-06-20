@@ -3,18 +3,20 @@
 .profileContent{
   border:5px solid orange;
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-areas: 
   'mainInfo info info'
   'mainInfo followedUsers followedUsers'
   'mainInfo followedUsers followedUsers';
   ;
-  gap: 100px;
-  margin: 0px 100px;
-  padding: 0px 100px;
+  gap: 70px;
+  // margin: 0px 100px;
+  // padding: 0px 100px;
   grid-template-columns: 1fr 2fr;
   font-family: $font-family;
   color: $font-color;
+  grid-template-rows: 1fr 1fr;
 
   
   
