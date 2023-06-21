@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styles from "./aboutMe.module.scss"
+import styles from "./aboutMeEdit.module.scss"
 import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
 import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs } from "../../../Redux/Slices/profileSlice";
+
+
+import {AiFillFacebook} from "react-icons/ai";
+import {AiFillInstagram} from "react-icons/ai";
+import {AiFillTwitterSquare} from "react-icons/ai";
+import {AiFillYoutube} from "react-icons/ai";
+import {AiFillGithub} from "react-icons/ai";
+
+
 
 
 
@@ -81,44 +90,68 @@ const AboutMeEdit = () => {
 
 
   return (
-    <div className={styles.aboutMe}>
+    <div className={styles.aboutMeEdit}>
 
       
         <div>
           <form>
-            <div>
-              <label htmlFor="name">change name:</label>
-              <input id="name" onChange={setAddNameValue} value={nameValue}></input>
+
+            <div className={styles.firstLineWrapper}>
+              <div className={styles.name}>
+                <div className={styles.title}>Name</div>
+                <input id="name" onChange={setAddNameValue} value={nameValue}></input>
+              </div>
+              <div className={styles.jobSearch}>
+                <input type="checkbox" id="lookingForAJob" onChange={setToggleSearchForJobs} checked={searchForJob}></input>
+                <label htmlFor="lookingForAJob">looking for a job ?</label>
+              </div>
             </div>
-            <div>
-              <textarea onChange={setAddAboutMeValue} value={aboutMeValue} ></textarea>
-            </div>
-            <div>
-              <label htmlFor="facebook">facebook:</label>
-              <input id="facebook" onChange={handleSocialMediaValue} value={socialMedia.facebook}></input>
-            </div>
-            <div>
-              <label htmlFor="twitter">twitter:</label>
-              <input id="twitter"  onChange={handleSocialMediaValue} value={socialMedia.twitter}></input>
-            </div>
-            <div>
-              <label htmlFor="instagram">instagram:</label>
-              <input id="instagram"  onChange={handleSocialMediaValue} value={socialMedia.instagram}></input>
-            </div>
-            <div>
-              <label htmlFor="youtube">youtube:</label>
-              <input id="youtube"  onChange={handleSocialMediaValue} value={socialMedia.youtube}></input>
-            </div>
-            <div>
-              <label htmlFor="github">github:</label>
-              <input id="github" onChange={handleSocialMediaValue} value={socialMedia.github}></input>
-            </div>
-            <div>
-              <input type="checkbox" id="lookingForAJob" onChange={setToggleSearchForJobs} checked={searchForJob}></input>
-              <label htmlFor="lookingForAJob">looking for a job ?</label>
-            </div>
-            <div>
-              <textarea onChange={setAddJobDscValue} value={jobDscValue}  ></textarea>
+
+           <div className={styles.info}>
+            <div className={styles.bio}>
+                <div className={styles.title}>Write about your self</div>
+                <div className={styles.textareaWrapper}>
+                  <textarea onChange={setAddAboutMeValue} value={aboutMeValue} ></textarea>
+                </div>
+              
+              </div>
+
+              <div className={styles.skills}>
+                <div className={styles.title}>Write about Your Skills / Experience</div>
+                <div className={styles.textareaWrapper}>
+                  <textarea onChange={setAddJobDscValue} value={jobDscValue}  ></textarea>
+                </div>
+                
+              </div>
+           </div>
+            
+
+
+            <div className={styles.socialMedia}>
+              <div className={styles.title}>Social Media</div>
+              <div className={styles.socialMediaWrapper}>
+                <div>
+                  <label htmlFor="facebook"><AiFillFacebook/></label>
+                  <input id="facebook" onChange={handleSocialMediaValue} value={socialMedia.facebook}></input>
+                </div>
+                <div>
+                  <label htmlFor="twitter"> <AiFillTwitterSquare /></label>
+                  <input id="twitter"  onChange={handleSocialMediaValue} value={socialMedia.twitter}></input>
+                </div>
+                <div>
+                  <label htmlFor="instagram"><AiFillInstagram /></label>
+                  <input id="instagram"  onChange={handleSocialMediaValue} value={socialMedia.instagram}></input>
+                </div>
+                <div>
+                  <label htmlFor="youtube"><AiFillYoutube/></label>
+                  <input id="youtube"  onChange={handleSocialMediaValue} value={socialMedia.youtube}></input>
+                </div>
+                <div>
+                  <label htmlFor="github"><AiFillGithub/></label>
+                  <input id="github" onChange={handleSocialMediaValue} value={socialMedia.github}></input>
+                </div>
+              </div>
+              
             </div>
 
           </form>

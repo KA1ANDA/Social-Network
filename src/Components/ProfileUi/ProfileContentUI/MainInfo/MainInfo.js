@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./mainInfo.module.scss"
-
 import { useDispatch, useSelector } from "react-redux";
 import User from "../../UserUi/User";
 import StatusArea from "../../postsUI/StatusArea";
@@ -8,18 +7,23 @@ import SocialMediaLinks from "../../../CommonComponents/SocialMediaLinks";
 import SearchingForJob from "./SearchingForJob";
 import {TiEdit} from "react-icons/ti"
 import AddStatus from "../../postsUI/AddStatus/AddStatus";
-import { setEditStatus } from "../../../../Redux/Slices/profileSlice";
+import { setEditStatus, toggleEditMode } from "../../../../Redux/Slices/profileSlice";
 
 const MainInfo = () => {
 
   const dispatch = useDispatch()
-
+ 
   const {socialMedia , editStatus} = useSelector(state => state.profileSlice)
 
   const changeStatus = () => dispatch(setEditStatus(!editStatus))
+  const editMode = () => dispatch(toggleEditMode())
+
 
   return (
     <div className={styles.mainInfo}>
+        <div className={styles.editMode} onClick={editMode}>
+          Edit Profile
+        </div>
         <div>
           <User />
         </div>

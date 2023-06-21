@@ -1,0 +1,130 @@
+@import "../../styleVariables.scss";
+
+.aboutMeEdit{
+  margin: 10px;
+  // border: 5px solid red;
+  padding: 20px;
+  font-family: $font-family;
+  color:$font-color;
+
+  .title{
+    font-size: 30px;
+    color: white;
+    background-color: $active-color;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+
+  .firstLineWrapper{
+    // border: 5px solid green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .name{
+      // border: 5px solid green;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+
+      input{
+        height: 40px;
+        margin:10px;
+        border-radius: 5px;
+        border: 2px solid $active-color;
+
+        
+      }
+    }
+
+    .jobSearch{
+      // border: 5px solid green;
+      display: flex;
+      align-items: center;
+
+    }
+
+  }
+
+
+  .info{
+    // border: 5px solid rgb(255, 0, 191);
+
+    .bio{
+    // border: 5px solid rgb(0, 255, 247);
+    }
+
+
+    .textareaWrapper{
+      // border: 5px solid rgb(255, 0, 13);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      textarea{
+        resize: none;
+        height: 100px;
+        border-radius: 5px;
+        // margin:10px;
+        width: 100%;
+        border: 2px solid $active-color;
+  
+      }
+    }
+
+    
+  }
+
+
+  .socialMedia{
+    // border: 5px solid orange;
+
+
+    .socialMediaWrapper{
+    //  border: 5px solid purple;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap:30px;
+     padding: 20px;
+
+     &>div{
+      border: 5px solid $active-color;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      
+      
+     }
+
+     label{
+      // border: 5px solid purple;
+      color:$active-color;
+      font-size: 50px;
+      
+     }
+
+     input{
+      // border: 5px solid red;
+      border: none;
+      border-bottom: 1px solid black;
+      transition: 1s ease;
+      margin-left: 10px;
+
+      &:focus{
+        transition: 1s ease;        
+        transform: scale(1.1);
+        outline: none;
+      }
+     }
+
+  
+      
+    }
+  }
+}

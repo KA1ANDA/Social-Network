@@ -16,7 +16,7 @@ const ProfileSlice = createSlice({
       youtube: "",
       github: "",
     },
-    editBio:false,
+    editMode:false,
     editStatus:false,
   },
   reducers:{
@@ -47,13 +47,13 @@ const ProfileSlice = createSlice({
       // state.socialMedia[id] = value;
       state.socialMedia = { ...state.socialMedia, ...action.payload };
     },
-    toggleEditBio(state){
-      state.editBio = !state.editBio
+    toggleEditMode(state){
+      state.editMode = !state.editMode
     }
 
 
   }
 })
 
-export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditBio , addProfilePhoto ,setEditStatus} = ProfileSlice.actions
+export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditMode , addProfilePhoto ,setEditStatus} = ProfileSlice.actions
 export default ProfileSlice.reducer

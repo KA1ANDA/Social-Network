@@ -4,12 +4,14 @@ import StatusArea from "../postsUI/StatusArea";
 import AboutMe from "../AboutMeUi/AboutMe";
 import User from "../UserUi/User";
 import SocialMediaLinks from "../../CommonComponents/SocialMediaLinks";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MainInfo from "./MainInfo/MainInfo";
+import { toggleEditMode } from "../../../Redux/Slices/profileSlice";
 
 const ProfileContent = () => {
+  
 
-  const {socialMedia} = useSelector(state => state.profileSlice)
+  const {socialMedia ,editMode} = useSelector(state => state.profileSlice)
 
   return (
     <div className={styles.profileContent}>
@@ -22,7 +24,8 @@ const ProfileContent = () => {
       <div className={styles.followedUsers}>
         followedUsers
       </div>
-      
+
+
     </div>
   );
 }
