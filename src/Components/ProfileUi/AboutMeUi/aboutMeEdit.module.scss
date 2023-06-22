@@ -3,9 +3,39 @@
 .aboutMeEdit{
   margin: 10px;
   // border: 5px solid red;
-  padding: 20px;
+  padding: 15px;
   font-family: $font-family;
   color:$font-color;
+  padding: 20px;
+
+  .close{
+    // border: 5px solid green;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color:white;
+
+    &>div{
+      border-radius: 50%;
+      background-color: $active-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      transition: 0.2s ease;
+      border: $active-color 1px solid;
+
+
+      &:hover{
+        transition: 0.2s ease;
+        background-color: white;
+        color:$active-color;
+        border: $active-color 1px solid;
+      }
+    }
+  }
 
   .title{
     font-size: 30px;
@@ -33,18 +63,61 @@
 
       input{
         height: 40px;
-        margin:10px;
+        margin: 10px 0px;
         border-radius: 5px;
         border: 2px solid $active-color;
+        padding: 0 10px;
 
         
       }
     }
 
     .jobSearch{
-      // border: 5px solid green;
       display: flex;
       align-items: center;
+      // padding: 0 10px;
+      flex-direction: column;
+
+      
+
+      .yes{
+        border: 3px solid #7FC6A6;
+        background: #7FC6A6;
+        @include jobSearchToggle();
+
+        &::after{
+          content: 'Yeah!';
+          position: absolute;
+          transform: rotateY(-180deg);
+        }
+      }
+
+      .yesEdit{
+        transition:1s ease;
+        transform: rotateY(180deg);
+      }
+
+      .no{
+        border: 3px solid #b02c15;
+        background: #b02c15;
+        @include jobSearchToggle();
+
+
+        &::after{
+          content: 'Nope';
+          position: absolute;
+          // transform: rotateY(180deg);
+
+          
+        }
+      }
+
+      .noEdit{
+        transition:1s ease;
+        // transform: rotateY(-180deg);
+      }
+
+     
 
     }
 
@@ -61,7 +134,7 @@
 
     .textareaWrapper{
       // border: 5px solid rgb(255, 0, 13);
-      padding: 10px;
+      padding: 10px 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -73,6 +146,9 @@
         // margin:10px;
         width: 100%;
         border: 2px solid $active-color;
+        padding: 0 10px;
+        font-size: 20px;
+        font-family: $font-family;
   
       }
     }
@@ -89,17 +165,16 @@
     //  border: 5px solid purple;
      display: grid;
      grid-template-columns: 1fr 1fr;
-     gap:30px;
+     gap:20px;
      padding: 20px;
 
      &>div{
       border: 5px solid $active-color;
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 15px;
       border-radius: 10px;
-      
-      
+
      }
 
      label{
@@ -116,10 +191,14 @@
       transition: 1s ease;
       margin-left: 10px;
 
+
       &:focus{
-        transition: 1s ease;        
+        transition: 0.5s ease;        
         transform: scale(1.1);
         outline: none;
+        border-bottom: 3px solid $active-color;
+
+
       }
      }
 
@@ -127,4 +206,37 @@
       
     }
   }
+
+
+  .buttonWrapper{
+    // border:2px solid red;
+    display: flex;
+    justify-content: end;
+    padding: 0 20px;
+
+    button{
+      padding: 12.5px 30px;
+      border: 0;
+      border-radius: 100px;
+      background-color: $active-color;
+      color: #ffffff;
+      font-weight: Bold;
+      transition: all 0.5s;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #6fc5ff;
+        box-shadow: 0 0 20px #6fc5ff50;
+        transform: scale(1.1);
+      }
+      
+      &:active {
+        background-color: #3d94cf;
+        transition: all 0.25s;
+        box-shadow: none;
+        transform: scale(0.98);
+      }
+    }
+  }
+  
 }

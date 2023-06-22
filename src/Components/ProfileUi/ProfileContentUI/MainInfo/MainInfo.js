@@ -9,6 +9,8 @@ import {TiEdit} from "react-icons/ti"
 import AddStatus from "../../postsUI/AddStatus/AddStatus";
 import { setEditStatus, toggleEditMode } from "../../../../Redux/Slices/profileSlice";
 
+import {AiFillEdit} from "react-icons/ai"
+
 const MainInfo = () => {
 
   const dispatch = useDispatch()
@@ -22,7 +24,7 @@ const MainInfo = () => {
   return (
     <div className={styles.mainInfo}>
         <div className={styles.editMode} onClick={editMode}>
-          Edit Profile
+          Edit Profile <AiFillEdit/>
         </div>
         <div>
           <User />

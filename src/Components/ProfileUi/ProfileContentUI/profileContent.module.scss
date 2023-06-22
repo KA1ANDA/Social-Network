@@ -3,7 +3,7 @@
 .profileContent{
   border:5px solid orange;
   height: 100%;
-  width: 100%;
+  // width: 100%;
   display: grid;
   grid-template-areas: 
   'mainInfo info info'
@@ -17,6 +17,8 @@
   font-family: $font-family;
   color: $font-color;
   grid-template-rows: 1fr 1fr;
+  padding: 0 50px;
+
 
   
   

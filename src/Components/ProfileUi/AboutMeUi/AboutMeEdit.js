@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./aboutMeEdit.module.scss"
 import { useAddProfileInfoMutation, useAddProfilePhotoMutation, useGetProfileInfoQuery } from "../../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
-import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleSearchForJobs } from "../../../Redux/Slices/profileSlice";
+import { addAboutMeValue, addJobDscValue, addNameValue, setSocialMediaValue, toggleEditMode, toggleSearchForJobs } from "../../../Redux/Slices/profileSlice";
 
 
 import {AiFillFacebook} from "react-icons/ai";
@@ -10,6 +10,10 @@ import {AiFillInstagram} from "react-icons/ai";
 import {AiFillTwitterSquare} from "react-icons/ai";
 import {AiFillYoutube} from "react-icons/ai";
 import {AiFillGithub} from "react-icons/ai";
+
+import {AiOutlineClose} from "react-icons/ai";
+
+
 
 
 
@@ -32,6 +36,9 @@ const AboutMeEdit = () => {
 
   const {data, isLoading, isError} = useGetProfileInfoQuery(myId)
   const [setProfileInfo] = useAddProfileInfoMutation()
+
+  const editMode = () => dispatch(toggleEditMode())
+
   
 
 
@@ -76,6 +83,8 @@ const AboutMeEdit = () => {
 
   const handleSaveChanges = () =>{
     setProfileInfo(params)
+    dispatch(toggleEditMode())
+    
     // setEditProfile()
   }
 
@@ -94,6 +103,12 @@ const AboutMeEdit = () => {
 
       
         <div>
+          <div className={styles.close} onClick={editMode}>
+            <div>
+              <AiOutlineClose/>
+            </div>
+           
+          </div>
           <form>
 
             <div className={styles.firstLineWrapper}>
@@ -102,8 +117,9 @@ const AboutMeEdit = () => {
                 <input id="name" onChange={setAddNameValue} value={nameValue}></input>
               </div>
               <div className={styles.jobSearch}>
-                <input type="checkbox" id="lookingForAJob" onChange={setToggleSearchForJobs} checked={searchForJob}></input>
-                <label htmlFor="lookingForAJob">looking for a job ?</label>
+                {/* <input type="checkbox" id="lookingForAJob" onChange={setToggleSearchForJobs} checked={searchForJob}></input> */}
+                <div className={styles.title}>Looking for a job ?</div>
+                {searchForJob ? <div className={`${styles.no} ${styles.noEdit}`} onClick={setToggleSearchForJobs}></div> : <div className={`${styles.yes} ${styles.yesEdit}`} onClick={setToggleSearchForJobs}></div> }             
               </div>
             </div>
 
@@ -155,7 +171,7 @@ const AboutMeEdit = () => {
             </div>
 
           </form>
-          <div>
+          <div className={styles.buttonWrapper}>
             <button onClick={handleSaveChanges}>SAVE</button>
           </div>
         </div>

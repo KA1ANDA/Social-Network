@@ -107,3 +107,20 @@ $github:#161b22;
 
   }
 }
+
+
+
+@mixin jobSearchToggle(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:1s ease;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 10px 0px;
+  height: 40px;
+  width: 100%;
+  color: white;
+}
