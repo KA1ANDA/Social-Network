@@ -1,0 +1,16 @@
+.subscribers{
+  border:5px solid red ;
+  
+
+  .title{
+    border:5px solid orange ;
+  }
+
+  .usersWrapper{
+    border:5px solid green ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:40px;
+    padding: 20px;
+  }
+}

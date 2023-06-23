@@ -14,6 +14,12 @@ const usersApi = api.injectEndpoints({
       providesTags: () => [{type: "users", id: "LIST"}],
     }), 
 
+
+    getFollowedUsers:build.query({
+      query:(allUsers) => `/users?count=100`,  
+      providesTags: () => ['users'],
+    }), 
+
     getFollowStatus:build.query({
       query:(userId) => `/follow/${userId}`,  
       providesTags: () => ['users'],
@@ -25,7 +31,8 @@ const usersApi = api.injectEndpoints({
           url: `/follow/${userId}`,
           method: 'POST',
         };
-      }
+      },
+      invalidatesTags: ['users'],
     }), 
 
     unFollowUser:build.mutation({
@@ -34,11 +41,12 @@ const usersApi = api.injectEndpoints({
           url: `/follow/${userId}`,
           method: 'DELETE',
         };
-      }
+      },
+      invalidatesTags: ['users'],
     }), 
 
   }),
   overrideExisting: false,
 })
 
-export const {useGetUsersQuery , useGetFollowStatusQuery , useFollowUserMutation , useUnFollowUserMutation} = usersApi
+export const {useGetUsersQuery , useGetFollowStatusQuery , useFollowUserMutation , useUnFollowUserMutation ,useGetFollowedUsersQuery} = usersApi

@@ -5,9 +5,10 @@
   font-family: $font-family;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  // align-items: center;
   padding: 20px 0px;
+  // border:2px solid green ;
   cursor: pointer;
 
 
@@ -15,9 +16,12 @@
   .wraper{
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    width: 400px;
+    // justify-content: start;
+    padding-left:50px;
+    // width: 400px;
     cursor: pointer;
+    // border:2px solid green ;
+
 
     .lastActivity{
       font-size: 17px;

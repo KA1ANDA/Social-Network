@@ -7,6 +7,7 @@ import SocialMediaLinks from "../../CommonComponents/SocialMediaLinks";
 import { useDispatch, useSelector } from "react-redux";
 import MainInfo from "./MainInfo/MainInfo";
 import { toggleEditMode } from "../../../Redux/Slices/profileSlice";
+import Subscribers from "./Subscribers/Subscribers";
 
 const ProfileContent = () => {
   
@@ -22,7 +23,7 @@ const ProfileContent = () => {
       </div>
 
       <div className={styles.followedUsers}>
-        followedUsers
+        <Subscribers />
       </div>
 
 

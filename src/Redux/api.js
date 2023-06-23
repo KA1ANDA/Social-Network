@@ -8,7 +8,7 @@ const API_KEY ="12e4a4c0-c96d-415d-a450-5f77e51b0610";
 
 export const api = createApi({
   reducerPath:"api",
-  tagTypes:["userInfo","login","status","profileInfo","profilePhoto","users","dialogs","messages","chat"],
+  tagTypes:["userInfo","login","status","profileInfo","profilePhoto","users","dialogs","messages","chat","followedUsers"],
   baseQuery:fetchBaseQuery({
     baseUrl:BASE_URL,
     headers: {
