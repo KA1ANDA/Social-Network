@@ -1,16 +1,36 @@
+@import "../../../styleVariables.scss";
 .subscribers{
-  border:5px solid red ;
+  // border:5px solid red ;
+  position: relative;
+
   
 
   .title{
-    border:5px solid orange ;
+    // border:5px solid orange ;
+    padding:10px 0 0 20px;
+    font-size: 35px;
+    background-color: $active-color;
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid lightblue;
+    border-top-left-radius: 20px;
+    // border-top-right-radius: 20px;
+    position: sticky;
+    top: 0;
+
+
+
   }
 
   .usersWrapper{
-    border:5px solid green ;
+    // border:5px solid green ;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap:40px;
     padding: 20px;
+    // height: 360px;
+    // overflow: scroll;
+
+
   }
 }

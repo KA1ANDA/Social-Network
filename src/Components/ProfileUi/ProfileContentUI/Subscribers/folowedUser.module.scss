@@ -1,18 +1,40 @@
+@import "../../../styleVariables.scss"; 
+
 .folowedUser{
-  border:3px solid yellow;
+  // border:3px solid yellow;
   display: flex;
   align-items: center;
+  background-color: lightblue;
+  border-radius: 10px;
+
   // margin: 20px;
 
   .photo{
-    border:3px solid green;
-    width: 50px;
-    height: 50px;
+    border:5px solid $active-color;
+    width: 90px;
+    height: 90px;
+    @include userPhoto();
+    margin-left: 40px;
+
+
+    .default{
+      background-image:url(../../../../../public/imgs/avatar.png);
+      background-size: cover;
+      background-position:center;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+
+    }
 
   }
 
   .name{
-    border:3px solid blue;
+    // border:3px solid blue;
+    font-size: 25px;
+    word-wrap: break-word;
+    margin-left: 20px;
+
     // display: flex;
 
   }

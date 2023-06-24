@@ -11,7 +11,7 @@ const FolowedUser = ({photo , name , followed}) => {
       {followed && 
       <div className={styles.folowedUser}>
         <div className={styles.photo}> 
-          <img src={photo}/> 
+          <img src={photo}  className={`${!photo && styles.default}`}/> 
         </div>
         <div className={styles.name}>
           {name}

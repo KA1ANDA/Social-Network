@@ -90,11 +90,25 @@ $github:#161b22;
     // border: 2px solid red;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
+
+    &::after{
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      right: 0;     
+      border-radius: 50%;
+      margin-right: 30px;
+      box-shadow: -6px 5px 3px 1px rgba(0,0,0,0.79) inset;
+    }
   }
 
   .textWrapper{
     // border:5px solid orange;
+    text-align: justify;
     font-size: 40px;
     overflow: auto;
     background-color: $component-bg-color;
@@ -103,6 +117,11 @@ $github:#161b22;
     border-radius: 20px;
     padding: 10px 30px;
     margin-bottom: 10px;
+    border-bottom: 10px solid black;
+    border-right: 5px solid black;
+    text-decoration-line: underline;
+    text-decoration-color: $active-color;
+    height: 280px;
   
 
   }

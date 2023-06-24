@@ -25,14 +25,18 @@
 
   .info{
     grid-area: info;
-    border:5px solid blue;
+    // border:5px solid blue;
   }
   
 
   .followedUsers{
     grid-area: followedUsers;
-    border:5px solid blue;
+    // border:5px solid blue;
+    background-color: $component-bg-color;
+    border-radius: 20px;
     overflow: auto;
+
+
 
   }
 }
