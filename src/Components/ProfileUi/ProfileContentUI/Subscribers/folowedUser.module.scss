@@ -4,38 +4,115 @@
   // border:3px solid yellow;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: lightblue;
   border-radius: 10px;
+  position: relative;
+  transition: 0.5s ease;
+
+  // border-bottom-right-radius: 60px;
 
   // margin: 20px;
 
-  .photo{
-    border:5px solid $active-color;
-    width: 90px;
-    height: 90px;
-    @include userPhoto();
-    margin-left: 40px;
+  &::after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 0px;
+    width: 0px;
+    right: 0;
+    bottom: 0;
+    border-bottom-right-radius: 0px;
+    transition: 0.5s ease;
 
+  }
 
-    .default{
-      background-image:url(../../../../../public/imgs/avatar.png);
-      background-size: cover;
-      background-position:center;
+  .wrapper{
+    // border:3px solid purple;
+    display: flex;
+    align-items: center;
+
+    .photo{
+      border:5px solid $active-color;
       width: 90px;
       height: 90px;
-      border-radius: 50%;
-
+      @include userPhoto();
+      // margin-left: 40px;
+  
+  
+      .default{
+        background-image:url(../../../../../public/imgs/avatar.png);
+        background-size: cover;
+        background-position:center;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+  
+      }
+  
     }
-
+  
+    .name{
+      // border:3px solid blue;
+      font-size: 25px;
+      word-wrap:normal;
+      margin-left: 20px;
+  
+      // display: flex;
+  
+    }
+  
   }
 
-  .name{
-    // border:3px solid blue;
-    font-size: 25px;
-    word-wrap: break-word;
-    margin-left: 20px;
-
-    // display: flex;
-
+  
+  .unFollow{
+    border:1px solid red;
+    cursor: pointer;
+    color: white;
+    z-index: 3;
+    align-self: end;
+    font-size: 40px;
+    margin-right: 8px;
   }
+
+
+  &:hover{
+    border-bottom-right-radius: 50px;
+    transition: 0.5s ease;
+    box-shadow: 10px 10px 3px;
+    // box-sizing: border-box;
+    border-inline-end: 3px solid black;
+    // border-block-end: 5px solid black;
+    // border-right: 3px solid black;
+
+
+
+
+
+    &::after{
+      content: '';
+      position: absolute;
+      background-color: rgb(102, 127, 135);
+      height: 40px;
+      width: 40px;
+      right: 0;
+      bottom: 0;
+      border-bottom-right-radius:60px;
+      border-bottom-left-radius:0px;
+
+      border-top-left-radius: 10px;
+      transition: 0.5s ease;
+      // box-shadow: -4px -2px 2px;
+      border-top: 3px  solid black;
+      border-left: 5px solid black;
+
+
+   
+      // border-top-left-radius: 100%;
+      // border-bottom-left-radius: 100%;
+      // border-radius: 50%;
+    }
+  }
+
+
 }

@@ -13,7 +13,7 @@ const {data} = useGetFollowedUsersQuery()
     <div className={styles.subscribers}>
       <div className={styles.title}>Followed</div>
       <div className={styles.usersWrapper}>
-        {data && data.items.map(user => <FolowedUser photo={user.photos.small}  name={user.name} followed={user.followed}/> )}
+        {data && data.items.map(user => <FolowedUser photo={user.photos.small}  name={user.name} followed={user.followed} userId={user.id}/> )}
       </div>
     </div>
   );
