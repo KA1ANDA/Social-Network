@@ -15,7 +15,7 @@
     background-color: $component-bg-color;
     // border:5px solid blue;
     width: 700px;
-    height: 900px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,13 +24,32 @@
     border-radius: 20px;
     box-shadow: $box-shadow;
 
+    .errorInput{
+      border:2px solid red;
+    }
+
+    .error{
+      color:red;
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+
+    .authError{
+      background-color: red;
+      color: white;
+      border: 2px solid red;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 20px;
+    }
+
 
 
 
     .title{
       font-size: 50px;
       font-weight: bold;
-      margin-bottom: 40px;
+      // margin-bottom: 40px;
     }
 
     .decoration{
@@ -102,6 +121,22 @@
       a{
         color:$active-color;
         margin: 0 5px;
+      }
+    }
+
+    .testAccount{
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+  
+
+      a{
+        color:$active-color;
+        margin: 0 5px;
+        cursor: pointer;
+        
       }
     }
   }
