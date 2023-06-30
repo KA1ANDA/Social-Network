@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./login.module.scss";
 import { useGetUserInfoQuery, useLogInMutation, useLogOutMutation } from "../../Redux/api";
 import { useDispatch, useSelector } from "react-redux";
-import { loginFailure, loginSuccess, setEmail, setUserId, setUserName } from "../../Redux/Slices/authSlice";
+import { loginFailure, loginSuccess, setAuthorised, setEmail, setUserId, setUserName } from "../../Redux/Slices/authSlice";
 import { Navigate } from "react-router-dom";
 
 import { useFormik } from "formik";
@@ -70,6 +70,7 @@ const Login = () => {
 
       if(data.resultCode){
         setAuthError(true)
+        dispatch(setAuthorised(true))
       }
     },
     validationSchema:Yup.object().shape({

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {useGetProfileInfoQuery, useGetUserInfoQuery, useLogOutMutation } from "../../Redux/api";
 import styles from "./userHeaderInfo.module.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { logOutSuccess, loginSuccess, setMyId } from "../../Redux/Slices/authSlice";
+import { logOutSuccess, loginSuccess, setAuthorised, setMyId } from "../../Redux/Slices/authSlice";
 import { Navigate } from "react-router-dom";
 import {FiBell} from "react-icons/fi";
 import {AiOutlineLogout} from "react-icons/ai";
@@ -27,6 +27,7 @@ const UserHeaderInfo = () => {
       const response = await logOut();
       if (response.data && response.data.resultCode === 0) {
         dispatch(logOutSuccess(null));
+        dispatch(setAuthorised(false))
       }
     } catch (error) {
       // Handle any errors that occur during the logout process
