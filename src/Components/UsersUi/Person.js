@@ -5,6 +5,9 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setMyId, setUserId } from "../../Redux/Slices/authSlice";
 import { useStartChatMutation } from "../../Redux/ApiEndpoints/dialogsApi";
+import { setTitle } from "../../Redux/Slices/headerSlice";
+
+
 
 
 
@@ -32,14 +35,19 @@ const Person = ({name,status,follow,photos,id,loading}) => {
     }
   }
 
+  
+  const handleTitleChange = (title) =>{
+    dispatch(setTitle(title))
+
+  }
 
   const handleStartChatting = () => {
     startchat(id)
   }
 
   return (
-      <div className={styles.person}>
-      < NavLink to={`/profile`}  className={styles.profileInfo}>
+      <div className={styles.person} onClick={() => handleTitleChange('User Profile')}>
+      <NavLink to={`/profile`}  className={styles.profileInfo}>
         <div onClick={setId} className={styles.photo}>
           {photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={photos.large}/>}
         </div>

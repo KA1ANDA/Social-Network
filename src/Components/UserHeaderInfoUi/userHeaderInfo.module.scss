@@ -24,10 +24,6 @@
     margin-right: 20px;
     font-size: 30px;
 
-    .bell{
-      font-size: 45px;
-    }
-
     .profilePhoto{
       border-radius: 50%;
       width: 70px;
@@ -45,11 +41,8 @@
     }
 
     .logOutButton{
-      cursor: pointer;
+      @include logButton(rgb(255, 65, 65));     
     }
   }
 
-  &>div{
-    
-  }
 }
