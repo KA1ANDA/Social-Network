@@ -12,25 +12,37 @@
   justify-content: space-between;
   border-radius: 20px;
   overflow: hidden;
- 
-  .editMode{
-    z-index: 2;
-    border:3px solid blue;
+
+  .editBtnWrapper{
+    z-index: 5;
+    background-color: transparent;
     align-self: flex-end;
-    margin-right: 20px;
-    margin-top: 20px;
-    width: 100px;
+    width: 130px;
     height: 40px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-    background-color: white;
-    cursor: pointer;
 
 
+
+    .editMode{
+      z-index: 2;
+      border:3px solid blue;
+      align-self: flex-end;
+      margin-right: 20px;
+      margin-top: 20px;
+      width: 100px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: blue;
+      background-color: white;
+      cursor: pointer;
+  
+  
+    }
   }
+ 
+  
 
 
   .statusArea{
@@ -74,6 +86,10 @@
       border-radius: 50px;
       padding: 0 40px;
     }
+  }
+
+  .clearObject{
+    display: none;
   }
 }
 

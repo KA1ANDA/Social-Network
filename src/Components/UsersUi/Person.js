@@ -47,8 +47,8 @@ const Person = ({name,status,follow,photos,id,loading}) => {
 
   return (
       <div className={styles.person} onClick={() => handleTitleChange('User Profile')}>
-      <NavLink to={`/profile`}  className={styles.profileInfo}>
-        <div onClick={setId} className={styles.photo}>
+      <NavLink to={`/profile`}  className={styles.profileInfo} onClick={setId}>
+        <div  className={styles.photo}>
           {photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={photos.large}/>}
         </div>
         <div>
@@ -60,9 +60,9 @@ const Person = ({name,status,follow,photos,id,loading}) => {
         <div >
           <button onClick={handleFollow} disabled={loading} className={followState && styles.followed}>{followState ? 'UnFollow' : 'Follow'}</button>
         </div>
-        <div className={styles.message}>
+        <NavLink to='/messages' className={styles.message}>
           <button onClick={handleStartChatting} >Message</button>
-        </div>
+        </NavLink>
       </div>
       </div>
   );

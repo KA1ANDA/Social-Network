@@ -38,9 +38,9 @@ const UserHeaderInfo = () => {
     return <Navigate to="/" />;
   }
 
-  if(!authorised){
-    return null;
-  }
+  // if(!authorised){
+  //   return null;
+  // }
 
 
   return (

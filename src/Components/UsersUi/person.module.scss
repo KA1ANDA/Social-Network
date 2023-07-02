@@ -12,6 +12,7 @@
   overflow: hidden;
   background: white;
   box-shadow: $box-shadow;
+
  
 
 
@@ -25,6 +26,10 @@
     width: 100%;
     overflow-x: hidden;
 
+    &:active{
+      color:$active-color;
+    }
+
 
 
     .name{
@@ -37,6 +42,7 @@
       width: 100%;
       word-wrap:break-word;
       text-align:center;
+      
 
     }
 

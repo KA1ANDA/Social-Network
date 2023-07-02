@@ -16,6 +16,8 @@ const MainInfo = () => {
   const dispatch = useDispatch()
  
   const {socialMedia , editStatus} = useSelector(state => state.profileSlice)
+  const {myId , userId} = useSelector(state => state.authSlice)
+
 
   const changeStatus = () => dispatch(setEditStatus(!editStatus))
   const editMode = () => dispatch(toggleEditMode())
@@ -23,8 +25,10 @@ const MainInfo = () => {
 
   return (
     <div className={styles.mainInfo}>
-        <div className={styles.editMode} onClick={editMode}>
-          Edit Profile <AiFillEdit/>
+        <div className={styles.editBtnWrapper}>
+          <div className={myId === userId ? styles.editMode : styles.clearObject} onClick={editMode}>
+            Edit Profile <AiFillEdit/>
+          </div>
         </div>
         <div>
           <User />
@@ -37,7 +41,7 @@ const MainInfo = () => {
             <div>
               My status :
             </div>
-            <div className={styles.edit} onClick={changeStatus}>
+            <div className={myId === userId ? styles.edit : styles.clearObject}onClick={changeStatus}>
               <TiEdit />
             </div>
           </div>
@@ -45,9 +49,11 @@ const MainInfo = () => {
               <div>
                 <StatusArea />
               </div>
-              <div>
-                <AddStatus />
-              </div>
+              {myId === userId && (
+                <div>
+                  <AddStatus />
+                </div>
+              )}
              
             </div>
         </div>

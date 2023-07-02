@@ -27,6 +27,7 @@ const Users = () => {
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value)
+    setPage(1)
   }
 
 
@@ -66,7 +67,7 @@ const Users = () => {
         <div className={styles.pages}>
           <button  onClick={() => setPage(page - 1)} className={page===1 && styles.disabled} disabled={page===1}><AiOutlineArrowLeft/></button>
           <div>{page}</div>
-          <button  onClick={() => setPage(page + 1)}  className={!data || data.items.length < 8 && styles.disabled}><AiOutlineArrowRight/></button>
+          <button  onClick={() => setPage(page + 1)}  className={!data || data.items.length < 8 && styles.disabled} disabled={!data || data.items.length < 8}><AiOutlineArrowRight/></button>
         </div>
       </div>
     </div>
