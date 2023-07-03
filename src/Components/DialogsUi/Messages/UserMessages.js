@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./userMessages.module.scss";
 import { useGetMessageQuery } from "../../../Redux/ApiEndpoints/dialogsApi";
 import UserMessage from "./UserMessage";
@@ -32,13 +32,28 @@ const UserMessages = () => {
       clearInterval(interval);
     };
   }, []);
+
+
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [data]);
+
+  const scrollToBottom = () => {
+    chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+  };
+
+
+
+
   
 
 
 
   return (
     <div className={styles.userMessages}>
-      <div  className={styles.message}>
+      <div  className={styles.message} ref={chatContainerRef}>
       {data && data.items.map(userMessage => <UserMessage key={userMessage.id}
        messageBody = {userMessage.body}
        time = {userMessage.addedAt}

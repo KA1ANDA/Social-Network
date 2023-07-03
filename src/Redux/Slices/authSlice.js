@@ -5,7 +5,6 @@ const authSlice = createSlice({
   initialState: {
     myId: null,
     userId:null,
-    authorised:false,
     error: null,
     userName:'',
     email:'',
@@ -31,11 +30,8 @@ const authSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
-    setAuthorised: (state, action) => {
-      state.authorised = action.payload;
-    },
   },
 });
 
-export const { loginSuccess, loginFailure , setUserId , logOutSuccess, setUserName , setEmail , setAuthorised} = authSlice.actions;
+export const { loginSuccess, loginFailure , setUserId , logOutSuccess, setUserName , setEmail } = authSlice.actions;
 export default authSlice.reducer;

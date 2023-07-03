@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./chatArea.module.scss";
 import ChatMessage from "./ChatMessage";
 import { useDispatch, useSelector } from "react-redux";
@@ -100,6 +100,17 @@ const ChatArea = () => {
 
 
 
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+  };
+
+
 
 
 
@@ -117,7 +128,7 @@ const ChatArea = () => {
   
   return (
     <div className={styles.chatArea}>
-      <div className={styles.chatMessages}>
+      <div className={styles.chatMessages} ref={chatContainerRef}>
       {messages.map((chatMessage , index) => <ChatMessage key={index}
       message = {chatMessage.message}
       photo = {chatMessage.photo}

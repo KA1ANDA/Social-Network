@@ -22,7 +22,7 @@ const Nav = () => {
 
   const dispatch = useDispatch();
   
-  const {myId , authorised} = useSelector(state => state.authSlice)
+  const {myId} = useSelector(state => state.authSlice)
 
   const {data , refetch} = useGetTotalNewMessagesQuery()
 
@@ -69,32 +69,32 @@ const Nav = () => {
       </div>
       <div className={styles.navigation}>
         <div onClick={() => handleTitleChange('Profile')}>
-          <NavLink to={authorised ? '/profile' : '/'} onClick={handleNavLinkClick} className={({isActive}) => `${isActive && authorised && styles.active} ${styles.navLink}`}>
+          <NavLink to={myId ? '/profile' : '/'} onClick={handleNavLinkClick} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><CgProfile   className={styles.activeIcon}/></div>
             <h3>Profile</h3>
           </NavLink>
         </div>
         <div onClick={() => handleTitleChange('Users')}>
-          <NavLink to={authorised ? '/users' : '/'} className={({isActive}) => `${isActive && authorised && styles.active} ${styles.navLink}`}>
+          <NavLink to={myId ? '/users' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><FiUsers   className={styles.activeIcon}/></div>
             <h3>Users</h3>
           </NavLink>
         </div>
         <div onClick={() => handleTitleChange('Messages')}>
-          <NavLink to={authorised ? '/messages' : '/'} className={({isActive}) => `${isActive && authorised && styles.active} ${styles.navLink}`}>
+          <NavLink to={myId ? '/messages' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><BsChat  className={styles.activeIcon} /></div>
             <h3>Messages</h3>
             {data && data!==0 ? <div className={styles.messageNotification}>{data}</div> : null}
           </NavLink>
         </div>
         <div onClick={() => handleTitleChange('Chat')}>
-          <NavLink to={authorised ? '/chat' : '/'} className={({isActive}) => `${isActive && authorised && styles.active} ${styles.navLink}`}>
+          <NavLink to={myId ? '/chat' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><IoChatbubblesOutline  className={styles.activeIcon} /></div>
             <h3>Chat</h3>
           </NavLink>
         </div>
         <div onClick={() => handleTitleChange('Settings')}>
-        <NavLink to={authorised ? '/settings' : '/'} className={({isActive}) => `${isActive && authorised && styles.active} ${styles.navLink}`}>
+        <NavLink to={myId ? '/settings' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
           <div className={styles.navIcon}><LuSettings   className={styles.activeIcon}/></div>
           <h3>Settings</h3>
         </NavLink>

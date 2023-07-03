@@ -27,20 +27,19 @@ const UserHeaderInfo = () => {
       const response = await logOut();
       if (response.data && response.data.resultCode === 0) {
         dispatch(logOutSuccess(null));
-        dispatch(setAuthorised(false))
       }
     } catch (error) {
       // Handle any errors that occur during the logout process
     }
   };
 
-  if(myId===null){
+  if(myId === null){
     return <Navigate to="/" />;
   }
 
-  // if(!authorised){
-  //   return null;
-  // }
+  if(!myId){
+    return null;
+  }
 
 
   return (
@@ -51,7 +50,7 @@ const UserHeaderInfo = () => {
 
       <div className={styles.userInfo}> 
         <div  className={styles.profilePhoto}>
-          {data && data.photos.small != null && authorised ?  <img src={data.photos.small}/> : <div className={styles.avatarDefault}></div>}
+          {data && data.photos.small != null ?  <img src={data.photos.small}/> : <div className={styles.avatarDefault}></div>}
         </div>     
         <div className={styles.userName}>
           {userName}

@@ -70,7 +70,6 @@ const Login = () => {
 
       if(data.resultCode){
         setAuthError(true)
-        dispatch(setAuthorised(true))
       }
     },
     validationSchema:Yup.object().shape({

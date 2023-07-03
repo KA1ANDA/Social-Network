@@ -14,7 +14,10 @@ import { setTitle } from "../../Redux/Slices/headerSlice";
 const Person = ({name,status,follow,photos,id,loading}) => {
 
   const dispatch = useDispatch();
-  const setId = () => dispatch(setUserId(id))
+  const setId = () => {
+    dispatch(setUserId(id))
+    handleTitleChange('User Profile')
+  } 
 
   const [followState, setFollowState] = useState(follow)
 
@@ -46,7 +49,7 @@ const Person = ({name,status,follow,photos,id,loading}) => {
   }
 
   return (
-      <div className={styles.person} onClick={() => handleTitleChange('User Profile')}>
+      <div className={styles.person}>
       <NavLink to={`/profile`}  className={styles.profileInfo} onClick={setId}>
         <div  className={styles.photo}>
           {photos.large === null ? <div className={styles.avatarDefault}></div> : <img src={photos.large}/>}
