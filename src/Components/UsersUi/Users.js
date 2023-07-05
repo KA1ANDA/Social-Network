@@ -5,6 +5,7 @@ import Person from "./Person";
 import {CiSearch} from "react-icons/ci";
 import {AiOutlineArrowLeft} from "react-icons/ai";
 import {AiOutlineArrowRight} from "react-icons/ai";
+import Loader from "../CommonComponents/Loader";
 
 
 
@@ -33,7 +34,7 @@ const Users = () => {
 
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   if (isError) {
@@ -51,7 +52,7 @@ const Users = () => {
       </div>
 
       <div className={styles.usersWrapper}>
-      {data && 
+      {data && data.items.length>0 ?
         data.items.map(user => 
         <Person key = {user.id}
         id={user.id}
@@ -60,7 +61,7 @@ const Users = () => {
         follow = {user.followed}
         loading = {isLoading}
         photos = {user.photos}
-        /> )   
+        /> ) : <div className={styles.noInformation}>No User Found</div>  
       }
       </div>
       <div className={styles.pagination}>

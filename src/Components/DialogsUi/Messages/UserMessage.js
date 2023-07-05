@@ -29,7 +29,7 @@ const UserMessage = ({senderName , messageBody , time , seen , recipientId ,send
   recipientId === myId ? styles.myMessage : styles.userMessage;
 
   const defaultAvatar = 
-  clickedUserPhoto || data.photos.small ?  styles.default : '';
+  !clickedUserPhoto || !data.photos.small ?  styles.default : '';
   
 
   const date = new Date(time);

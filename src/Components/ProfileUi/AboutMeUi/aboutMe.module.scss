@@ -17,5 +17,11 @@
   .skills{
     @include aboutMeInfoCards();
   }
+
 }
 
+.whenNoInfo{
+  font-size: 30px;
+  @include noInfo();
+
+}

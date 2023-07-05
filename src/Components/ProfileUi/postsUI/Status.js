@@ -3,6 +3,7 @@ import styles from "./status.module.scss";
 import {useGetUserStatusQuery } from "../../../Redux/api";
 import { useSelector } from "react-redux";
 import AddStatus from "./AddStatus/AddStatus";
+import Loader from "../../CommonComponents/Loader";
 
 
 
@@ -19,7 +20,7 @@ const Status = () => {
  
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   if (isError) {
@@ -28,7 +29,11 @@ const Status = () => {
 
   return (
     <div className={styles.status}>
-      <div> {data} </div>
+      {data ?
+        <div> {data} </div> :
+        <div className={styles.noStatus}>Status is Empty</div>
+      }
+      
     </div>
   );
 }

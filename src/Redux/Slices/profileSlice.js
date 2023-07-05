@@ -55,5 +55,5 @@ const ProfileSlice = createSlice({
   }
 })
 
-export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditMode , addProfilePhoto ,setEditStatus} = ProfileSlice.actions
+export const { addNameValue , addAboutMeValue , addJobDscValue , toggleSearchForJobs , setSocialMediaValue , toggleEditMode , addProfilePhoto ,setEditStatus } = ProfileSlice.actions
 export default ProfileSlice.reducer

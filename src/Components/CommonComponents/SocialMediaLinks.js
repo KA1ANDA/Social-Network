@@ -14,7 +14,7 @@ const SocialMediaLinks = ({contacts}) => {
   return (
     <div className={styles.socialMediaLinks}>
       {Object.values(contacts).every((value) => value === "" || value === null) ?
-              <div>
+              <div className={styles.noSocialMediaLinks}>
               No Social Media Linked
               </div>
               :

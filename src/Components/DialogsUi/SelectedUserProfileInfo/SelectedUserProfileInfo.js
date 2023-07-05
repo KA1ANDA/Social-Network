@@ -26,7 +26,7 @@ const {data} = useGetProfileInfoQuery(clickedUserId)
 
   return (
     <div className={styles.selectedUser}>
-      {data &&
+      {data && clickedUserId ?
       <div className={styles.wrapper}>
         <div>
           <div className={styles.photo}>
@@ -48,7 +48,7 @@ const {data} = useGetProfileInfoQuery(clickedUserId)
         <div className={styles.socialNetworks}>
           <SocialMediaLinks contacts={data.contacts}/>
         </div>
-       </div> 
+       </div> : <div className={styles.noInformation}>No User Found</div>
       }   
     </div>
   );

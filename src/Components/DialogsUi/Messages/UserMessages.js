@@ -5,6 +5,7 @@ import UserMessage from "./UserMessage";
 import { useDispatch, useSelector } from "react-redux";
 import SendMessage from "./SendMessage";
 import { setHasMessage } from "../../../Redux/Slices/dialogsSlice";
+import Loader from "../../CommonComponents/Loader";
 
 
 
@@ -15,7 +16,7 @@ const UserMessages = () => {
 
   const {clickedUserId} = useSelector(state => state.dialogsSlice)
 
-  const {data , refetch} = useGetMessageQuery(clickedUserId)
+  const {data , refetch ,isLoading} = useGetMessageQuery(clickedUserId)
   
 
   // useEffect(() => {
@@ -44,9 +45,7 @@ const UserMessages = () => {
     chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
   };
 
-
-
-
+ 
   
 
 
@@ -54,14 +53,14 @@ const UserMessages = () => {
   return (
     <div className={styles.userMessages}>
       <div  className={styles.message} ref={chatContainerRef}>
-      {data && data.items.map(userMessage => <UserMessage key={userMessage.id}
+      {data && data.items.length>0 ? data.items.map(userMessage => <UserMessage key={userMessage.id}
        messageBody = {userMessage.body}
        time = {userMessage.addedAt}
        senderName = {userMessage.senderName}
        seen = {userMessage.viewed}
        recipientId = {userMessage.recipientId}
        senderId = {userMessage.senderId}
-       />)}
+       />) : <div className={styles.noInformation}>No Messages Found</div>}
       </div>
       <div  className={styles.messageInput}>
         <SendMessage />

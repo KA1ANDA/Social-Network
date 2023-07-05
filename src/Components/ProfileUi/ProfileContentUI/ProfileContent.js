@@ -8,11 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import MainInfo from "./MainInfo/MainInfo";
 import { toggleEditMode } from "../../../Redux/Slices/profileSlice";
 import Subscribers from "./Subscribers/Subscribers";
+import { useGetProfileInfoQuery } from "../../../Redux/api";
 
 const ProfileContent = () => {
   
 
   const {socialMedia ,editMode} = useSelector(state => state.profileSlice)
+  const {data, isLoading, isError} = useGetProfileInfoQuery()
+
+  
 
   return (
     <div className={styles.profileContent}>
@@ -26,7 +30,7 @@ const ProfileContent = () => {
         <Subscribers />
       </div>
 
-
+    
     </div>
   );
 }

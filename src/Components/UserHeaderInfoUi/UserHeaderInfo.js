@@ -6,6 +6,7 @@ import { logOutSuccess, loginSuccess, setAuthorised, setMyId } from "../../Redux
 import { Navigate } from "react-router-dom";
 import {FiBell} from "react-icons/fi";
 import {AiOutlineLogout} from "react-icons/ai";
+import Loader from "../CommonComponents/Loader";
 
 
 
@@ -47,7 +48,6 @@ const UserHeaderInfo = () => {
       <div className={styles.title}>
         <h3>{title}</h3>
       </div>
-
       <div className={styles.userInfo}> 
         <div  className={styles.profilePhoto}>
           {data && data.photos.small != null ?  <img src={data.photos.small}/> : <div className={styles.avatarDefault}></div>}

@@ -16,7 +16,7 @@ const usersApi = api.injectEndpoints({
 
 
     getFollowedUsers:build.query({
-      query:(allUsers) => `/users?count=100`,  
+      query:() => `/users?count=100`,  
       providesTags: () => ['users'],
     }), 
 

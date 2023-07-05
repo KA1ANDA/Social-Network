@@ -43,14 +43,14 @@ const UsersForDialogs = () => {
   return (
     <div className={styles.usersForDialogs}>
       <div className={styles.wraper}>
-        {searchedUsers.map(userDialog => <UserDialog key = {userDialog.id}
+        {searchedUsers.length > 0 ? searchedUsers.map(userDialog => <UserDialog key = {userDialog.id}
         userId = {userDialog.id}
         name={userDialog.userName}
         photo={userDialog.photos.small}
         messageIndicator = {userDialog.hasNewMessages}
         messageCount = {userDialog.newMessagesCount}
         isClicked={userDialog.id===clickedUserId}
-        lastUserActivityDate={userDialog.lastUserActivityDate}/>)}
+        lastUserActivityDate={userDialog.lastUserActivityDate}/>) :  <div className={styles.noInformation}>No Dialogs Found</div>}
       </div>  
     </div>
   );

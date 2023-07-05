@@ -46,13 +46,13 @@ const AboutMe = () => {
       <>
         <div className={styles.bio}>
           <h1 className={styles.title}> About Me </h1>
-          <div  className={styles.textWrapper} >{data.aboutMe}</div>
+          <div  className={styles.textWrapper} >{data.aboutMe ? data.aboutMe : <div className={styles.whenNoInfo}>Write About Your Self</div> }</div>
         </div>
 
 
         <div className={styles.skills}>
           <h1>Skills</h1> 
-          <div  className={styles.textWrapper} >{data.lookingForAJobDescription}</div>
+          <div  className={styles.textWrapper} >{data.lookingForAJobDescription ? data.lookingForAJobDescription : <div className={styles.whenNoInfo}>Write About Your Skills and Experience</div>}</div>
         </div>
 
       </>

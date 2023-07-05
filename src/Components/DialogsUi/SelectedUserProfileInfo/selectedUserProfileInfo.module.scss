@@ -11,6 +11,7 @@
   border-radius: $border-radius;
   width: 85%;
   box-shadow: $box-shadow;
+  
 
 
 
@@ -61,13 +62,20 @@
     }
   
     .aboutMe{
-      margin-top: 20px;
+      // margin-top: 20px;
       text-align: justify;
       display: flex;
       justify-content: center;
       color:#989BA1;
       border-bottom: 2px silver solid ;
       border-top: 2px silver solid;
+      // border: 1px solid red;
+      overflow-y: auto;
+      width: 300px;
+      height: 100px;
+      margin:20px auto;
+      align-items: center;
+  
     }
   
     .jobDescription{
@@ -114,4 +122,14 @@
     }
   }
 
+
+  .noInformation{
+    text-align: center;
+    margin-top: 440px;
+    font-size: 30px;
+    @include noInfo();
+    // text-decoration: underline;
+    
+
+  }
 }

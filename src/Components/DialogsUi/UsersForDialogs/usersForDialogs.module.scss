@@ -12,6 +12,17 @@
   box-sizing: border-box;
   overflow-y: auto;
   box-shadow: $box-shadow;
+  // border:2px solid red;
+  font-family: $font-family;
 
+  .noInformation{
+    text-align: center;
+    margin-top: 300px;
+    font-size: 30px;
+    @include noInfo();
+    // text-decoration: underline;
+    
+
+  }
   
 }

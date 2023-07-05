@@ -53,4 +53,17 @@
     }
   }
 
+  .avatarDefault{
+    background-image:url(../../../public/imgs/avatar.png);
+    background-size: cover;
+    background-position:center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
 }
+
+
+
+
