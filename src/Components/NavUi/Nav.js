@@ -80,13 +80,13 @@ const Nav = () => {
             <h3>Users</h3>
           </NavLink>
         </div>
-        <div onClick={() => handleTitleChange('Messages')}>
+        {/* <div onClick={() => handleTitleChange('Messages')}>
           <NavLink to={myId ? '/messages' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><BsChat  className={styles.activeIcon} /></div>
             <h3>Messages</h3>
             {data && data!==0 ? <div className={styles.messageNotification}>{data}</div> : null}
           </NavLink>
-        </div>
+        </div> */}
         <div onClick={() => handleTitleChange('Chat')}>
           <NavLink to={myId ? '/chat' : '/'} className={({isActive}) => `${isActive && myId && styles.active} ${styles.navLink}`}>
             <div className={styles.navIcon}><IoChatbubblesOutline  className={styles.activeIcon} /></div>
