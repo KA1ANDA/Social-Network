@@ -13,6 +13,7 @@ export const api = createApi({
     baseUrl:BASE_URL,
     headers: {
       'API-KEY': API_KEY,
+      'Access-Control-Allow-Origin': '*',
       // 'Content-Type':'application/json',
     },
     credentials: 'include',
