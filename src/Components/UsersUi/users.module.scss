@@ -1,15 +1,18 @@
 @import "../styleVariables.scss";
 
+
 .users{
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
   font-family: $font-family;
+  border:9px black solid;
+
 
 
   .usersWrapper{
-    // border:9px orange solid;
+    border:9px orange solid;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap:50px;
@@ -107,6 +110,21 @@
   }
 
 
+  @media (max-width:1200px){
+    .usersWrapper{
+      grid-template-columns: 1fr 1fr ;
+    }
+  }
+
+  @media (max-width:768px){
+    .usersWrapper{
+      // width: 100%;
+      grid-template-columns: 1fr ;
+    }
+  }
+
 }
+
+
 
 

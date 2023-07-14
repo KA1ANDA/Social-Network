@@ -33,7 +33,6 @@ body{
   grid-template-columns:1fr 9fr;
   position: relative;
 
-
   /* BG D1E6FF */
 
   background: #D1E6FF;
@@ -58,6 +57,16 @@ body{
     grid-area: main;
   }
 
+  @media (max-width:1200px){
+  
+    grid-template-areas:
+   ' header header'
+   ' nav nav'
+   ' main main'
+   ' main main';
+  
+  
+  }
 
   .editMode{
     background-color: rgba(0, 0, 0, 0.71);
@@ -77,4 +86,14 @@ body{
       border-radius: 20px;
     }
   }
+
+
+  
+}
+
+@media (max-width:1200px){
+  body{
+    background: #D1E6FF;
+  }
+
 }
