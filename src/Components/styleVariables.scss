@@ -213,7 +213,7 @@ $github:#161b22;
 
 
 @mixin logButton($color){
-  cursor: pointer;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -226,6 +226,7 @@ $github:#161b22;
       transition-duration: .3s;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
       background-color: $color;
+      
 
       &:hover{
         width: 125px;
@@ -246,7 +247,7 @@ $github:#161b22;
         // border: 2px solid blue;
 
         &:hover{
-          width: 30%;
+          // width: 30%;
           transition-duration: .3s;
           // padding-left: 20px;
         }
@@ -277,6 +278,20 @@ $github:#161b22;
           padding-right: 10px;
         }
       }
+
+      @media (max-width:768px){
+      &:hover{
+        width: 45px;
+  
+        .text{
+          display: none;
+        }
+  
+        .sign{
+          width: 100%;
+        }
+      }
+    }    
 }
 
 @mixin noInfo(){

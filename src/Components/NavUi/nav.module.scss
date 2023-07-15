@@ -40,6 +40,7 @@
   .navigation{
     // margin: auto 0px;
     // height: auto;
+    // border: 5px solid red;
     
 
 
@@ -58,6 +59,8 @@
     align-items: center;
     width: 100%;
     height: 80px;
+    // border: 5px solid red;
+
 
     &>h3{
       margin-left: 15px;
@@ -97,9 +100,46 @@
 
 
 @media (max-width:1200px){
-  
   .nav{
-    // display: none;
+    width: 100%;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    .logo{
+      display: none;
+    }
+
+    .navigation{
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .active{
+      border-left: none;
+      border-bottom:5px $active-color solid;
+    }
+
+
+    .navIcon{
+      margin-left:0px;
+    }
   }
 
+
+  @media (max-width:768px){
+    .navigation{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+  }
+  
+  
 }

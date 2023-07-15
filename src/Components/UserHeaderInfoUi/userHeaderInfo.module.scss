@@ -2,7 +2,7 @@
 
 
 .userHeaderInfo{
-  // border:2px solid green;
+  border:2px solid green;
   height: 110px;
   display: flex;
   justify-content: space-between;
@@ -28,6 +28,7 @@
     .userName{
       text-decoration:underline;
       text-decoration-color: $active-color ;
+      word-wrap: normal;
     }
 
     .profilePhoto{
@@ -60,6 +61,14 @@
     width: 75px;
     height: 75px;
     border-radius: 50%;
+  }
+
+
+  @media (max-width:768px){
+    .title{
+      margin-left: 0px;
+      font-size: 25px;
+    }
   }
 
 }

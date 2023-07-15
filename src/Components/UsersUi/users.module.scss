@@ -112,7 +112,11 @@
 
   @media (max-width:1200px){
     .usersWrapper{
-      grid-template-columns: 1fr 1fr ;
+      grid-template-columns: 1fr 1fr ;  
+
+      .noInformation{
+        grid-column: 1 / 4;
+      }
     }
   }
 
