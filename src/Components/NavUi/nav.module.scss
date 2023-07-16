@@ -60,6 +60,7 @@
     width: 100%;
     height: 80px;
     // border: 5px solid red;
+    
 
 
     &>h3{
@@ -125,6 +126,12 @@
 
     .navIcon{
       margin-left:0px;
+      font-size: 28px;
+
+    }
+
+    .navLink{
+      font-size: 25px;
     }
   }
 
@@ -136,7 +143,20 @@
       width: 100%;
       justify-content: space-between;
       align-items: center;
+
+
+      .navIcon{
+        margin-left:0px;
+        font-size: 45px;
+  
+      }
+  
+      .navLink{
+        font-size: 30px;
+      }
     }
+
+    
 
 
   }

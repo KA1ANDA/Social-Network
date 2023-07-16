@@ -70,7 +70,7 @@
   }
 
   .buttonWrapper{
-    border: 5px blue solid;
+    // border: 5px blue solid;
     display: flex;
     justify-content: center;
     margin: 30px;
@@ -172,3 +172,9 @@
 }
 
 
+@media (max-width:1800px){
+  .name{
+    font-size: 20px;
+    word-wrap: normal;
+  }
+}

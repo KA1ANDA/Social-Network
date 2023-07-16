@@ -1,7 +1,7 @@
 @import "../styleVariables.scss";
 
 .chatContent{
-  // border:5px solid yellow;
+  border:5px solid yellow;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@
 
 
   .chatWrapper{
-    // border:5px solid black;
+    border:5px solid black;
     display: flex;
     align-items: center;
     height: 100%;
@@ -22,6 +22,7 @@
       // border:5px solid black;
       height: 100%;
       box-shadow: $box-shadow;
+      grid-area:chat;
 
     }
   
@@ -31,10 +32,27 @@
       // justify-self: end;
       align-self: flex-start;
       box-shadow: $box-shadow;
+      grid-area:users;
 
     }
 
   }
 
- 
+  @media (max-width:1900px){
+    .chatWrapper{
+      display: grid;
+      grid-template-areas:
+      'users users'
+      'chat chat';
+
+      .chatUsers{
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+     
+    }
+    }
 }
+
+

@@ -7,12 +7,12 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: $font-family;
-  border:9px black solid;
+  // border:9px black solid;
 
 
 
   .usersWrapper{
-    border:9px orange solid;
+    // border:9px orange solid;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap:50px;
@@ -117,6 +117,10 @@
       .noInformation{
         grid-column: 1 / 4;
       }
+    }
+
+    .searchInput{
+      margin:50px 0px;
     }
   }
 
