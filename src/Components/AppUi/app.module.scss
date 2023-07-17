@@ -21,6 +21,8 @@
 
 body{
   margin:0;
+  background: #D1E6FF;
+
   
   a{
     text-decoration: none;
@@ -32,6 +34,7 @@ body{
   height: 100vh;
   grid-template-columns:1fr 9fr;
   position: relative;
+
 
   /* BG D1E6FF */
 
@@ -91,9 +94,9 @@ body{
   
 }
 
-@media (max-width:1200px){
-  body{
-    background: #D1E6FF;
-  }
+// @media (max-width:1200px){
+//   body{
+//     background: #D1E6FF;
+//   }
 
-}
+// }

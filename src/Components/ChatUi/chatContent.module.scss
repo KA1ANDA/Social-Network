@@ -1,7 +1,7 @@
 @import "../styleVariables.scss";
 
 .chatContent{
-  border:5px solid yellow;
+  // border:5px solid yellow;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@
 
 
   .chatWrapper{
-    border:5px solid black;
+    // border:5px solid black;
     display: flex;
     align-items: center;
     height: 100%;
@@ -19,10 +19,12 @@
 
 
     .chatArea{
-      // border:5px solid black;
-      height: 100%;
-      box-shadow: $box-shadow;
+      // border:5px solid red;
+      // height: 100%;
+      // box-shadow: $box-shadow;
       grid-area:chat;
+
+
 
     }
   
@@ -31,7 +33,6 @@
       margin-left: 40px;
       // justify-self: end;
       align-self: flex-start;
-      box-shadow: $box-shadow;
       grid-area:users;
 
     }
@@ -47,9 +48,14 @@
 
       .chatUsers{
         margin-left: 0;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
       }
 
+      .chatArea{
+        height: 83%;
+        align-self: flex-start;
+        
+      }
      
     }
     }

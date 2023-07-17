@@ -1,7 +1,7 @@
 @import "../../styleVariables.scss";
 
 .chatUsers{
-  border:5px solid orange;
+  // border:5px solid orange;
   width: 500px;
   border-radius:$border-radius;
   font-family: $font-family;
@@ -10,6 +10,8 @@
   height: 75px; 
   transition: 0.5s ease-in-out;
   overflow-y: hidden;
+  box-shadow: $box-shadow;
+
 
 
   
@@ -78,11 +80,12 @@
 
 
 .activeUsers{
-  // border:9px solid red;
-  background-color: transparent;
+  border:9px solid red;
   overflow-y: auto;
   height: 850px;
   margin-top: 10px;
+
+  
 
   .empty{
     display: flex;
@@ -96,12 +99,18 @@
 
 }
 
+
+
+
 @media (max-width:1900px){
 
   .chatUsers{
-    width: 100%;
+    width: 90%;
     align-self: center;
     // height: 500px;
+    margin: 30px auto 0 auto;
+
+
    
     .activeUsers{
       display: grid;
