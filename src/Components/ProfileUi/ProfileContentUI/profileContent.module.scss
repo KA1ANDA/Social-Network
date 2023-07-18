@@ -44,3 +44,17 @@
 
 
 
+
+@media (max-width:1763px){
+
+  .profileContent{
+    grid-template-areas: 
+      'mainInfo mainInfo'
+      'info info '
+      'followedUsers followedUsers';
+  }
+  
+  
+}
+
+

@@ -12,6 +12,7 @@
   justify-content: space-between;
   border-radius: 20px;
   overflow: hidden;
+ 
 
   .editBtnWrapper{
     z-index: 5;
@@ -101,3 +102,19 @@
 }
 
 
+
+
+@media (max-width:2000px){
+
+  .socialMediaWrapper{
+
+    .socialMediaLinks{
+      // border:5px solid green;
+      width: 70%;
+      margin: auto;
+    }
+
+  }
+  
+  
+}

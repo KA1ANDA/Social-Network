@@ -80,7 +80,7 @@
 
 
 .activeUsers{
-  border:9px solid red;
+  // border:9px solid red;
   overflow-y: auto;
   height: 850px;
   margin-top: 10px;
@@ -111,11 +111,11 @@
     margin: 30px auto 0 auto;
 
 
-   
     .activeUsers{
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       height: auto;
+      
   
     }
   }
@@ -125,6 +125,22 @@
     overflow-y: auto;
   }
 
+}
+
+
+@media (max-width:768px){
+  
+  .chatUsers{
+
+    .activeUsers{
+      grid-template-columns: 1fr;
+    
+      
+  
+    }
+  }
+
+  
 }
 
 

@@ -55,9 +55,9 @@
     border-radius: 10px;
     padding: 0px 40px;
     box-shadow: 5px 3px 6px 2px #A3A3A3;
-    // width: 100px;
     line-height: 70px;
     word-wrap:break-word ;
+    word-break: break-all;
   ;
   }
 .message:after {
@@ -73,5 +73,31 @@
     left: 12%;
     margin-left: -10px;
 }
+
+
+@media (max-width:768px){
+  
+  .photoNameWrapper{
+    flex-direction: column;
+    // border: 2px solid red;
+    // justify-content: start;
+    // align-items: start;
+    justify-content: center;
+    align-items: center;
+
+    .photo{
+      margin: 0;
+    }
+
+    .name{
+    width: 100%;
+    // align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    }
+  }
 }
+
+}
+
 

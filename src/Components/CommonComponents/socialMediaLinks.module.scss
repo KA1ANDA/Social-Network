@@ -18,6 +18,7 @@
   ul{
     padding: 0px;
     display: flex;
+    margin: 10px auto;
   }
 
 
@@ -62,5 +63,15 @@
     width: 400px;
     font-size: 20px;
     font-style: italic;
+  }
+}
+
+
+@media (max-width:2000px){
+  .socialMediaLinks{
+    li{
+      font-size: 50px;
+    }
+    
   }
 }

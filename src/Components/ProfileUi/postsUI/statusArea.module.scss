@@ -9,3 +9,12 @@
   align-items: center;
   width: 450px;
 }
+
+@media (max-width:2000px){
+  .statusArea{
+    // background-color: red;
+    width: 90%;
+    margin: auto;
+  }
+  
+}

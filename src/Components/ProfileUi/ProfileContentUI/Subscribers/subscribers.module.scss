@@ -3,6 +3,7 @@
   // border:5px solid red ;
   position: relative;
 
+
   
 
   .title{
@@ -48,4 +49,25 @@
     color: rgb(146, 145, 145);
   
   }
+}
+
+
+@media (max-width:2000px){
+  .subscribers{
+
+    .usersWrapper{
+      grid-template-columns: 1fr 1fr;
+    }
+    
+  }
+
+  
+}
+
+@media (max-width:1800px){
+
+  .subscribers{
+    height: 195px;
+  }
+  
 }
