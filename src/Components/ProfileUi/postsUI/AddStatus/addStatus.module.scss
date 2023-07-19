@@ -58,3 +58,13 @@
   opacity: 100%;
 
 }
+
+
+@media (max-width:1760px){
+    .addStatus{
+      bottom: 0;
+      opacity: 100%;
+      z-index: 1;
+
+    }
+}

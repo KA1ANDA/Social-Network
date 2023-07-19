@@ -11,3 +11,11 @@
     font-size: 25px;
   }
 }
+
+@media (max-width:2000px){
+  .status{
+   font-size: 30px;
+   overflow-y: auto;
+  }
+  
+}
