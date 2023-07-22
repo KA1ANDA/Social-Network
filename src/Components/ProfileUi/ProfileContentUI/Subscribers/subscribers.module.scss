@@ -71,3 +71,14 @@
   }
   
 }
+
+
+@media (max-width:768px){
+.subscribers{
+  height: 500px;
+  
+  .usersWrapper{
+    grid-template-columns: 1fr;
+  }
+}
+}

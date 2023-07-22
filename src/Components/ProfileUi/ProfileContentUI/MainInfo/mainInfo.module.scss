@@ -110,20 +110,25 @@
 
 
 
-@media (max-width:1760px){
+@media (max-width:1763px){
 
   .mainInfo{
     flex-direction: row;
-    // border: 10px solid $active-color;
-    padding: 0px 20px;
+    box-sizing: content-box;
+    border: 5px solid $active-color;
+    // padding: 0px 20px;
+    // height: 350px;
 
     .editBtnWrapper{
       position: absolute;
-      top:0;
+      top:8px;;
       right: 0;
 
       .editMode{
-        margin:auto
+        margin:auto;
+        background-color: $active-color;
+        color: white;
+        border: none;
       }
       
     }
@@ -163,7 +168,8 @@
   
 .mainInfo::before{
   content: '';
-  width: 300px;
+  width: 200px;
+  height:100%;
   left: 0;
   border: 10px;
   border-radius: 0px 50% 50% 0px;
@@ -171,3 +177,77 @@
   
   
 }
+
+
+@media (max-width:1380px){
+
+  .mainInfo::before{
+    display: none;
+    
+  }
+    
+}
+
+
+@media (max-width:1200px){
+  .mainInfo{
+    margin-top:70px;
+  }
+
+}
+
+
+@media (max-width:768px){
+
+.mainInfo{
+  flex-direction: column;
+  overflow:unset;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+
+
+
+  .socialMediaWrapper{
+    background-color: $active-color;
+    width: 100%;
+    height: 90px;
+    margin-top: 20px;
+
+    .socialMediaLinks{
+      border-radius: 50px;
+    }
+  }
+
+}
+}
+
+
+@media (max-width:520px){
+  .mainInfo{
+
+
+    .editBtnWrapper{
+      // position: relative;
+      width: fit-content;
+      height: fit-content;
+      margin-right: 10px;
+     
+
+      .editMode{
+        width: 50px;
+        height: 50px;
+        font-size: 13px;
+        border-radius: 50%;
+        text-align: center;
+        // position: absolute;
+      
+      }
+    }
+
+  }
+
+
+}
+
+
