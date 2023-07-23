@@ -52,6 +52,7 @@
     box-shadow: inset 0px 0px 0px 20px #1960b7;
     background-color: white;
 
+
     &>img{
       transform: scale(0.8);
       border-radius: 50%; 
@@ -79,12 +80,21 @@
     border-radius: 50%; 
 
   }
+
+  @media (max-width:768px){
+    
+  }
 }
 
 @media (max-width:1763px){
   .user{
     flex-direction: row;
     align-items: center;
+
+    .avatarDefault{
+      width: 100%;
+      height:100%;
+    }
 
     .editPhoto{
       top: 130px;
@@ -114,6 +124,8 @@
       }
     }
   }
+
+  
 }
 
 
@@ -154,10 +166,9 @@
 
     border-radius: 0px 0px 50% 50%;
   }
+
+  
 }
 
 
 
-@media (max-width:768px){
-
-}

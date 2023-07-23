@@ -7,6 +7,9 @@
   width: 100%;
   align-items: center;
 
+
+
+
   .userPhoto{
     border-radius: 50%;
     overflow: hidden;
@@ -34,4 +37,13 @@
     height: 80px;
     border-radius: 50%;
   }
+}
+
+
+
+@media (max-width:768px){
+  .selectedUser{
+    padding: 20px;
+  }
+
 }

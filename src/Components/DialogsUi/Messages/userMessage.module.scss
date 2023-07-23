@@ -1,7 +1,6 @@
 @import "../../styleVariables.scss";
 
 .wrapper{
-  // border: 4px black solid;
   display: flex;
   justify-content: center;
   
@@ -69,4 +68,13 @@
       height: 75px;
     }
   }
+}
+
+
+
+@media (max-width:768px){
+  .wrapper{
+    padding: 15px;
+  }
+
 }

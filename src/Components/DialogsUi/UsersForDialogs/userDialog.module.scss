@@ -24,15 +24,16 @@
     padding-left:50px;
     // width: 400px;
     cursor: pointer;
-    // border:2px solid green ;
 
 
     .lastActivity{
       font-size: 17px;
+      
     }
 
     .userInfo{
       display: flex;
+
   
       .userPhoto{
         width: 80px;
@@ -44,9 +45,39 @@
         // margin: auto;
         margin-left: 30px;
         font-size: 20px;
+        word-wrap:break-word ;
+        word-break: break-all;
+
       }
     }
   } 
+
+
+  
+@media (max-width:1763px){
+
+  .wraper{
+    // align-items: center;
+    padding-left: 0px;
+
+    .lastActivity{
+      margin: auto;
+    }
+    .userInfo{
+      flex-direction: column;
+
+      .userPhoto{
+       margin: auto;
+      }
+
+      .userName{
+        margin-left: 0px;
+        text-align: center;
+      }
+    }
+  }
+ 
+}
 }
 
 .active{
@@ -56,4 +87,13 @@
 
 .default{
   @include default-avatar();
+}
+
+
+
+
+
+
+@media (max-width:768px){
+
 }

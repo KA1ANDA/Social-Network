@@ -1,7 +1,6 @@
 @import '../../styleVariables.scss';
 
 .DialogsContent{
-  // border:8px solid black;
   display: grid;
   grid-template-areas:
   'search userName userName  profileInfo'
@@ -62,5 +61,42 @@
     // background-color: $component-bg-color;
 
 
+  }
+}
+
+
+
+@media (max-width:1763px){
+
+  .DialogsContent{
+    grid-template-areas:
+  'search userName userName  '
+  'users dialog dialog ';
+  grid-template-columns: 1fr  2fr;
+
+  }
+  
+
+}
+
+
+
+@media (max-width:768px){
+  
+  .DialogsContent{
+  //   grid-template-areas:
+  // 'search '
+  // 'users '
+  // 'userName'
+  // 'dialog';
+  // grid-template-columns: 1fr  2fr;
+  display: flex;
+  flex-direction: column;
+  }
+
+
+
+  .userName{
+    margin-top: 70px;
   }
 }

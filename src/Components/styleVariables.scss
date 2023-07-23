@@ -148,6 +148,7 @@ $github:#161b22;
 @mixin loginInputs(){
   display: flex;
   flex-direction: column;
+  // width: 100%;
 
   
   &:focus-within{
