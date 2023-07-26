@@ -48,6 +48,8 @@ body{
    'nav main main';
 
 
+
+
   .header{
     grid-area: header;
   }
@@ -73,20 +75,27 @@ body{
 
   .editMode{
     background-color: rgba(0, 0, 0, 0.71);
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     z-index: 50;
-    position: absolute;
+    position: fixed;
+    overflow: auto;
     top: 0;
+  
+    
+  
+   
+    
 
     .wrapper{
       background-color: white;
       // width: 50%;
       // height: 50%;
       border-radius: 20px;
+      height: fit-content;
     }
   }
 
@@ -94,9 +103,11 @@ body{
   
 }
 
-// @media (max-width:1200px){
-//   body{
-//     background: #D1E6FF;
-//   }
+@media (max-width:768px){
+  .app{
+    overflow: hidden;
+  }
 
-// }
+}
+
+

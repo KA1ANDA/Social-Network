@@ -120,4 +120,15 @@
   }
 
 
+  @media (max-width:3000px){
+    .wrapper{
+      .name{
+        font-size: 20px;  
+        word-break: break-all;
+      }
+    }
+   
+  }
+ 
 }
+
