@@ -14,7 +14,7 @@ const App = () => {
 
 
   return (
-    <div className={styles.app}>
+    <div className={`${styles.app} ${editMode && styles.diableScroll}`}>
       <div className={styles.header}>
         <UserInfo />
       </div>

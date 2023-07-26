@@ -48,8 +48,6 @@ body{
    'nav main main';
 
 
-
-
   .header{
     grid-area: header;
   }
@@ -81,14 +79,14 @@ body{
     justify-content: center;
     // align-items: center;
     z-index: 50;
-    position: fixed;
+    position:fixed;
     overflow: auto;
+
+
     top: 0;
   
     
-  
-   
-    
+
 
     .wrapper{
       background-color: white;
@@ -103,9 +101,14 @@ body{
   
 }
 
+
+.diableScroll{
+  overflow: hidden;
+}
+
 @media (max-width:768px){
   .app{
-    overflow: hidden;
+    // overflow: hidden;
   }
 
 }
