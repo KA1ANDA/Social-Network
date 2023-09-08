@@ -10,6 +10,7 @@
   font-family: $font-family;
   color:$font-color;
 
+
   .title{
     margin-left: 100px;
     font-size:40px;
@@ -40,7 +41,6 @@
       align-items: center;  
       overflow: hidden;
       border: 5px solid $active-color;
-      margin-left: 30px;
       
       &>img{
         width: 100%;
@@ -64,18 +64,45 @@
   }
 
 
-  
+}
+
+
 @media (max-width:768px){
 
-  
-  .title{
-    margin-left: 0px;
-    font-size: 25px;
+  .userHeaderInfo{
+    flex-direction: column;
+    height: auto;
+
+    .title{
+      background-color: $active-color;
+      width: 100%;
+      text-align: center;
+      color: white;
+      // margin: 20px 0 0 0;
+    }
+
+    .userInfo{
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+      font-size: 25px;
+      padding: 10px 0;
+
+      .profilePhoto{
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    .title{
+      margin-left: 0px;
+      font-size: 25px;
+    }
+
+    
   }
+ 
   
 
 
 }
-}
-
-

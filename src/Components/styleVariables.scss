@@ -281,17 +281,18 @@ $github:#161b22;
       }
 
       @media (max-width:768px){
-      &:hover{
-        width: 45px;
-  
-        .text{
-          display: none;
+        &{
+          width: 125px;
+          border-radius: 40px;
+          margin-top: 15px;
+
+          .text{
+            width: 70%;
+            opacity: 1;
+            padding-right: 10px;
+          }
+
         }
-  
-        .sign{
-          width: 100%;
-        }
-      }
     }    
 }
 
