@@ -7,6 +7,7 @@ import { Navigate } from "react-router-dom";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Loader from "../CommonComponents/Loader";
 
 
 
@@ -71,6 +72,7 @@ const Login = () => {
       if(data.resultCode){
         setAuthError(true)
       }
+
     },
     validationSchema:Yup.object().shape({
       email:Yup.string().required('Please Enter Email').email('Write Valid Email Address'),
@@ -96,6 +98,8 @@ const Login = () => {
   if(myId){
     return <Navigate to="/profile"/>
   }
+
+
 
   
   return ( 

@@ -27,7 +27,7 @@ const MainInfo = () => {
     <div className={styles.mainInfo}>
         <div className={styles.editBtnWrapper}>
           <div className={myId === userId ? styles.editMode : styles.clearObject} onClick={editMode}>
-            Edit Profile <AiFillEdit/>
+             <AiFillEdit/>
           </div>
         </div>
         <div>

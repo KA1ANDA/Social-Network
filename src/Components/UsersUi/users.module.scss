@@ -39,6 +39,8 @@
     display: flex;
     justify-content: center;
 
+    margin-bottom: 20px;
+
     .searchInput{
       display: flex;
       justify-content: center;
@@ -72,6 +74,7 @@
   
   .pagination{
     display: flex;
+    margin-top: 10px;
 
     .pages{
       display: flex;

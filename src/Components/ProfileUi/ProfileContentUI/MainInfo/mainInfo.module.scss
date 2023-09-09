@@ -27,19 +27,17 @@
 
     .editMode{
       z-index: 2;
-      border:3px solid blue;
       align-self: flex-end;
       margin-right: 20px;
       margin-top: 20px;
       width: 100px;
-      height: 40px;
       border-radius: 20px;
       display: flex;
-      justify-content: center;
+      justify-content: end;
       align-items: center;
-      color: blue;
-      background-color: white;
+      color: white;
       cursor: pointer;
+      font-size: 25px;
   
   
     }
@@ -127,8 +125,8 @@
 
       .editMode{
         margin:auto;
-        background-color: $active-color;
-        color: white;
+
+        color: $active-color;
         border: none;
       }
       
@@ -244,7 +242,7 @@
       .editMode{
         width: 50px;
         height: 50px;
-        font-size: 13px;
+        font-size: 25px;
         border-radius: 50%;
         text-align: center;
         // position: absolute;
