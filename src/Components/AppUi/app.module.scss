@@ -104,9 +104,9 @@ body{
     font-size: 40px;
     padding: 10px;
     cursor: pointer;
-    // background-color: red;
+    background-color: red;
     text-align: end;
-    height: fit-content;
+    // height: fit-content;
   }
 
 
@@ -148,6 +148,7 @@ body{
    ' main main ';
 
     grid-template-columns: 100%;
+    grid-template-rows: 50px;
 
 
    
