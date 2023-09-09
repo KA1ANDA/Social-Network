@@ -166,7 +166,7 @@
 
 @media (max-width:768px){
   .login{
-    height: 850px;
+    height: 750px;
     width: 90%;
     margin: auto;
 
@@ -181,10 +181,16 @@
         width: 85%;
       }
 
+     
+
       .title{
         font-size: 40px;
         text-align: start;
       }
+
+      // .buttonWrapper{
+      //   margin-bottom: 20px;
+      // }
   
     }
   }
