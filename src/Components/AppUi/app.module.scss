@@ -101,16 +101,12 @@ body{
 
 
   .showMoreIcon{
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 40px;
-    position: absolute;
-    right: 0;
     padding: 10px;
     cursor: pointer;
-    margin-bottom: 20px;
+    background-color: red;
+    text-align: end;
+    height: fit-content;
   }
 
 
@@ -146,8 +142,17 @@ body{
 
 @media (max-width:768px){
   .app{
-    // overflow: hidden;
-  }
+   
+    grid-template-areas:
+   ' nav nav nav '
+   ' main main ';
+
+    grid-template-columns: 100%;
+
+
+   
+  };
+
 
 }
 
