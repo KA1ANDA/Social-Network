@@ -186,9 +186,10 @@
 @media (max-width:768px){
   .nav{
     .navigation{
-
+      display: flex;
+      
       &>div{
-        margin: 20px 0;
+        margin: 10px 0;
       }
     }
   }
